@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>امین منکاوی — Amin Mankavi | UI/UX, Visual & AI Creative CV</title>
+  <meta name="description" content="رزومه تعاملی و دوزبانه امین منکاوی (Amin Mankavi) — طراح گرافیک، رابط و تجربه کاربری (UI/UX) و خلق دیجیتال با هوش مصنوعی." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* Obsidian Dark Theme (Default — High-Craft UI/UX Aesthetic) */
+      --bg-canvas: #090A0C;
+      --bg-elevated: #111317;
+      --bg-card: rgba(20, 22, 27, 0.78);
+      --bg-card-solid: #14161B;
+      --bg-subtle: #1A1D24;
+      --bg-hover: #222630;
+      --bg-glass: rgba(13, 15, 19, 0.82);
+
+      --text-primary: #F4F5F7;
+      --text-secondary: #A3A8B3;
+      --text-muted: #686E7A;
+
+      --border-hairline: rgba(255, 255, 255, 0.07);
+      --border-default: rgba(255, 255, 255, 0.11);
+      --border-strong: rgba(255, 255, 255, 0.24);
+
+      /* Signature Accents */
+      --accent-lime: #D6FF45;
+      --accent-lime-soft: rgba(214, 255, 69, 0.13);
+      --accent-lime-border: rgba(214, 255, 69, 0.35);
+      --accent-signal: #FF684A;
+      --accent-signal-soft: rgba(255, 104, 74, 0.14);
+      --status-online: #10B981;
+
+      /* Typography Stacks */
+      --font-fa: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --font-en: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+      /* Spatial & Radii System (Mobile-First) */
+      --radius-xs: 8px;
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --radius-pill: 9999px;
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-bento: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 12px 32px -8px rgba(0, 0, 0, 0.45);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --container-max: 1220px;
+    }
+
+    html[data-theme="light"] {
+      --bg-canvas: #F4F2EC;
+      --bg-elevated: #ECE9E0;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-card-solid: #FFFFFF;
+      --bg-subtle: #EAE7DE;
+      --bg-hover: #E1DDD2;
+      --bg-glass: rgba(244, 242, 236, 0.85);
+
+      --text-primary: #141614;
+      --text-secondary: #484B45;
+      --text-muted: #767A71;
+
+      --border-hairline: rgba(20, 22, 20, 0.07);
+      --border-default: rgba(20, 22, 20, 0.12);
+      --border-strong: rgba(20, 22, 20, 0.28);
+
+      --accent-lime: #141614;
+      --accent-lime-soft: #D6FF45;
+      --accent-lime-border: #141614;
+      --accent-signal: #FF5533;
+      --accent-signal-soft: rgba(255, 85, 51, 0.12);
+
+      --shadow-sm: 0 2px 6px rgba(20, 22, 20, 0.04);
+      --shadow-bento: 0 1px 2px rgba(20, 22, 20, 0.04), 0 10px 26px -6px rgba(20, 22, 20, 0.05);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+    }
+
+    body {
+      font-family: var(--font-fa);
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 5.5rem; /* Space for mobile bottom quick-nav dock */
+      transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+      background-image:
+        radial-gradient(circle at 50% -10%, rgba(214, 255, 69, 0.07), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(255, 104, 74, 0.04), transparent 35%);
+    }
+
+    html[lang="en"] body {
+      font-family: var(--font-en);
+      line-height: 1.6;
+      letter-spacing: -0.011em;
+    }
+
+    html[lang="fa"] [data-lang="en"] { display: none !important; }
+    html[lang="en"] [data-lang="fa"] { display: none !important; }
+
+    ::selection {
+      background: #D6FF45;
+      color: #090A0C;
+    }
+
+    .ltr {
+      direction: ltr;
+      unicode-bidi: isolate;
+      font-family: var(--font-en);
+      display: inline-block;
+    }
+
+    .mono {
+      direction: ltr;
+      unicode-bidi: isolate;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+    }
+
+    a, button {
+      font: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-signal);
+      outline-offset: 2px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .topbar__inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0.65rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-width: 0;
+    }
+
+    .brand__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-default);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.76rem;
+      color: var(--text-primary);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .brand__pulse {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--status-online);
+      border: 2px solid var(--bg-canvas);
+    }
+
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand__name {
+      font-size: 0.88rem;
+      font-weight: 800;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand__sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    /* Desktop section links hidden on mobile, shown on lg+ */
+    .topbar__nav {
+      display: none;
+      align-items: center;
+      gap: 0.2rem;
+      background: var(--bg-subtle);
+      padding: 0.22rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .topbar__link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 0.34rem 0.75rem;
+      border-radius: var(--radius-pill);
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .topbar__link:hover {
+      color: var(--text-primary);
+      background: var(--bg-card-solid);
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.38rem;
+      flex-shrink: 0;
+    }
+
+    .lang-pill {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      padding: 2px;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--border-default);
+    }
+
+    .lang-pill__btn {
+      padding: 0.28rem 0.55rem;
+      font-size: 0.73rem;
+      font-weight: 700;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      transition: all 0.2s var(--ease-out);
+      line-height: 1.2;
+    }
+
+    .lang-pill__btn[data-set-lang="en"] {
+      font-family: var(--font-en);
+    }
+
+    .lang-pill__btn.is-active {
+      background: var(--accent-lime);
+      color: #090A0C;
+    }
+
+    html[data-theme="light"] .lang-pill__btn.is-active {
+      background: #141614;
+      color: #FFFFFF;
+    }
+
+    .action-btn {
+      height: 32px;
+      min-width: 32px;
+      padding: 0 0.55rem;
+      border-radius: var(--radius-xs);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-default);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      transition: all 0.2s var(--ease-out);
+    }
+
+    .action-btn:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-hover);
+    }
+
+    .action-btn svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      flex-shrink: 0;
+    }
+
+    .action-btn--primary {
+      background: var(--text-primary);
+      color: var(--bg-canvas);
+      border-color: transparent;
+      font-weight: 700;
+    }
+
+    .action-btn--primary:hover {
+      opacity: 0.9;
+      background: var(--text-primary);
+    }
+
+    .action-btn__label {
+      display: none;
+    }
+
+    .mobile-dock {
+      position: fixed;
+      bottom: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 95;
+      width: calc(100% - 1.5rem);
+      max-width: 420px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-pill);
+      padding: 0.3rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.15rem;
+    }
+
+    .mobile-dock__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.15rem;
+      padding: 0.38rem 0.2rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: center;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-dock__item svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .mobile-dock__item:hover,
+    .mobile-dock__item:active {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+    }
+
+    .main-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 1.15rem 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Universal Spotlight Bento Card */
+    .bento-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-bento);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        500px circle at var(--mouse-x, 50%) var(--mouse-y, 0%),
+        rgba(214, 255, 69, 0.06),
+        transparent 40%
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .bento-card:hover::before {
+      opacity: 1;
+    }
+
+    .hero-bento {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    .hero-primary {
+      padding: 1.35rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.35rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .thesis-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.28rem 0.68rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-lime-soft);
+      border: 1px solid var(--accent-lime-border);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .thesis-tag__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #D6FF45;
+      box-shadow: 0 0 8px #D6FF45;
+    }
+
+    html[data-theme="light"] .thesis-tag__dot {
+      background: #141614;
+      box-shadow: none;
+    }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+    }
+
+    /* Hero Typographic Lockup */
+    .hero-identity {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .hero-name-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.15rem, 8vw, 4.1rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    html[lang="en"] .hero-name {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+
+    .hero-name-alt {
+      font-size: clamp(0.95rem, 3vw, 1.25rem);
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-size: clamp(0.98rem, 3.2vw, 1.28rem);
+      font-weight: 600;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-top: 0.25rem;
+    }
+
+    .hero-title strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* Profile Statement Block inside Hero */
+    .hero-bio {
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.78;
+    }
+
+    /* Hero Secondary Spec Card (System Overview & Strengths) */
+    .hero-aside {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.1rem;
+      background: linear-gradient(160deg, var(--bg-card-solid), var(--bg-subtle));
+    }
+
+    .spec-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .spec-header__title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* 3 Confirmed Strengths inside Hero Aside */
+    .strengths-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .strength-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .strength-item:hover {
+      border-color: var(--border-strong);
+      transform: translateX(-2px);
+    }
+
+    html[lang="en"] .strength-item:hover {
+      transform: translateX(2px);
+    }
+
+    .strength-item__left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .strength-item__num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--accent-lime-soft);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .strength-item__name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-hairline);
+      text-align: center;
+    }
+
+    .stat-mini {
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-xs);
+      padding: 0.5rem 0.35rem;
+    }
+
+    .stat-mini__num {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: block;
+    }
+
+    .stat-mini__label {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .cv-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      scroll-margin-top: 4.25rem;
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .section-head__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .section-head__title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-index {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+    }
+
+    .section-title {
+      font-size: clamp(1.15rem, 4vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Touch-friendly horizontal scroll bar for filters on mobile */
+    .filter-scroll-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .filter-scroll-wrap::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-subtle);
+      padding: 4px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-hairline);
+      min-width: max-content;
+    }
+
+    .filter-chip {
+      padding: 0.38rem 0.78rem;
+      border-radius: var(--radius-xs);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: all 0.2s var(--ease-out);
+    }
+
+    .filter-chip:hover {
+      color: var(--text-primary);
+    }
+
+    .filter-chip.is-active {
+      background: var(--bg-card-solid);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-default);
+    }
+
+    .disciplines-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    .discipline-card {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .discipline-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+
+    .discipline-card.is-active {
+      border-color: #D6FF45;
+      box-shadow: 0 0 0 1px #D6FF45 inset, var(--shadow-bento);
+    }
+
+    html[data-theme="light"] .discipline-card.is-active {
+      border-color: #141614;
+      box-shadow: 0 0 0 1.5px #141614 inset, var(--shadow-bento);
+    }
+
+    .discipline-card__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .discipline-card__icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-default);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+    }
+
+    .discipline-card.is-active .discipline-card__icon {
+      background: #D6FF45;
+      color: #090A0C;
+      border-color: transparent;
+    }
+
+    .discipline-card__icon svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .discipline-card__tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .discipline-card__title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .discipline-card__desc {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .discipline-card__foot {
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+
+    .skill-panel {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .skill-panel.is-dimmed {
+      opacity: 0.28;
+    }
+
+    .skill-panel__header {
+      padding: 1.05rem 1.2rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-default);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .skill-panel__title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .skill-panel__count {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.16rem 0.5rem;
+      border-radius: 6px;
+      background: var(--bg-card-solid);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-secondary);
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skill-row {
+      padding: 0.82rem 1.15rem;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      transition: background-color 0.15s ease;
+    }
+
+    .skill-row:last-child {
+      border-bottom: none;
+    }
+
+    .skill-row:hover {
+      background: var(--bg-subtle);
+    }
+
+    .skill-row.is-hidden {
+      display: none !important;
+    }
+
+    .skill-row__name {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      min-width: 0;
+    }
+
+    .skill-row__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .tier-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .skill-row[data-tier="advanced"] .tier-badge {
+      background: var(--accent-lime-soft);
+      border-color: var(--accent-lime-border);
+      color: var(--text-primary);
+    }
+
+    /* 4-Segment UI Meter (Non-Numerical Representation) */
+    .tier-segments {
+      display: inline-grid;
+      grid-template-columns: repeat(4, 5px);
+      gap: 3px;
+      direction: ltr;
+      align-items: center;
+    }
+
+    .tier-segments i {
+      height: 10px;
+      border-radius: 2px;
+      background: var(--border-default);
+      display: block;
+    }
+
+    .tier-segments i.on {
+      background: var(--text-primary);
+    }
+
+    .skill-row[data-tier="advanced"] .tier-segments i.on {
+      background: #D6FF45;
+    }
+
+    html[data-theme="light"] .skill-row[data-tier="advanced"] .tier-segments i.on {
+      background: #141614;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .tool-card {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.65rem;
+    }
+
+    .tool-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+
+    .tool-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+    }
+
+    .tool-card__idx {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      color: var(--text-muted);
+    }
+
+    .tool-card__badge {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 0.12rem 0.42rem;
+      border-radius: 4px;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .tool-card__name {
+      font-family: var(--font-en);
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      direction: ltr;
+      text-align: start;
+      word-break: break-word;
+    }
+
+    .tool-card__desc {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+
+    .practice-card {
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      transition: border-color 0.2s ease, opacity 0.25s ease, transform 0.2s ease;
+    }
+
+    .practice-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    .practice-card.is-dimmed {
+      opacity: 0.28;
+    }
+
+    .practice-card__main {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .practice-card__num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .practice-card__title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .practice-card__pill {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 600;
+      padding: 0.2rem 0.52rem;
+      border-radius: var(--radius-pill);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    .panel-box {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .panel-box__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .panel-box__title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .lang-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+
+    .lang-item {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .lang-item__name {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .lang-item__badge {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: var(--bg-card-solid);
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+    }
+
+    /* Editable Contact Slots */
+    .contact-slots {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+
+    .contact-field {
+      padding: 0.78rem 0.95rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      border: 1px dashed var(--border-strong);
+      display: flex;
+      flex-direction: column;
+      gap: 0.22rem;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .contact-field:focus-within {
+      border-style: solid;
+      border-color: #D6FF45;
+      background: var(--bg-card-solid);
+    }
+
+    html[data-theme="light"] .contact-field:focus-within {
+      border-color: #141614;
+    }
+
+    .contact-field__label {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .contact-field__input {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      direction: ltr;
+      text-align: start;
+      outline: none;
+      min-height: 1.35rem;
+      word-break: break-all;
+    }
+
+    .contact-field__input:empty::before {
+      content: attr(data-placeholder);
+      color: var(--text-muted);
+      opacity: 0.65;
+      font-weight: 400;
+    }
+
+    .cv-footer {
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 640px) {
+      .topbar__inner {
+        padding: 0.75rem 1.5rem;
+      }
+
+      .action-btn__label {
+        display: inline;
+      }
+
+      .main-container {
+        padding: 1.75rem 1.5rem 2.5rem;
+        gap: 2.5rem;
+      }
+
+      .hero-primary,
+      .hero-aside {
+        padding: 1.75rem;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .practice-grid,
+      .lang-list,
+      .contact-slots {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cv-footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .section-head {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .filter-scroll-wrap {
+        width: auto;
+      }
+
+      .disciplines-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      body {
+        padding-bottom: 0; /* Hide mobile bottom dock space on desktop */
+      }
+
+      .mobile-dock {
+        display: none;
+      }
+
+      .topbar__nav {
+        display: inline-flex;
+      }
+
+      .main-container {
+        padding: 2.5rem 2rem 4rem;
+        gap: 3.25rem;
+      }
+
+      .hero-bento {
+        grid-template-columns: 1.45fr 0.85fr;
+        gap: 1rem;
+      }
+
+      .hero-primary {
+        padding: 2.35rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+
+      .bottom-grid {
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 1rem;
+      }
+
+      .contact-slots {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+
+    @media print {
+      :root, html[data-theme="dark"], html[data-theme="light"] {
+        --bg-canvas: #FFFFFF;
+        --bg-elevated: #FFFFFF;
+        --bg-card: #FFFFFF;
+        --bg-card-solid: #FFFFFF;
+        --bg-subtle: #F6F6F4;
+        --text-primary: #000000;
+        --text-secondary: #222222;
+        --text-muted: #555555;
+        --border-hairline: #E0E0E0;
+        --border-default: #CCCCCC;
+        --border-strong: #888888;
+        --accent-lime-soft: #EEEEEE;
+        --accent-lime-border: #999999;
+      }
+
+      body {
+        background: #FFFFFF !important;
+        background-image: none !important;
+        color: #000000 !important;
+        font-size: 9pt !important;
+        padding-bottom: 0 !important;
+      }
+
+      .topbar,
+      .mobile-dock,
+      .filter-scroll-wrap,
+      .no-print {
+        display: none !important;
+      }
+
+      .main-container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        gap: 12pt !important;
+      }
+
+      .bento-card {
+        box-shadow: none !important;
+        border: 1px solid #CCCCCC !important;
+      }
+
+      .hero-bento {
+        grid-template-columns: 1.4fr 0.8fr !important;
+        gap: 8pt !important;
+      }
+
+      .disciplines-grid,
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8pt !important;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 6pt !important;
+      }
+
+      .practice-grid,
+      .bottom-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8pt !important;
+      }
+
+      .skill-row.is-hidden,
+      .skill-panel.is-dimmed,
+      .practice-card.is-dimmed {
+        display: flex !important;
+        opacity: 1 !important;
+      }
+
+      .cv-section,
+      .bento-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar" role="banner">
+    <div class="topbar__inner">
+      <a href="#top" class="brand" aria-label="Amin Mankavi">
+        <span class="brand__avatar">
+          AM
+          <span class="brand__pulse" aria-hidden="true"></span>
+        </span>
+        <div class="brand__text">
+          <span class="brand__name">
+            <span data-lang="fa">امین منکاوی</span>
+            <span data-lang="en">Amin Mankavi</span>
+          </span>
+          <span class="brand__sub">
+            <span data-lang="fa">طراح گرافیک، UI/UX و AI</span>
+            <span data-lang="en">Visual, UI/UX &amp; AI Creative</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Pill -->
+      <nav class="topbar__nav" aria-label="Primary Navigation">
+        <a href="#disciplines" class="topbar__link">
+          <span data-lang="fa">محورهای تخصص</span>
+          <span data-lang="en">Disciplines</span>
+        </a>
+        <a href="#skills" class="topbar__link">
+          <span data-lang="fa">مهارت‌ها</span>
+          <span data-lang="en">Capabilities</span>
+        </a>
+        <a href="#tools" class="topbar__link">
+          <span data-lang="fa">ابزارها</span>
+          <span data-lang="en">Tools</span>
+        </a>
+        <a href="#practice" class="topbar__link">
+          <span data-lang="fa">حوزه‌های کاری</span>
+          <span data-lang="en">Practice</span>
+        </a>
+        <a href="#contact" class="topbar__link">
+          <span data-lang="fa">تماس</span>
+          <span data-lang="en">Contact</span>
+        </a>
+      </nav>
+
+      <!-- Action Controls -->
+      <div class="topbar__actions">
+        <!-- Bilingual Switcher -->
+        <div class="lang-pill" role="group" aria-label="Language Selector">
+          <button type="button" class="lang-pill__btn is-active" data-set-lang="fa" aria-pressed="true">فارسی</button>
+          <button type="button" class="lang-pill__btn" data-set-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <!-- Theme Switcher -->
+        <button type="button" class="action-btn" id="themeBtn" aria-label="Toggle color theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="action-btn__label" id="themeLabel">روشن</span>
+        </button>
+
+        <!-- Print / Save PDF -->
+        <button type="button" class="action-btn action-btn--primary" id="printBtn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9V2h12v7"></path>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span class="action-btn__label">
+            <span data-lang="fa">خروجی PDF</span>
+            <span data-lang="en">Save PDF</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-dock" aria-label="Mobile Quick Navigation">
+    <a href="#top" class="mobile-dock__item">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      <span data-lang="fa">پروفایل</span>
+      <span data-lang="en">Profile</span>
+    </a>
+    <a href="#disciplines" class="mobile-dock__item">
+      <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+      <span data-lang="fa">تخصص‌ها</span>
+      <span data-lang="en">Pillars</span>
+    </a>
+    <a href="#skills" class="mobile-dock__item">
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+      <span data-lang="fa">مهارت‌ها</span>
+      <span data-lang="en">Skills</span>
+    </a>
+    <a href="#tools" class="mobile-dock__item">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span data-lang="fa">ابزارها</span>
+      <span data-lang="en">Tools</span>
+    </a>
+    <a href="#contact" class="mobile-dock__item">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <span data-lang="fa">تماس</span>
+      <span data-lang="en">Contact</span>
+    </a>
+  </nav>
+
+  <main class="main-container" id="top">
+
+    <section class="hero-bento" aria-label="Identity and Executive Summary">
+      <!-- Primary Identity & Profile Card -->
+      <div class="bento-card hero-primary">
+        <div class="hero-badges">
+          <span class="thesis-tag">
+            <span class="thesis-tag__dot" aria-hidden="true"></span>
+            <span data-lang="fa">طراحی به‌مثابه سیستم تفکر</span>
+            <span data-lang="en">DESIGN IS A SYSTEM OF THINKING</span>
+          </span>
+
+          <span class="location-pill">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span data-lang="fa">تهران، ایران</span>
+            <span data-lang="en">Tehran, Iran</span>
+          </span>
+        </div>
+
+        <div class="hero-identity">
+          <div class="hero-name-row">
+            <h1 class="hero-name">
+              <span data-lang="fa">امین منکاوی</span>
+              <span data-lang="en">Amin Mankavi</span>
+            </h1>
+            <span class="hero-name-alt ltr" data-lang="fa">AMIN MANKAVI</span>
+            <span class="hero-name-alt" data-lang="en" dir="rtl" style="font-family: var(--font-fa);">امین منکاوی</span>
+          </div>
+
+          <p class="hero-title" data-lang="fa">
+            طراح چندرشته‌ای — <strong>طراحی گرافیک و پوستر</strong>، <strong>رابط و تجربه کاربری (UI/UX)</strong> و <strong>خلق دیجیتال با هوش مصنوعی</strong>
+          </p>
+          <p class="hero-title" data-lang="en">
+            Multidisciplinary Creative — <strong>Graphic &amp; Poster Design</strong>, <strong>UI/UX Product Design</strong> &amp; <strong>AI-Assisted Digital Creation</strong>
+          </p>
+        </div>
+
+        <p class="hero-bio" data-lang="fa">
+          «طراح چندرشته‌ای با تمرکز بر طراحی گرافیک و پوستر، طراحی رابط و تجربه کاربری، و خلق محصولات دیجیتال با کمک ابزارهای هوش مصنوعی. نقاط قوت اعلام‌شده: ایده‌پردازی، تحقیق و تحلیل، و توجه به جزئیات.»
+        </p>
+        <p class="hero-bio" data-lang="en">
+          “A multidisciplinary creative focused on graphic design, poster design, UI/UX, and AI-assisted digital creation. Key strengths include creative ideation, research, analysis, and attention to detail.”
+        </p>
+      </div>
+
+      <!-- Secondary Hero Card: Core Strengths & System Metrics -->
+      <aside class="bento-card hero-aside" aria-label="Core Strengths">
+        <div class="spec-header">
+          <span class="spec-header__title">
+            <span data-lang="fa">نقاط قوت کلیدی</span>
+            <span data-lang="en">Core Strengths</span>
+          </span>
+          <span class="mono">03 PILLARS</span>
+        </div>
+
+        <div class="strengths-stack">
+          <div class="strength-item">
+            <div class="strength-item__left">
+              <span class="strength-item__num">01</span>
+              <span class="strength-item__name">
+                <span data-lang="fa">ایده‌پردازی و خلاقیت</span>
+                <span data-lang="en">Creative ideation</span>
+              </span>
+            </div>
+            <span class="mono">CONCEPT</span>
+          </div>
+
+          <div class="strength-item">
+            <div class="strength-item__left">
+              <span class="strength-item__num">02</span>
+              <span class="strength-item__name">
+                <span data-lang="fa">توجه به جزئیات</span>
+                <span data-lang="en">Attention to detail</span>
+              </span>
+            </div>
+            <span class="mono">CRAFT</span>
+          </div>
+
+          <div class="strength-item">
+            <div class="strength-item__left">
+              <span class="strength-item__num">03</span>
+              <span class="strength-item__name">
+                <span data-lang="fa">تحقیق و تحلیل</span>
+                <span data-lang="en">Research and analysis</span>
+              </span>
+            </div>
+            <span class="mono">INQUIRY</span>
+          </div>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-mini">
+            <span class="stat-mini__num">03</span>
+            <span class="stat-mini__label">
+              <span data-lang="fa">حوزه تخصصی</span>
+              <span data-lang="en">Disciplines</span>
+            </span>
+          </div>
+          <div class="stat-mini">
+            <span class="stat-mini__num">23</span>
+            <span class="stat-mini__label">
+              <span data-lang="fa">مهارت تاییدشده</span>
+              <span data-lang="en">Capabilities</span>
+            </span>
+          </div>
+          <div class="stat-mini">
+            <span class="stat-mini__num">10</span>
+            <span class="stat-mini__label">
+              <span data-lang="fa">ابزار تخصصی</span>
+              <span data-lang="en">Core Tools</span>
+            </span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="cv-section" id="disciplines" aria-labelledby="heading-disciplines">
+      <div class="section-head">
+        <div class="section-head__top">
+          <div class="section-head__title-group">
+            <span class="section-index">01</span>
+            <h2 class="section-title" id="heading-disciplines">
+              <span data-lang="fa">سه محور اصلی تخصص</span>
+              <span data-lang="en">Three Connected Creative Disciplines</span>
+            </h2>
+          </div>
+        </div>
+        <span class="section-subtitle no-print">
+          <span data-lang="fa">برای فیلتر شدن هوشمند مهارت‌ها و پروژه‌ها، روی هر کارت ضربه بزنید</span>
+          <span data-lang="en">Tap any card to filter related capabilities and practice areas</span>
+        </span>
+      </div>
+
+      <div class="disciplines-grid">
+        <!-- 01 Visual Communication -->
+        <article class="bento-card discipline-card" data-discipline-card="visual" tabindex="0" role="button" aria-pressed="false">
+          <div class="discipline-card__head">
+            <span class="discipline-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
+            </span>
+            <span class="discipline-card__tag">01 // VISUAL COMMUNICATION</span>
+          </div>
+
+          <div>
+            <h3 class="discipline-card__title">
+              <span data-lang="fa">ارتباط بصری و گرافیک</span>
+              <span data-lang="en">Visual Communication</span>
+            </h3>
+            <p class="discipline-card__desc">
+              <span data-lang="fa">طراحی گرافیک، پوسترهای تبلیغاتی و مفهومی، تایپوگرافی، هویت بصری و ترکیب‌بندی تصویر.</span>
+              <span data-lang="en">Graphic design, posters, typography, visual identity, and image composition.</span>
+            </p>
+          </div>
+
+          <div class="discipline-card__foot">
+            <span>
+              <span data-lang="fa">۸ مهارت تخصصی</span>
+              <span data-lang="en">8 Capabilities</span>
+            </span>
+            <span class="mono">FILTER →</span>
+          </div>
+        </article>
+
+        <!-- 02 Digital Experience -->
+        <article class="bento-card discipline-card" data-discipline-card="digital" tabindex="0" role="button" aria-pressed="false">
+          <div class="discipline-card__head">
+            <span class="discipline-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </span>
+            <span class="discipline-card__tag">02 // DIGITAL EXPERIENCE</span>
+          </div>
+
+          <div>
+            <h3 class="discipline-card__title">
+              <span data-lang="fa">تجربه دیجیتال و UI/UX</span>
+              <span data-lang="en">Digital Experience (UI/UX)</span>
+            </h3>
+            <p class="discipline-card__desc">
+              <span data-lang="fa">طراحی رابط و تجربه کاربری، تفکر محصول، سیستم‌های طراحی و طراحی وب واکنش‌گرا.</span>
+              <span data-lang="en">UI/UX, interface design, product thinking, design systems, and responsive web design.</span>
+            </p>
+          </div>
+
+          <div class="discipline-card__foot">
+            <span>
+              <span data-lang="fa">۸ مهارت تخصصی</span>
+              <span data-lang="en">8 Capabilities</span>
+            </span>
+            <span class="mono">FILTER →</span>
+          </div>
+        </article>
+
+        <!-- 03 AI-Assisted Creation -->
+        <article class="bento-card discipline-card" data-discipline-card="ai" tabindex="0" role="button" aria-pressed="false">
+          <div class="discipline-card__head">
+            <span class="discipline-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            </span>
+            <span class="discipline-card__tag">03 // AI-ASSISTED CREATION</span>
+          </div>
+
+          <div>
+            <h3 class="discipline-card__title">
+              <span data-lang="fa">خلق دیجیتال با هوش مصنوعی</span>
+              <span data-lang="en">AI-Assisted Creation</span>
+            </h3>
+            <p class="discipline-card__desc">
+              <span data-lang="fa">مهندسی پرامپت، تولید تصویر با هوش مصنوعی، گردش‌کارهای هوشمند و توسعه وب‌سایت با کمک AI.</span>
+              <span data-lang="en">Prompt engineering, AI image generation, intelligent workflows, and AI-assisted website development.</span>
+            </p>
+          </div>
+
+          <div class="discipline-card__foot">
+            <span>
+              <span data-lang="fa">۷ مهارت تخصصی</span>
+              <span data-lang="en">7 Capabilities</span>
+            </span>
+            <span class="mono">FILTER →</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cv-section" id="skills" aria-labelledby="heading-skills">
+      <div class="section-head">
+        <div class="section-head__title-group">
+          <span class="section-index">02</span>
+          <h2 class="section-title" id="heading-skills">
+            <span data-lang="fa">مهارت‌ها و سطوح تسلط</span>
+            <span data-lang="en">Expertise &amp; Capabilities</span>
+          </h2>
+        </div>
+
+        <!-- Touch-Scrollable Filter Chips on Mobile -->
+        <div class="filter-scroll-wrap">
+          <div class="filter-track" role="group" aria-label="Filter skills by proficiency">
+            <button type="button" class="filter-chip is-active" data-tier-filter="all">
+              <span data-lang="fa">همه (۲۳)</span>
+              <span data-lang="en">All (23)</span>
+            </button>
+            <button type="button" class="filter-chip" data-tier-filter="advanced">
+              <span data-lang="fa">پیشرفته (۸)</span>
+              <span data-lang="en">Advanced (8)</span>
+            </button>
+            <button type="button" class="filter-chip" data-tier-filter="good">
+              <span data-lang="fa">خوب (۱۲)</span>
+              <span data-lang="en">Good (12)</span>
+            </button>
+            <button type="button" class="filter-chip" data-tier-filter="intermediate">
+              <span data-lang="fa">متوسط (۱)</span>
+              <span data-lang="en">Intermediate (1)</span>
+            </button>
+            <button type="button" class="filter-chip" data-tier-filter="beginner">
+              <span data-lang="fa">مقدماتی (۲)</span>
+              <span data-lang="en">Beginner (2)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <!-- GROUP 1: GRAPHIC DESIGN -->
+        <div class="bento-card skill-panel" data-discipline-group="visual">
+          <div class="skill-panel__header">
+            <h3 class="skill-panel__title">
+              <span data-lang="fa">طراحی گرافیک</span>
+              <span data-lang="en">Graphic Design</span>
+            </h3>
+            <span class="skill-panel__count">01 // 8 SKILLS</span>
+          </div>
+
+          <ul class="skill-list">
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name">
+                <span data-lang="fa">ترکیب تصاویر و ویرایش عکس</span>
+                <span data-lang="en">Photo compositing and image editing</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name ltr">Adobe Photoshop</span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">طراحی پوستر تبلیغاتی و مفهومی</span>
+                <span data-lang="en">Advertising and conceptual poster design</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">تایپوگرافی و ترکیب‌بندی</span>
+                <span data-lang="en">Typography and composition</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name ltr">Adobe Illustrator</span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="intermediate">
+              <span class="skill-row__name">
+                <span data-lang="fa">لوگو و هویت بصری</span>
+                <span data-lang="en">Logo and visual identity</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">متوسط</span><span data-lang="en">Intermediate</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="beginner">
+              <span class="skill-row__name ltr">Adobe After Effects</span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">مقدماتی</span><span data-lang="en">Beginner</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="beginner">
+              <span class="skill-row__name ltr">Adobe Premiere Pro</span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">مقدماتی</span><span data-lang="en">Beginner</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card skill-panel" data-discipline-group="digital">
+          <div class="skill-panel__header">
+            <h3 class="skill-panel__title">
+              <span data-lang="fa">طراحی UI/UX و محصول دیجیتال</span>
+              <span data-lang="en">UI/UX &amp; Digital Product Design</span>
+            </h3>
+            <span class="skill-panel__count">02 // 8 SKILLS</span>
+          </div>
+
+          <ul class="skill-list">
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name ltr">Figma</span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">طراحی رابط کاربری</span>
+                <span data-lang="en">UI design</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">تحقیق تجربه کاربری</span>
+                <span data-lang="en">UX research</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">وایرفریم و پروتوتایپ</span>
+                <span data-lang="en">Wireframes and prototypes</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">سیستم طراحی و کامپوننت‌ها</span>
+                <span data-lang="en">Design systems and components</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">طراحی موبایل‌محور</span>
+                <span data-lang="en">Mobile-first design</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">طراحی واکنش‌گرا</span>
+                <span data-lang="en">Responsive design</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">ارزیابی کاربردپذیری</span>
+                <span data-lang="en">Usability evaluation</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card skill-panel" data-discipline-group="ai">
+          <div class="skill-panel__header">
+            <h3 class="skill-panel__title">
+              <span data-lang="fa">خلق با کمک هوش مصنوعی</span>
+              <span data-lang="en">AI-Assisted Creation</span>
+            </h3>
+            <span class="skill-panel__count">03 // 7 SKILLS</span>
+          </div>
+
+          <ul class="skill-list">
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name">
+                <span data-lang="fa">مهندسی پرامپت</span>
+                <span data-lang="en">Prompt engineering</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name">
+                <span data-lang="fa">ساخت وب‌سایت با کمک هوش مصنوعی</span>
+                <span data-lang="en">AI-assisted website creation</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name">
+                <span data-lang="fa">تولید تصویر با هوش مصنوعی</span>
+                <span data-lang="en">AI image generation</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name">
+                <span data-lang="fa">برنامه‌نویسی با کمک هوش مصنوعی</span>
+                <span data-lang="en">AI-assisted programming</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="advanced">
+              <span class="skill-row__name">
+                <span data-lang="fa">طراحی گردش‌کارهای هوش مصنوعی</span>
+                <span data-lang="en">AI workflow design</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">پیشرفته</span><span data-lang="en">Advanced</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">تحقیق و ارزیابی ابزارهای هوش مصنوعی</span>
+                <span data-lang="en">AI tools research and evaluation</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+
+            <li class="skill-row" data-tier="good">
+              <span class="skill-row__name">
+                <span data-lang="fa">بهبود و ویرایش خروجی هوش مصنوعی</span>
+                <span data-lang="en">AI output improvement and editing</span>
+              </span>
+              <div class="skill-row__meta">
+                <span class="tier-badge"><span data-lang="fa">خوب</span><span data-lang="en">Good</span></span>
+                <span class="tier-segments" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section" id="tools" aria-labelledby="heading-tools">
+      <div class="section-head">
+        <div class="section-head__title-group">
+          <span class="section-index">03</span>
+          <h2 class="section-title" id="heading-tools">
+            <span data-lang="fa">ابزارها و پلتفرم‌های تخصصی</span>
+            <span data-lang="en">Confirmed Tools &amp; Stack</span>
+          </h2>
+        </div>
+        <span class="section-subtitle">
+          <span data-lang="fa">۱۰ ابزار تاییدشده در طراحی گرافیک، UI/UX و هوش مصنوعی</span>
+          <span data-lang="en">10 Verified Instruments across Design, UI/UX &amp; AI</span>
+        </span>
+      </div>
+
+      <div class="tools-grid">
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">01</span><span class="tool-card__badge">UI/UX</span></div>
+          <div class="tool-card__name">Figma</div>
+          <div class="tool-card__desc"><span data-lang="fa">طراحی رابط، سیستم طراحی و پروتوتایپ</span><span data-lang="en">Interface, Systems &amp; Prototyping</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">02</span><span class="tool-card__badge">VISUAL</span></div>
+          <div class="tool-card__name">Adobe Photoshop</div>
+          <div class="tool-card__desc"><span data-lang="fa">ترکیب تصویر، پوستر و ویرایش پیشرفته</span><span data-lang="en">Image Compositing &amp; Poster Art</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">03</span><span class="tool-card__badge">VECTOR</span></div>
+          <div class="tool-card__name">Adobe Illustrator</div>
+          <div class="tool-card__desc"><span data-lang="fa">گرافیک برداری، لوگو و هویت بصری</span><span data-lang="en">Vector Graphics &amp; Identity</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">04</span><span class="tool-card__badge">WEB</span></div>
+          <div class="tool-card__name">Framer</div>
+          <div class="tool-card__desc"><span data-lang="fa">طراحی و پیاده‌سازی وب تعاملی</span><span data-lang="en">Interactive Web Design</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">05</span><span class="tool-card__badge">AI DEV</span></div>
+          <div class="tool-card__name">OpenCode</div>
+          <div class="tool-card__desc"><span data-lang="fa">توسعه و کدنویسی با کمک هوش مصنوعی</span><span data-lang="en">AI-Assisted Coding Environment</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">06</span><span class="tool-card__badge">AI IDE</span></div>
+          <div class="tool-card__name">Trae</div>
+          <div class="tool-card__desc"><span data-lang="fa">محیط توسعه هوشمند مبتنی بر AI</span><span data-lang="en">AI-Powered Development IDE</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">07</span><span class="tool-card__badge">AI LLM</span></div>
+          <div class="tool-card__name">Claude</div>
+          <div class="tool-card__desc"><span data-lang="fa">مهندسی پرامپت، تحلیل و ساخت وب</span><span data-lang="en">Prompting, Analysis &amp; Web Creation</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">08</span><span class="tool-card__badge">AI LLM</span></div>
+          <div class="tool-card__name">ChatGPT</div>
+          <div class="tool-card__desc"><span data-lang="fa">ایده‌پردازی، تحقیق و گردش‌کار هوشمند</span><span data-lang="en">Ideation, Research &amp; Workflows</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">09</span><span class="tool-card__badge">AI LLM</span></div>
+          <div class="tool-card__name">Gemini</div>
+          <div class="tool-card__desc"><span data-lang="fa">پژوهش چندوجهی و توسعه با کمک AI</span><span data-lang="en">Multimodal Research &amp; AI Creation</span></div>
+        </div>
+
+        <div class="bento-card tool-card">
+          <div class="tool-card__top"><span class="tool-card__idx">10</span><span class="tool-card__badge">GEN AI</span></div>
+          <div class="tool-card__name">Nano Banana</div>
+          <div class="tool-card__desc"><span data-lang="fa">تولید و پردازش خلاقانه تصویر با AI</span><span data-lang="en">Generative AI Image Creation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section" id="practice" aria-labelledby="heading-practice">
+      <div class="section-head">
+        <div class="section-head__title-group">
+          <span class="section-index">04</span>
+          <h2 class="section-title" id="heading-practice">
+            <span data-lang="fa">حوزه‌های فعالیت و تجربه عملی</span>
+            <span data-lang="en">Selected Practice Areas</span>
+          </h2>
+        </div>
+        <span class="section-subtitle">
+          <span data-lang="fa">زمینه‌های اجرای پروژه‌های فریلنسری و کارفرمایی</span>
+          <span data-lang="en">Applied domains of client and freelance project work</span>
+        </span>
+      </div>
+
+      <div class="practice-grid">
+        <div class="bento-card practice-card" data-discipline-group="ai">
+          <div class="practice-card__main">
+            <span class="practice-card__num">01</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">ساخت وب‌سایت با کمک هوش مصنوعی</span>
+              <span data-lang="en">AI-assisted website creation</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">AI + Web</span>
+        </div>
+
+        <div class="bento-card practice-card" data-discipline-group="visual">
+          <div class="practice-card__main">
+            <span class="practice-card__num">02</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">طراحی پوستر تبلیغاتی و مفهومی</span>
+              <span data-lang="en">Advertising and conceptual poster design</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">Visual</span>
+        </div>
+
+        <div class="bento-card practice-card" data-discipline-group="visual">
+          <div class="practice-card__main">
+            <span class="practice-card__num">03</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">طراحی لوگو و هویت بصری</span>
+              <span data-lang="en">Logo and visual identity design</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">Identity</span>
+        </div>
+
+        <div class="bento-card practice-card" data-discipline-group="digital">
+          <div class="practice-card__main">
+            <span class="practice-card__num">04</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">طراحی رابط کاربری اپلیکیشن</span>
+              <span data-lang="en">Application UI</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">UI / UX</span>
+        </div>
+
+        <div class="bento-card practice-card" data-discipline-group="digital">
+          <div class="practice-card__main">
+            <span class="practice-card__num">05</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">طراحی وب‌سایت در Figma</span>
+              <span data-lang="en">Website design in Figma</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">Figma</span>
+        </div>
+
+        <div class="bento-card practice-card" data-discipline-group="ai">
+          <div class="practice-card__main">
+            <span class="practice-card__num">06</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">ابزارها و برنامه‌های تعاملی</span>
+              <span data-lang="en">Interactive tools and applications</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">Interactive</span>
+        </div>
+
+        <div class="bento-card practice-card" data-discipline-group="ai">
+          <div class="practice-card__main">
+            <span class="practice-card__num">07</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">پروژه‌های تولید تصویر با هوش مصنوعی</span>
+              <span data-lang="en">AI image-generation projects</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">Gen AI</span>
+        </div>
+
+        <div class="bento-card practice-card" data-discipline-group="ai">
+          <div class="practice-card__main">
+            <span class="practice-card__num">08</span>
+            <span class="practice-card__title">
+              <span data-lang="fa">ترکیب طراحی و توسعه با کمک هوش مصنوعی</span>
+              <span data-lang="en">Combined design and AI-assisted development</span>
+            </span>
+          </div>
+          <span class="practice-card__pill">Hybrid</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section" id="contact" aria-labelledby="heading-contact">
+      <div class="bottom-grid">
+        <!-- Languages Card -->
+        <div class="bento-card panel-box">
+          <div class="panel-box__head">
+            <h2 class="panel-box__title">
+              <span data-lang="fa">زبان‌ها</span>
+              <span data-lang="en">Languages</span>
+            </h2>
+            <span class="mono">FA // EN</span>
+          </div>
+
+          <div class="lang-list">
+            <div class="lang-item">
+              <span class="lang-item__name">
+                <span data-lang="fa">فارسی</span>
+                <span data-lang="en">Persian</span>
+              </span>
+              <span class="lang-item__badge">
+                <span data-lang="fa">زبان اصلی</span>
+                <span data-lang="en">Primary</span>
+              </span>
+            </div>
+
+            <div class="lang-item">
+              <span class="lang-item__name">
+                <span data-lang="fa">انگلیسی</span>
+                <span data-lang="en">English</span>
+              </span>
+              <span class="lang-item__badge">
+                <span data-lang="fa">سطح خوب</span>
+                <span data-lang="en">Good proficiency</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editable Contact Card -->
+        <div class="bento-card panel-box">
+          <div class="panel-box__head">
+            <h2 class="panel-box__title" id="heading-contact">
+              <span data-lang="fa">اطلاعات تماس</span>
+              <span data-lang="en">Contact Information</span>
+            </h2>
+            <span class="section-subtitle no-print">
+              <span data-lang="fa">قابل ویرایش با کلیک قبل از خروجی PDF</span>
+              <span data-lang="en">Tap any field to edit before PDF export</span>
+            </span>
+          </div>
+
+          <div class="contact-slots">
+            <div class="contact-field">
+              <span class="contact-field__label">EMAIL</span>
+              <div class="contact-field__input" contenteditable="true" spellcheck="false" data-contact-slot="email" data-placeholder="Click to add email"></div>
+            </div>
+
+            <div class="contact-field">
+              <span class="contact-field__label">PHONE / DIRECT</span>
+              <div class="contact-field__input" contenteditable="true" spellcheck="false" data-contact-slot="phone" data-placeholder="Click to add phone"></div>
+            </div>
+
+            <div class="contact-field">
+              <span class="contact-field__label">PORTFOLIO / HANDLE</span>
+              <div class="contact-field__input" contenteditable="true" spellcheck="false" data-contact-slot="portfolio" data-placeholder="Click to add link"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="cv-footer" role="contentinfo">
+      <div>
+        <strong>
+          <span data-lang="fa">امین منکاوی</span>
+          <span data-lang="en">Amin Mankavi</span>
+        </strong>
+        <span> — </span>
+        <span data-lang="fa">طراحی گرافیک، رابط و تجربه کاربری (UI/UX) و خلق دیجیتال با هوش مصنوعی</span>
+        <span data-lang="en">Graphic Design, UI/UX &amp; AI-Assisted Digital Creation</span>
+      </div>
+      <div class="mono">Tehran, Iran</div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var html = document.documentElement;
+      var langBtns = document.querySelectorAll('[data-set-lang]');
+      var themeBtn = document.getElementById('themeBtn');
+      var themeLabel = document.getElementById('themeLabel');
+      var printBtn = document.getElementById('printBtn');
+      var tierBtns = document.querySelectorAll('[data-tier-filter]');
+      var skillRows = document.querySelectorAll('.skill-row');
+      var disciplineCards = document.querySelectorAll('[data-discipline-card]');
+      var disciplineGroups = document.querySelectorAll('[data-discipline-group]');
+      var contactSlots = document.querySelectorAll('[data-contact-slot]');
+      var bentoCards = document.querySelectorAll('.bento-card');
+
+      function getStore(key) {
+        try { return window.localStorage.getItem(key); } catch (e) { return null; }
+      }
+      function setStore(key, val) {
+        try { window.localStorage.setItem(key, val); } catch (e) {}
+      }
+
+      /* 1. Bilingual Controller (Default: Persian 'fa') */
+      function setLanguage(lang) {
+        var activeLang = lang === 'en' ? 'en' : 'fa';
+        html.setAttribute('lang', activeLang);
+        html.setAttribute('dir', activeLang === 'fa' ? 'rtl' : 'ltr');
+
+        langBtns.forEach(function (btn) {
+          var isMatch = btn.getAttribute('data-set-lang') === activeLang;
+          btn.classList.toggle('is-active', isMatch);
+          btn.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+        });
+
+        updateThemeLabel();
+        setStore('amin_mankavi_cv_lang', activeLang);
+      }
+
+      langBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLanguage(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      /* 2. Theme Controller (Obsidian Dark & Studio Light) */
+      function updateThemeLabel() {
+        var isDark = html.getAttribute('data-theme') === 'dark';
+        var isFa = html.getAttribute('lang') === 'fa';
+        if (themeLabel) {
+          themeLabel.textContent = isFa
+            ? (isDark ? 'تم روشن' : 'تم تیره')
+            : (isDark ? 'Light' : 'Dark');
+        }
+      }
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+          var nextTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          html.setAttribute('data-theme', nextTheme);
+          updateThemeLabel();
+          setStore('amin_mankavi_cv_theme', nextTheme);
+        });
+      }
+
+      /* 3. Skill Proficiency Tier Filter */
+      tierBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var tier = btn.getAttribute('data-tier-filter');
+          tierBtns.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+          skillRows.forEach(function (row) {
+            var match = tier === 'all' || row.getAttribute('data-tier') === tier;
+            row.classList.toggle('is-hidden', !match);
+          });
+        });
+      });
+
+      /* 4. Interactive Discipline Card Cross-Filtering */
+      var activeDiscipline = 'all';
+      function toggleDiscipline(target) {
+        activeDiscipline = activeDiscipline === target ? 'all' : target;
+
+        disciplineCards.forEach(function (c) {
+          var isMatch = activeDiscipline !== 'all' && c.getAttribute('data-discipline-card') === activeDiscipline;
+          c.classList.toggle('is-active', isMatch);
+          c.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+        });
+
+        disciplineGroups.forEach(function (grp) {
+          var gType = grp.getAttribute('data-discipline-group');
+          grp.classList.toggle('is-dimmed', activeDiscipline !== 'all' && gType !== activeDiscipline);
+        });
+      }
+
+      disciplineCards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          toggleDiscipline(card.getAttribute('data-discipline-card'));
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleDiscipline(card.getAttribute('data-discipline-card'));
+          }
+        });
+      });
+
+      /* 5. Subtle Interactive Radial Spotlight on Bento Cards (Desktop Pointer) */
+      bentoCards.forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+          card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+        });
+      });
+
+      /* 6. Editable Contact Persistence */
+      contactSlots.forEach(function (slot) {
+        var key = 'amin_mankavi_contact_' + slot.getAttribute('data-contact-slot');
+        var saved = getStore(key);
+        if (saved) slot.textContent = saved;
+        slot.addEventListener('input', function () {
+          setStore(key, slot.textContent.trim());
+        });
+      });
+
+      /* 7. Print / Save PDF */
+      if (printBtn) {
+        printBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+
+      /* Initialize */
+      var savedTheme = getStore('amin_mankavi_cv_theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        html.setAttribute('data-theme', savedTheme);
+      }
+      var savedLang = getStore('amin_mankavi_cv_lang');
+      setLanguage(savedLang === 'en' ? 'en' : 'fa');
+    })();
+  </script>
+</body>
+</html>
