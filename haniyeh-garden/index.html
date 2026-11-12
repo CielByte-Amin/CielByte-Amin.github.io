@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFF9F5" />
+  <title>باغچه کوچک هانیه | Haniyeh's Little Garden</title>
+
+  <!-- Google Fonts with graceful local fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Core Lavender Rose Garden Palette */
+      --lavender-soft: #B9A0D5;
+      --lavender-light: #EAE0F6;
+      --lavender-pale: #F5EFFB;
+      --violet-deep: #70518F;
+      --violet-ink: #3E2B52;
+      --ivory-warm: #FFF9F5;
+      --ivory-paper: #FAF2EC;
+      --ivory-card: #FFFFFF;
+      --rose-dusty: #D9A9BD;
+      --rose-soft: #F3E1E9;
+      --green-botanical: #89977F;
+      --green-deep: #5E6C55;
+      --green-pale: #E7ECE3;
+
+      /* Typography & Spacing */
+      --font-fa: 'Vazirmatn', 'IRANSans', 'Tahoma', sans-serif;
+      --font-en: 'Cormorant Garamond', 'Georgia', serif;
+
+      /* Elevations & Borders */
+      --shadow-soft: 0 18px 45px -15px rgba(112, 81, 143, 0.12), 0 4px 16px -4px rgba(112, 81, 143, 0.06);
+      --shadow-float: 0 24px 55px -12px rgba(112, 81, 143, 0.18);
+      --border-delicate: 1px solid rgba(185, 160, 213, 0.35);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-bloom: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--ivory-warm);
+      color: var(--violet-ink);
+      font-family: var(--font-fa);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--ivory-warm);
+      background-image:
+        radial-gradient(circle at 15% 12%, rgba(185, 160, 213, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 28%, rgba(217, 169, 189, 0.16) 0%, transparent 50%),
+        radial-gradient(circle at 50% 75%, rgba(137, 151, 127, 0.10) 0%, transparent 55%),
+        radial-gradient(circle at 20% 92%, rgba(185, 160, 213, 0.15) 0%, transparent 45%);
+      color: var(--violet-ink);
+      line-height: 1.9;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle tactile paper grain overlay */
+    .paper-texture {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.28;
+      mix-blend-mode: multiply;
+    }
+
+    /* Background Floating Petals Canvas */
+    #petals-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Minimal Floating Navigation / Atmosphere Bar */
+    .top-whisper-bar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 249, 245, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(185, 160, 213, 0.4);
+      box-shadow: 0 8px 25px rgba(112, 81, 143, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+      max-width: calc(100vw - 24px);
+      white-space: nowrap;
+    }
+
+    .top-whisper-bar.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .top-whisper-bar .brand-title {
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--violet-deep);
+      letter-spacing: 0.03em;
+      padding-left: 8px;
+      border-left: 1px solid rgba(185, 160, 213, 0.4);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-pill {
+      background: transparent;
+      border: none;
+      font-family: var(--font-fa);
+      font-size: 0.78rem;
+      color: var(--violet-ink);
+      padding: 5px 10px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-pill:hover, .nav-pill:focus-visible {
+      background: var(--lavender-light);
+      color: var(--violet-deep);
+      outline: none;
+    }
+
+    .breeze-btn {
+      background: rgba(185, 160, 213, 0.22);
+      border: 1px solid rgba(185, 160, 213, 0.5);
+      color: var(--violet-deep);
+      font-family: var(--font-fa);
+      font-size: 0.75rem;
+      padding: 4px 11px;
+      border-radius: 99px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .breeze-btn:hover {
+      background: var(--lavender-soft);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       1. OPENING WELCOME EXPERIENCE
+       ========================================================================== */
+    .welcome-screen {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 36px 20px 48px;
+      text-align: center;
+      overflow: hidden;
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+
+    .welcome-arch {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 249, 245, 0.55) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(185, 160, 213, 0.42);
+      border-radius: 260px 260px 36px 36px;
+      padding: 48px 28px 44px;
+      box-shadow: var(--shadow-soft), inset 0 0 0 8px rgba(255, 249, 245, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: gentleRise 1.3s var(--ease-out-expo) forwards;
+    }
+
+    .welcome-Arch-corner {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+    .welcome-Arch-corner.top-right { top: 22px; right: 26px; }
+    .welcome-Arch-corner.top-left { top: 22px; left: 26px; transform: scaleX(-1); }
+
+    .editorial-tag {
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      color: var(--green-deep);
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .editorial-tag::before,
+    .editorial-tag::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: rgba(137, 151, 127, 0.5);
+    }
+
+    /* Centerpiece Hero Lilac Rose */
+    .hero-rose-stage {
+      position: relative;
+      width: 220px;
+      height: 240px;
+      margin: 4px auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .hero-rose-aura {
+      position: absolute;
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(185, 160, 213, 0.36) 0%, rgba(217, 169, 189, 0.16) 55%, transparent 75%);
+      filter: blur(8px);
+      animation: pulseAura 5s ease-in-out infinite alternate;
+    }
+
+    .hero-rose-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 14px 22px rgba(112, 81, 143, 0.16));
+      animation: floatSlow 6s ease-in-out infinite;
+      transition: transform 0.6s var(--ease-bloom);
+    }
+
+    .hero-rose-stage:hover .hero-rose-svg {
+      transform: scale(1.05) rotate(-1.5deg);
+    }
+
+    .welcome-title {
+      font-size: clamp(1.38rem, 4.6vw, 1.95rem);
+      font-weight: 700;
+      color: var(--violet-deep);
+      line-height: 1.65;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .welcome-subtitle {
+      font-size: clamp(0.95rem, 3.2vw, 1.08rem);
+      font-weight: 400;
+      color: #634F77;
+      max-width: 390px;
+      margin: 0 auto 30px;
+      line-height: 1.9;
+    }
+
+    .primary-gift-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--violet-deep) 0%, #8663A8 100%);
+      color: var(--ivory-warm);
+      font-family: var(--font-fa);
+      font-size: clamp(0.96rem, 3.4vw, 1.08rem);
+      font-weight: 500;
+      padding: 16px 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 14px 32px -6px rgba(112, 81, 143, 0.42), 0 0 0 5px rgba(185, 160, 213, 0.22);
+      cursor: pointer;
+      transition: all 0.4s var(--ease-out-expo);
+      overflow: hidden;
+    }
+
+    .primary-gift-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+      transition: left 0.7s ease;
+    }
+
+    .primary-gift-btn:hover {
+      transform: translateY(-3px) scale(1.015);
+      box-shadow: 0 18px 38px -6px rgba(112, 81, 143, 0.52), 0 0 0 7px rgba(185, 160, 213, 0.32);
+    }
+
+    .primary-gift-btn:hover::before {
+      left: 100%;
+    }
+
+    .primary-gift-btn:active {
+      transform: translateY(0) scale(0.99);
+    }
+
+    .scroll-whisper {
+      margin-top: 22px;
+      font-size: 0.78rem;
+      color: var(--green-deep);
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================================================
+       MAIN EXPERIENCE CONTAINER
+       ========================================================================== */
+    .main-world {
+      position: relative;
+      z-index: 10;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 18px 90px;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+    }
+
+    .main-world.entered {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section Header Pattern */
+    .section-block {
+      margin: 85px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 38px;
+      padding: 0 12px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--green-deep);
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+      font-weight: 700;
+      color: var(--violet-deep);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      font-size: 0.96rem;
+      color: #6B587E;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Botanical Section Divider */
+    .botanical-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 56px auto;
+      opacity: 0.75;
+    }
+
+    .botanical-divider svg {
+      width: 190px;
+      height: 32px;
+    }
+
+    /* ==========================================================================
+       2. THE LITTLE GARDEN (INTERACTIVE LILAC ROSE GARDEN)
+       ========================================================================== */
+    .garden-sanctuary {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(245, 239, 251, 0.65) 55%, rgba(231, 236, 227, 0.55) 100%);
+      border: 1px solid rgba(185, 160, 213, 0.45);
+      border-radius: 36px;
+      padding: 36px 20px 32px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .garden-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 0 8px;
+    }
+
+    .garden-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 249, 245, 0.9);
+      border: 1px solid rgba(185, 160, 213, 0.45);
+      padding: 7px 16px;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      color: var(--violet-deep);
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lavender-soft);
+      box-shadow: 0 0 0 3px rgba(185, 160, 213, 0.3);
+    }
+
+    .bloom-all-btn {
+      background: rgba(255, 249, 245, 0.85);
+      border: 1px solid rgba(137, 151, 127, 0.5);
+      color: var(--green-deep);
+      font-family: var(--font-fa);
+      font-size: 0.82rem;
+      padding: 7px 15px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .bloom-all-btn:hover {
+      background: var(--green-botanical);
+      color: #fff;
+      border-color: var(--green-botanical);
+    }
+
+    /* Message Whisper Display Box Inside Garden */
+    .garden-whisper-stage {
+      min-height: 98px;
+      background: rgba(255, 249, 245, 0.92);
+      border: 1px solid rgba(185, 160, 213, 0.45);
+      border-radius: 22px;
+      padding: 18px 22px;
+      margin: 0 auto 28px;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 8px 24px -8px rgba(112, 81, 143, 0.1);
+      transition: all 0.45s var(--ease-out-expo);
+      position: relative;
+    }
+
+    .garden-whisper-label {
+      font-size: 0.76rem;
+      color: var(--green-deep);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .garden-whisper-text {
+      font-size: clamp(1rem, 3.5vw, 1.18rem);
+      font-weight: 600;
+      color: var(--violet-deep);
+      line-height: 1.8;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    /* Interactive Rose Grid */
+    .roses-meadow {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 14px;
+      padding: 10px 4px 6px;
+      position: relative;
+    }
+
+    @media (min-width: 680px) {
+      .roses-meadow {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px 20px;
+      }
+      .garden-sanctuary {
+        padding: 44px 36px 40px;
+      }
+    }
+
+    .rose-plot {
+      position: relative;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(185, 160, 213, 0.32);
+      border-radius: 26px;
+      padding: 20px 10px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+      transition: all 0.45s var(--ease-out-expo);
+      user-select: none;
+      min-height: 215px;
+      overflow: hidden;
+    }
+
+    .rose-plot:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-4px);
+      border-color: var(--lavender-soft);
+      box-shadow: 0 14px 30px -10px rgba(112, 81, 143, 0.16);
+    }
+
+    .rose-plot.active-rose {
+      border-color: var(--violet-deep);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 16px 34px -10px rgba(112, 81, 143, 0.24), 0 0 0 3px rgba(185, 160, 213, 0.25);
+    }
+
+    .rose-stage-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.7rem;
+      padding: 3px 9px;
+      border-radius: 99px;
+      background: rgba(185, 160, 213, 0.2);
+      color: var(--violet-deep);
+      transition: all 0.35s ease;
+    }
+
+    .rose-plot.bloomed .rose-stage-badge {
+      background: rgba(137, 151, 127, 0.22);
+      color: var(--green-deep);
+    }
+
+    /* Interactive SVG Rose Mechanics */
+    .garden-rose-svg {
+      width: 118px;
+      height: 145px;
+      overflow: visible;
+      transition: transform 0.6s var(--ease-bloom);
+    }
+
+    .rose-plot:hover .garden-rose-svg {
+      transform: scale(1.04);
+    }
+
+    /* Bud vs Bloom petal animations inside SVG */
+    .garden-rose-svg .outer-petal-left,
+    .garden-rose-svg .outer-petal-right,
+    .garden-rose-svg .mid-petal-left,
+    .garden-rose-svg .mid-petal-right,
+    .garden-rose-svg .crown-petals,
+    .garden-rose-svg .bloom-glow {
+      transition: all 0.85s var(--ease-bloom);
+      transform-box: fill-box;
+      transform-origin: center bottom;
+    }
+
+    /* Unbloomed (Bud / Half-bud) state */
+    .rose-plot:not(.bloomed) .outer-petal-left {
+      transform: rotate(16deg) scaleX(0.78) translateY(4px);
+    }
+    .rose-plot:not(.bloomed) .outer-petal-right {
+      transform: rotate(-16deg) scaleX(0.78) translateY(4px);
+    }
+    .rose-plot:not(.bloomed) .mid-petal-left {
+      transform: rotate(10deg) scale(0.84);
+    }
+    .rose-plot:not(.bloomed) .mid-petal-right {
+      transform: rotate(-10deg) scale(0.84);
+    }
+    .rose-plot:not(.bloomed) .crown-petals {
+      transform: scale(0.72) translateY(8px);
+      opacity: 0.7;
+    }
+    .rose-plot:not(.bloomed) .bloom-glow {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    /* Bloomed State */
+    .rose-plot.bloomed .outer-petal-left {
+      transform: rotate(-8deg) scale(1.04);
+    }
+    .rose-plot.bloomed .outer-petal-right {
+      transform: rotate(8deg) scale(1.04);
+    }
+    .rose-plot.bloomed .mid-petal-left {
+      transform: rotate(-4deg) scale(1.02);
+    }
+    .rose-plot.bloomed .mid-petal-right {
+      transform: rotate(4deg) scale(1.02);
+    }
+    .rose-plot.bloomed .crown-petals {
+      transform: scale(1.05) translateY(-2px);
+      opacity: 1;
+    }
+    .rose-plot.bloomed .bloom-glow {
+      opacity: 0.85;
+      transform: scale(1.1);
+    }
+
+    .rose-caption {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: var(--violet-ink);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* Tiny Interactive Botanical Details Row (Dewdrop, Butterfly, Lavender Sprig) */
+    .botanical-curiosities {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(185, 160, 213, 0.45);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .curiosity-chip {
+      background: rgba(255, 249, 245, 0.75);
+      border: 1px solid rgba(185, 160, 213, 0.4);
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-family: var(--font-fa);
+      color: #5D4873;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .curiosity-chip:hover {
+      background: var(--lavender-light);
+      color: var(--violet-deep);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       3. A LITTLE MOOD CORNER
+       ========================================================================== */
+    .mood-corner-wrap {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(185, 160, 213, 0.4);
+      border-radius: 34px;
+      padding: 36px 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    @media (min-width: 680px) {
+      .mood-corner-wrap {
+        padding: 46px 40px;
+      }
+    }
+
+    .mood-options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    @media (min-width: 600px) {
+      .mood-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+
+    .mood-choice-btn {
+      background: var(--ivory-warm);
+      border: 1.5px solid rgba(185, 160, 213, 0.45);
+      border-radius: 20px;
+      padding: 18px 20px;
+      font-family: var(--font-fa);
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--violet-ink);
+      text-align: right;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.35s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mood-choice-btn:hover {
+      border-color: var(--violet-deep);
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -8px rgba(112, 81, 143, 0.15);
+    }
+
+    .mood-choice-btn.selected {
+      background: linear-gradient(135deg, rgba(112, 81, 143, 0.95) 0%, rgba(145, 110, 180, 0.95) 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 12px 28px -6px rgba(112, 81, 143, 0.35);
+    }
+
+    .mood-choice-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(185, 160, 213, 0.22);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .mood-choice-btn.selected .mood-choice-icon {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .mood-response-card {
+      background: linear-gradient(145deg, #FFF9F5 0%, #F7EFFB 100%);
+      border: 1px solid rgba(185, 160, 213, 0.5);
+      border-radius: 26px;
+      padding: 28px 24px;
+      position: relative;
+      transition: all 0.45s var(--ease-out-expo);
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mood-response-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--violet-deep);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .mood-response-body {
+      font-size: 0.98rem;
+      color: var(--violet-ink);
+      line-height: 2.05;
+      margin-bottom: 18px;
+    }
+
+    .mood-comfort-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(185, 160, 213, 0.3);
+      font-size: 0.84rem;
+      color: var(--green-deep);
+    }
+
+    .breath-trigger-btn {
+      background: rgba(137, 151, 127, 0.16);
+      border: 1px solid rgba(137, 151, 127, 0.45);
+      color: var(--green-deep);
+      font-family: var(--font-fa);
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .breath-trigger-btn:hover {
+      background: var(--green-botanical);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       4. A MESSAGE JUST FOR YOU (HANDWRITTEN / ARTISANAL LETTER)
+       ========================================================================== */
+    .letter-stage {
+      perspective: 1000px;
+      padding: 10px 4px;
+    }
+
+    .artisanal-letter {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #FCF7F1;
+      background-image:
+        repeating-linear-gradient(
+          transparent,
+          transparent 39px,
+          rgba(185, 160, 213, 0.16) 39px,
+          rgba(185, 160, 213, 0.16) 40px
+        );
+      border-radius: 16px 22px 18px 24px;
+      padding: 46px 26px 44px;
+      box-shadow:
+        0 24px 60px -15px rgba(112, 81, 143, 0.16),
+        0 2px 6px rgba(112, 81, 143, 0.06),
+        inset 0 0 40px rgba(217, 169, 189, 0.12);
+      border: 1px solid rgba(185, 160, 213, 0.45);
+    }
+
+    /* Stacked paper sheet behind the letter */
+    .artisanal-letter::before {
+      content: "";
+      position: absolute;
+      inset: 4px -4px -6px 4px;
+      background: #F6EDE4;
+      border-radius: 18px;
+      border: 1px solid rgba(185, 160, 213, 0.3);
+      z-index: -1;
+      transform: rotate(-1.1deg);
+    }
+
+    @media (min-width: 680px) {
+      .artisanal-letter {
+        padding: 58px 56px 52px;
+      }
+    }
+
+    .letter-top-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(185, 160, 213, 0.4);
+    }
+
+    .letter-date-note {
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 0.98rem;
+      color: var(--violet-deep);
+    }
+
+    .letter-heading {
+      font-size: clamp(1.22rem, 3.8vw, 1.55rem);
+      font-weight: 700;
+      color: var(--violet-deep);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .letter-paragraph {
+      font-size: clamp(1.02rem, 3.3vw, 1.14rem);
+      line-height: 2.28;
+      color: #3A274E;
+      text-align: justify;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+
+    .letter-highlight {
+      background: linear-gradient(180deg, transparent 60%, rgba(185, 160, 213, 0.35) 60%);
+      padding: 0 3px;
+      border-radius: 4px;
+    }
+
+    .letter-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .wax-seal-btn {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 30%, #C68FA8 0%, #9E6884 55%, #73455D 100%);
+      border: 2px solid rgba(255, 249, 245, 0.5);
+      box-shadow:
+        0 8px 18px rgba(115, 69, 93, 0.35),
+        inset 0 2px 5px rgba(255, 255, 255, 0.35),
+        inset 0 -3px 6px rgba(62, 43, 82, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF9F5;
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.4s var(--ease-bloom), box-shadow 0.4s ease;
+    }
+
+    .wax-seal-btn::after {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 249, 245, 0.55);
+    }
+
+    .wax-seal-btn:hover {
+      transform: scale(1.08) rotate(6deg);
+    }
+
+    .letter-signoff {
+      text-align: left;
+      font-size: 0.9rem;
+      color: var(--violet-deep);
+    }
+
+    .letter-signoff strong {
+      display: block;
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--green-deep);
+    }
+
+    /* ==========================================================================
+       5. LITTLE SURPRISES (THREE INTERACTIVE SURPRISES)
+       ========================================================================== */
+    .surprises-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 760px) {
+      .surprises-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .surprise-box {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(185, 160, 213, 0.42);
+      border-radius: 28px;
+      padding: 28px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .surprise-box:hover {
+      transform: translateY(-5px);
+      border-color: var(--lavender-soft);
+      box-shadow: var(--shadow-float);
+    }
+
+    .surprise-num {
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--green-deep);
+      margin-bottom: 6px;
+    }
+
+    .surprise-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--violet-deep);
+      margin-bottom: 14px;
+    }
+
+    .surprise-visual-stage {
+      width: 100%;
+      min-height: 165px;
+      background: linear-gradient(180deg, rgba(245, 239, 251, 0.65) 0%, rgba(255, 249, 245, 0.9) 100%);
+      border: 1px solid rgba(185, 160, 213, 0.32);
+      border-radius: 20px;
+      padding: 18px 14px;
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .surprise-message-output {
+      font-size: 0.93rem;
+      color: var(--violet-ink);
+      line-height: 1.85;
+      margin-top: 8px;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .surprise-action-btn {
+      width: 100%;
+      margin-top: auto;
+      background: var(--ivory-warm);
+      border: 1.5px solid var(--lavender-soft);
+      color: var(--violet-deep);
+      font-family: var(--font-fa);
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 12px 18px;
+      border-radius: 99px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .surprise-action-btn:hover {
+      background: var(--violet-deep);
+      border-color: var(--violet-deep);
+      color: #fff;
+    }
+
+    .surprise-action-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Surprise 1 Rose Gift Animation */
+    .gift-rose-anim {
+      width: 86px;
+      height: 98px;
+      transition: transform 0.7s var(--ease-bloom);
+    }
+    .gift-rose-anim.pop-bloom {
+      transform: scale(1.16) rotate(-4deg);
+    }
+
+    /* Surprise 2 Smile Emblem */
+    .smile-sparkle-badge {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(217, 169, 189, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+      transition: transform 0.5s var(--ease-bloom);
+    }
+
+    /* Surprise 3 Wish Star Emblem */
+    .wish-orb {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(185, 160, 213, 0.45) 0%, rgba(137, 151, 127, 0.18) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+      transition: transform 0.6s var(--ease-bloom);
+    }
+
+    /* ==========================================================================
+       6. FINAL EXPERIENCE (CLOSING SANCTUARY)
+       ========================================================================== */
+    .final-sanctuary {
+      margin-top: 95px;
+      text-align: center;
+      padding: 52px 24px 44px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(243, 225, 233, 0.42) 60%, rgba(234, 224, 246, 0.55) 100%);
+      border: 1px solid rgba(185, 160, 213, 0.45);
+      border-radius: 220px 220px 36px 36px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-rose-crest {
+      width: 150px;
+      height: 165px;
+      margin: 0 auto 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .final-rose-crest svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      animation: floatSlow 5.5s ease-in-out infinite;
+    }
+
+    .final-remember-quote {
+      font-size: clamp(1.18rem, 3.8vw, 1.55rem);
+      font-weight: 700;
+      color: var(--violet-deep);
+      max-width: 560px;
+      margin: 0 auto 22px;
+      line-height: 1.85;
+    }
+
+    .final-love-line {
+      font-size: clamp(1rem, 3.2vw, 1.16rem);
+      color: #6B4D7B;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .final-signature {
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 1.65rem;
+      color: var(--green-deep);
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+
+    .petal-shower-btn {
+      background: rgba(255, 249, 245, 0.9);
+      border: 1px solid var(--lavender-soft);
+      color: var(--violet-deep);
+      font-family: var(--font-fa);
+      font-size: 0.85rem;
+      padding: 10px 22px;
+      border-radius: 99px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.35s ease;
+    }
+
+    .petal-shower-btn:hover {
+      background: var(--lavender-soft);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Gentle Toast Notification for micro-interactions */
+    .garden-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(30px);
+      z-index: 120;
+      background: rgba(62, 43, 82, 0.94);
+      color: var(--ivory-warm);
+      padding: 12px 22px;
+      border-radius: 99px;
+      font-size: 0.86rem;
+      box-shadow: 0 12px 30px rgba(62, 43, 82, 0.28);
+      border: 1px solid rgba(185, 160, 213, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s var(--ease-out-expo);
+      text-align: center;
+      max-width: calc(100vw - 32px);
+    }
+
+    .garden-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Guided Breathing Modal Overlay (Optional soothing helper inside Mood Corner) */
+    .breath-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(62, 43, 82, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .breath-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .breath-modal {
+      background: var(--ivory-warm);
+      border: 1px solid var(--lavender-soft);
+      border-radius: 32px;
+      padding: 34px 26px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-float);
+    }
+
+    .breath-flower-circle {
+      width: 120px;
+      height: 120px;
+      margin: 22px auto;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--lavender-soft) 0%, var(--rose-dusty) 100%);
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 600;
+      box-shadow: 0 0 0 12px rgba(185, 160, 213, 0.2);
+      animation: breatheCycle 8s ease-in-out infinite;
+    }
+
+    /* Scroll Reveal Utility */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s var(--ease-out-expo), transform 0.85s var(--ease-out-expo);
+    }
+
+    .reveal-on-scroll.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Keyframe Animations */
+    @keyframes gentleRise {
+      0% { opacity: 0; transform: translateY(24px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(1.2deg); }
+    }
+
+    @keyframes pulseAura {
+      0% { transform: scale(0.92); opacity: 0.65; }
+      100% { transform: scale(1.1); opacity: 1; }
+    }
+
+    @keyframes breatheCycle {
+      0%, 100% { transform: scale(0.78); box-shadow: 0 0 0 6px rgba(185, 160, 213, 0.18); }
+      50% { transform: scale(1.18); box-shadow: 0 0 0 22px rgba(185, 160, 213, 0.32); }
+    }
+
+    /* Mobile-first small screen adjustments (360px - 430px) */
+    @media (max-width: 420px) {
+      .welcome-arch {
+        padding: 36px 18px 34px;
+        border-radius: 190px 190px 28px 28px;
+      }
+      .hero-rose-stage {
+        width: 190px;
+        height: 210px;
+      }
+      .primary-gift-btn {
+        width: 100%;
+        padding: 15px 20px;
+      }
+      .roses-meadow {
+        gap: 12px 10px;
+      }
+      .rose-plot {
+        min-height: 195px;
+        padding: 16px 8px 12px;
+      }
+      .garden-rose-svg {
+        width: 100px;
+        height: 125px;
+      }
+      .top-whisper-bar .brand-title {
+        display: none;
+      }
+    }
+
+    /* Respect Reduced Motion Preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared SVG Definitions for Gradients & Paper Noise -->
+  <svg width="0" height="0" style="position:absolute; pointer-events:none;" aria-hidden="true">
+    <defs>
+      <!-- Lilac Rose Petal Gradients -->
+      <linearGradient id="lilac-deep-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#9B7BB8" />
+        <stop offset="100%" stop-color="#694989" />
+      </linearGradient>
+
+      <linearGradient id="lilac-mid-grad" x1="20%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#D2BFE8" />
+        <stop offset="55%" stop-color="#B9A0D5" />
+        <stop offset="100%" stop-color="#8A6BA8" />
+      </linearGradient>
+
+      <linearGradient id="lilac-soft-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#F2E9FC" />
+        <stop offset="50%" stop-color="#D5C0EC" />
+        <stop offset="100%" stop-color="#A88BC7" />
+      </linearGradient>
+
+      <linearGradient id="dusty-rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F5E1EA" />
+        <stop offset="55%" stop-color="#D9A9BD" />
+        <stop offset="100%" stop-color="#AD7B97" />
+      </linearGradient>
+
+      <radialGradient id="rose-heart-glow" cx="50%" cy="45%" r="50%">
+        <stop offset="0%" stop-color="#FFF5E4" />
+        <stop offset="45%" stop-color="#E5C1D8" />
+        <stop offset="100%" stop-color="#8D6BAC" />
+      </radialGradient>
+
+      <linearGradient id="stem-green-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#9AA88F" />
+        <stop offset="100%" stop-color="#637259" />
+      </linearGradient>
+
+      <!-- Reusable Garden Rose Symbol Component -->
+      <g id="botanical-stem-leaves">
+        <!-- Main Stem -->
+        <path d="M60 85 Q58 115 61 142" stroke="url(#stem-green-grad)" stroke-width="3.4" stroke-linecap="round" fill="none" />
+        <!-- Left Leaf -->
+        <path d="M59 112 C42 110 30 98 34 88 C44 89 55 98 59 112 Z" fill="url(#stem-green-grad)" />
+        <path d="M59 112 C47 104 40 96 35 89" stroke="#FFF9F5" stroke-width="0.7" stroke-opacity="0.6" fill="none" />
+        <!-- Right Leaf -->
+        <path d="M60 122 C77 119 88 107 84 97 C74 98 64 108 60 122 Z" fill="url(#stem-green-grad)" />
+        <path d="M60 122 C71 113 78 105 83 98" stroke="#FFF9F5" stroke-width="0.7" stroke-opacity="0.6" fill="none" />
+        <!-- Calyx / Sepals -->
+        <path d="M46 82 Q60 92 74 82 Q66 89 60 90 Q54 89 46 82 Z" fill="#6E7D64" />
+      </g>
+    </defs>
+  </svg>
+
+  <!-- Subtle Tactile Paper Grain -->
+  <svg class="paper-texture" aria-hidden="true">
+    <filter id="fine-paper-grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.44  0 0 0 0 0.32  0 0 0 0 0.56  0 0 0 0.08 0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#fine-paper-grain)" />
+  </svg>
+
+  <!-- Floating Lilac Petals Canvas -->
+  <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Top Whisper Bar (Appears after entering) -->
+  <nav class="top-whisper-bar" id="top-nav" aria-label="مسیر باغچه">
+    <span class="brand-title">Haniyeh's Garden</span>
+    <div class="nav-links">
+      <a href="#section-garden" class="nav-pill">باغچه رز</a>
+      <a href="#section-mood" class="nav-pill">حالِ دلت</a>
+      <a href="#section-letter" class="nav-pill">نامه</a>
+      <a href="#section-surprises" class="nav-pill">غافلگیری‌ها</a>
+    </div>
+    <button type="button" class="breeze-btn" id="breeze-trigger" title="پخش گلبرگ‌های تازه">
+      <span>نسیم یاسی</span>
+      <span aria-hidden="true">✿</span>
+    </button>
+  </nav>
+
+  <!-- ==========================================================================
+       1. OPENING EXPERIENCE
+       ========================================================================== -->
+  <header class="welcome-screen" id="welcome-screen">
+    <div class="welcome-arch">
+      <!-- Delicate Corner Botanical Sprigs -->
+      <svg class="welcome-Arch-corner top-right" width="54" height="54" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <path d="M8 46 C14 26 26 14 46 8" stroke="#89977F" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse cx="22" cy="20" rx="6" ry="3" transform="rotate(-35 22 20)" fill="#B9A0D5" fill-opacity="0.55"/>
+        <ellipse cx="33" cy="13" rx="5" ry="2.5" transform="rotate(-25 33 13)" fill="#D9A9BD" fill-opacity="0.6"/>
+        <ellipse cx="15" cy="32" rx="5.5" ry="2.8" transform="rotate(-55 15 32)" fill="#89977F" fill-opacity="0.5"/>
+      </svg>
+      <svg class="welcome-Arch-corner top-left" width="54" height="54" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <path d="M8 46 C14 26 26 14 46 8" stroke="#89977F" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse cx="22" cy="20" rx="6" ry="3" transform="rotate(-35 22 20)" fill="#B9A0D5" fill-opacity="0.55"/>
+        <ellipse cx="33" cy="13" rx="5" ry="2.5" transform="rotate(-25 33 13)" fill="#D9A9BD" fill-opacity="0.6"/>
+        <ellipse cx="15" cy="32" rx="5.5" ry="2.8" transform="rotate(-55 15 32)" fill="#89977F" fill-opacity="0.5"/>
+      </svg>
+
+      <span class="editorial-tag">A Little World for Haniyeh</span>
+
+      <!-- Large Centerpiece Illustrated Lilac Rose -->
+      <div class="hero-rose-stage" id="hero-rose-interactive" role="button" tabindex="0" aria-label="رز یاسی هانیه - لمس برای شکوفایی گلبرگ">
+        <div class="hero-rose-aura"></div>
+        <svg class="hero-rose-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stem & Botanical Leaves -->
+          <path d="M100 132 C98 162 101 188 103 212" stroke="url(#stem-green-grad)" stroke-width="4.5" stroke-linecap="round" />
+          <!-- Left Botanical Leaf Branch -->
+          <path d="M99 166 C72 162 52 145 57 129 C73 131 90 146 99 166 Z" fill="url(#stem-green-grad)" />
+          <path d="M99 166 C82 154 68 142 59 131" stroke="#FFF9F5" stroke-width="1" stroke-opacity="0.65" />
+          <path d="M76 148 C68 153 58 152 52 147 C58 142 68 143 76 148 Z" fill="#89977F" />
+          <!-- Right Botanical Leaf Branch -->
+          <path d="M101 178 C128 173 148 155 142 139 C126 141 110 157 101 178 Z" fill="url(#stem-green-grad)" />
+          <path d="M101 178 C118 164 130 153 140 141" stroke="#FFF9F5" stroke-width="1" stroke-opacity="0.65" />
+
+          <!-- Outer Soft Guard Petals -->
+          <path d="M100 132 C54 132 32 94 52 62 C68 42 92 54 100 72 Z" fill="url(#lilac-mid-grad)" opacity="0.92" />
+          <path d="M100 132 C146 132 168 94 148 62 C132 42 108 54 100 72 Z" fill="url(#lilac-mid-grad)" opacity="0.92" />
+          <path d="M100 134 C65 142 40 112 48 82 C60 62 85 74 100 96 Z" fill="url(#dusty-rose-grad)" opacity="0.88" />
+          <path d="M100 134 C135 142 160 112 152 82 C140 62 115 74 100 96 Z" fill="url(#dusty-rose-grad)" opacity="0.88" />
+
+          <!-- Back Crown Petals -->
+          <path d="M64 66 C66 34 134 34 136 66 C126 88 74 88 64 66 Z" fill="url(#lilac-soft-grad)" />
+          <path d="M54 84 C48 52 88 36 104 58 C100 84 72 98 54 84 Z" fill="url(#lilac-soft-grad)" opacity="0.95" />
+          <path d="M146 84 C152 52 112 36 96 58 C100 84 128 98 146 84 Z" fill="url(#lilac-soft-grad)" opacity="0.95" />
+
+          <!-- Mid Sculpted Velvet Petals -->
+          <path d="M100 126 C68 122 56 88 74 66 C88 52 112 52 126 66 C144 88 132 122 100 126 Z" fill="url(#lilac-deep-grad)" />
+          <path d="M62 94 C60 66 90 54 102 72 C108 94 82 114 62 94 Z" fill="url(#lilac-mid-grad)" />
+          <path d="M138 94 C140 66 110 54 98 72 C92 94 118 114 138 94 Z" fill="url(#lilac-mid-grad)" />
+
+          <!-- Inner Spiraling Rosebud Heart -->
+          <ellipse cx="100" cy="82" rx="28" ry="22" fill="url(#rose-heart-glow)" />
+          <path d="M78 84 C76 66 102 58 114 70 C122 80 110 98 94 96 C82 94 79 88 78 84 Z" fill="url(#lilac-soft-grad)" />
+          <path d="M86 80 C88 68 108 66 112 76 C115 84 102 92 92 88 C86 85 85 82 86 80 Z" fill="url(#dusty-rose-grad)" />
+          <path d="M93 78 C95 72 105 72 107 77 C108 82 100 85 95 82 Z" fill="#FFF9F5" opacity="0.9" />
+
+          <!-- Delicate Vein Highlights & Dewdrops -->
+          <path d="M62 94 C74 108 94 118 100 126 C106 118 126 108 138 94" stroke="#FFF9F5" stroke-width="1.1" stroke-opacity="0.65" fill="none" />
+          <path d="M74 66 C88 56 112 56 126 66" stroke="#FFF9F5" stroke-width="1" stroke-opacity="0.7" fill="none" />
+          <circle cx="132" cy="76" r="2.5" fill="#FFF9F5" opacity="0.85" />
+          <circle cx="67" cy="102" r="2" fill="#FFF9F5" opacity="0.75" />
+
+          <!-- Sepals Embracing the Base -->
+          <path d="M78 126 Q100 140 122 126 Q110 135 100 136 Q90 135 78 126 Z" fill="#6E7D64" />
+        </svg>
+      </div>
+
+      <h1 class="welcome-title">«برای هانیه، قشنگ‌ترین دخترِ دنیای من»</h1>
+      <p class="welcome-subtitle">«یه گوشه کوچیک از دنیا رو فقط برای لبخند تو ساختم...»</p>
+
+      <button type="button" class="primary-gift-btn" id="enter-garden-btn">
+        <span>بیا یه کم حال دلت رو خوب کنیم ♡</span>
+      </button>
+
+      <div class="scroll-whisper">
+        <span>هر وقت آماده بودی، درِ باغچه رو باز کن</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN WORLD EXPERIENCE
+       ========================================================================== -->
+  <main class="main-world" id="main-world">
+
+    <!-- ========================================================================
+         2. THE LITTLE GARDEN (INTERACTIVE VIRTUAL LILAC ROSE GARDEN)
+         ======================================================================== -->
+    <section class="section-block reveal-on-scroll" id="section-garden" aria-labelledby="garden-heading">
+      <div class="section-header">
+        <span class="section-eyebrow">The Lilac Rose Sanctuary</span>
+        <h2 class="section-title" id="garden-heading">باغچه کوچک رزهای یاسی تو</h2>
+        <p class="section-desc">
+          هر کدوم از این غنچه‌ها یه حرفِ آروم برای تو دارن. روی هر رز یاسی بزن تا شکوفا بشه و پیامش رو ببینی...
+        </p>
+      </div>
+
+      <div class="garden-sanctuary">
+        <div class="garden-top-bar">
+          <div class="garden-status-pill">
+            <span class="status-dot"></span>
+            <span id="bloom-counter-text">رزهای شکوفاشده: ۱ از ۶</span>
+          </div>
+          <button type="button" class="bloom-all-btn" id="bloom-all-btn">
+            شکوفا کردن همه غنچه‌ها ✿
+          </button>
+        </div>
+
+        <!-- Active Rose Message Display -->
+        <div class="garden-whisper-stage" id="garden-whisper-stage" aria-live="polite">
+          <span class="garden-whisper-label" id="garden-whisper-label">پیامِ رزِ یاسی اول</span>
+          <p class="garden-whisper-text" id="garden-whisper-text">
+            «تو حتی توی روزای سختت هم برای من عزیزی.»
+          </p>
+        </div>
+
+        <!-- 6 Interactive Lilac Roses in Different Stages of Blooming -->
+        <div class="roses-meadow" id="roses-meadow">
+          <!-- Rose 1 (Starts bloomed as warm invitation) -->
+          <div class="rose-plot bloomed active-rose" role="button" tabindex="0" data-index="0" aria-label="رز یاسی اول">
+            <span class="rose-stage-badge">شکوفا شده</span>
+            <svg class="garden-rose-svg" viewBox="0 0 120 150">
+              <circle class="bloom-glow" cx="60" cy="54" r="36" fill="url(#rose-heart-glow)" opacity="0.5" />
+              <use href="#botanical-stem-leaves" />
+              <path class="outer-petal-left" d="M60 84 C32 84 20 58 34 38 C44 26 56 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="outer-petal-right" d="M60 84 C88 84 100 58 86 38 C76 26 64 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="mid-petal-left" d="M60 84 C38 88 26 68 32 50 C40 36 52 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <path class="mid-petal-right" d="M60 84 C82 88 94 68 88 50 C80 36 68 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <g class="crown-petals">
+                <path d="M38 42 C40 20 80 20 82 42 C76 58 44 58 38 42 Z" fill="url(#lilac-soft-grad)" />
+                <ellipse cx="60" cy="48" rx="17" ry="13" fill="url(#rose-heart-glow)" />
+                <path d="M48 48 C48 36 66 34 70 42 C74 50 62 58 53 54 Z" fill="url(#lilac-soft-grad)" />
+                <circle cx="60" cy="46" r="4" fill="#FFF9F5" opacity="0.85" />
+              </g>
+              <path d="M60 82 C42 78 36 58 46 44 C54 35 66 35 74 44 C84 58 78 78 60 82 Z" fill="url(#lilac-deep-grad)" opacity="0.92" />
+              <path d="M48 52 C50 42 66 40 70 48 C72 55 62 62 54 58 Z" fill="url(#lilac-soft-grad)" />
+            </svg>
+            <span class="rose-caption">رزِ آرامش</span>
+          </div>
+
+          <!-- Rose 2 -->
+          <div class="rose-plot" role="button" tabindex="0" data-index="1" aria-label="رز یاسی دوم">
+            <span class="rose-stage-badge">غنچه یاسی</span>
+            <svg class="garden-rose-svg" viewBox="0 0 120 150">
+              <circle class="bloom-glow" cx="60" cy="54" r="36" fill="url(#rose-heart-glow)" opacity="0.5" />
+              <use href="#botanical-stem-leaves" />
+              <path class="outer-petal-left" d="M60 84 C32 84 20 58 34 38 C44 26 56 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="outer-petal-right" d="M60 84 C88 84 100 58 86 38 C76 26 64 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="mid-petal-left" d="M60 84 C38 88 26 68 32 50 C40 36 52 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <path class="mid-petal-right" d="M60 84 C82 88 94 68 88 50 C80 36 68 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <g class="crown-petals">
+                <path d="M38 42 C40 20 80 20 82 42 C76 58 44 58 38 42 Z" fill="url(#lilac-soft-grad)" />
+                <ellipse cx="60" cy="48" rx="17" ry="13" fill="url(#rose-heart-glow)" />
+                <circle cx="60" cy="46" r="4" fill="#FFF9F5" opacity="0.85" />
+              </g>
+              <path d="M60 82 C42 78 36 58 46 44 C54 35 66 35 74 44 C84 58 78 78 60 82 Z" fill="url(#lilac-deep-grad)" opacity="0.92" />
+              <path d="M48 52 C50 42 66 40 70 48 C72 55 62 62 54 58 Z" fill="url(#lilac-soft-grad)" />
+            </svg>
+            <span class="rose-caption">رزِ مهربانی</span>
+          </div>
+
+          <!-- Rose 3 -->
+          <div class="rose-plot" role="button" tabindex="0" data-index="2" aria-label="رز یاسی سوم">
+            <span class="rose-stage-badge">نیمه‌شکوفا</span>
+            <svg class="garden-rose-svg" viewBox="0 0 120 150">
+              <circle class="bloom-glow" cx="60" cy="54" r="36" fill="url(#rose-heart-glow)" opacity="0.5" />
+              <use href="#botanical-stem-leaves" />
+              <path class="outer-petal-left" d="M60 84 C32 84 20 58 34 38 C44 26 56 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="outer-petal-right" d="M60 84 C88 84 100 58 86 38 C76 26 64 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="mid-petal-left" d="M60 84 C38 88 26 68 32 50 C40 36 52 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <path class="mid-petal-right" d="M60 84 C82 88 94 68 88 50 C80 36 68 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <g class="crown-petals">
+                <path d="M38 42 C40 20 80 20 82 42 C76 58 44 58 38 42 Z" fill="url(#lilac-soft-grad)" />
+                <ellipse cx="60" cy="48" rx="17" ry="13" fill="url(#rose-heart-glow)" />
+                <circle cx="60" cy="46" r="4" fill="#FFF9F5" opacity="0.85" />
+              </g>
+              <path d="M60 82 C42 78 36 58 46 44 C54 35 66 35 74 44 C84 58 78 78 60 82 Z" fill="url(#lilac-deep-grad)" opacity="0.92" />
+              <path d="M48 52 C50 42 66 40 70 48 C72 55 62 62 54 58 Z" fill="url(#lilac-soft-grad)" />
+            </svg>
+            <span class="rose-caption">رزِ اصالت</span>
+          </div>
+
+          <!-- Rose 4 -->
+          <div class="rose-plot" role="button" tabindex="0" data-index="3" aria-label="رز یاسی چهارم">
+            <span class="rose-stage-badge">غنچه یاسی</span>
+            <svg class="garden-rose-svg" viewBox="0 0 120 150">
+              <circle class="bloom-glow" cx="60" cy="54" r="36" fill="url(#rose-heart-glow)" opacity="0.5" />
+              <use href="#botanical-stem-leaves" />
+              <path class="outer-petal-left" d="M60 84 C32 84 20 58 34 38 C44 26 56 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="outer-petal-right" d="M60 84 C88 84 100 58 86 38 C76 26 64 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="mid-petal-left" d="M60 84 C38 88 26 68 32 50 C40 36 52 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <path class="mid-petal-right" d="M60 84 C82 88 94 68 88 50 C80 36 68 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <g class="crown-petals">
+                <path d="M38 42 C40 20 80 20 82 42 C76 58 44 58 38 42 Z" fill="url(#lilac-soft-grad)" />
+                <ellipse cx="60" cy="48" rx="17" ry="13" fill="url(#rose-heart-glow)" />
+                <circle cx="60" cy="46" r="4" fill="#FFF9F5" opacity="0.85" />
+              </g>
+              <path d="M60 82 C42 78 36 58 46 44 C54 35 66 35 74 44 C84 58 78 78 60 82 Z" fill="url(#lilac-deep-grad)" opacity="0.92" />
+              <path d="M48 52 C50 42 66 40 70 48 C72 55 62 62 54 58 Z" fill="url(#lilac-soft-grad)" />
+            </svg>
+            <span class="rose-caption">رزِ دلگرمی</span>
+          </div>
+
+          <!-- Rose 5 -->
+          <div class="rose-plot" role="button" tabindex="0" data-index="4" aria-label="رز یاسی پنجم">
+            <span class="rose-stage-badge">نیمه‌شکوفا</span>
+            <svg class="garden-rose-svg" viewBox="0 0 120 150">
+              <circle class="bloom-glow" cx="60" cy="54" r="36" fill="url(#rose-heart-glow)" opacity="0.5" />
+              <use href="#botanical-stem-leaves" />
+              <path class="outer-petal-left" d="M60 84 C32 84 20 58 34 38 C44 26 56 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="outer-petal-right" d="M60 84 C88 84 100 58 86 38 C76 26 64 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="mid-petal-left" d="M60 84 C38 88 26 68 32 50 C40 36 52 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <path class="mid-petal-right" d="M60 84 C82 88 94 68 88 50 C80 36 68 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <g class="crown-petals">
+                <path d="M38 42 C40 20 80 20 82 42 C76 58 44 58 38 42 Z" fill="url(#lilac-soft-grad)" />
+                <ellipse cx="60" cy="48" rx="17" ry="13" fill="url(#rose-heart-glow)" />
+                <circle cx="60" cy="46" r="4" fill="#FFF9F5" opacity="0.85" />
+              </g>
+              <path d="M60 82 C42 78 36 58 46 44 C54 35 66 35 74 44 C84 58 78 78 60 82 Z" fill="url(#lilac-deep-grad)" opacity="0.92" />
+              <path d="M48 52 C50 42 66 40 70 48 C72 55 62 62 54 58 Z" fill="url(#lilac-soft-grad)" />
+            </svg>
+            <span class="rose-caption">رزِ لبخند</span>
+          </div>
+
+          <!-- Rose 6 -->
+          <div class="rose-plot" role="button" tabindex="0" data-index="5" aria-label="رز یاسی ششم">
+            <span class="rose-stage-badge">غنچه یاسی</span>
+            <svg class="garden-rose-svg" viewBox="0 0 120 150">
+              <circle class="bloom-glow" cx="60" cy="54" r="36" fill="url(#rose-heart-glow)" opacity="0.5" />
+              <use href="#botanical-stem-leaves" />
+              <path class="outer-petal-left" d="M60 84 C32 84 20 58 34 38 C44 26 56 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="outer-petal-right" d="M60 84 C88 84 100 58 86 38 C76 26 64 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path class="mid-petal-left" d="M60 84 C38 88 26 68 32 50 C40 36 52 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <path class="mid-petal-right" d="M60 84 C82 88 94 68 88 50 C80 36 68 44 60 60 Z" fill="url(#dusty-rose-grad)" />
+              <g class="crown-petals">
+                <path d="M38 42 C40 20 80 20 82 42 C76 58 44 58 38 42 Z" fill="url(#lilac-soft-grad)" />
+                <ellipse cx="60" cy="48" rx="17" ry="13" fill="url(#rose-heart-glow)" />
+                <circle cx="60" cy="46" r="4" fill="#FFF9F5" opacity="0.85" />
+              </g>
+              <path d="M60 82 C42 78 36 58 46 44 C54 35 66 35 74 44 C84 58 78 78 60 82 Z" fill="url(#lilac-deep-grad)" opacity="0.92" />
+              <path d="M48 52 C50 42 66 40 70 48 C72 55 62 62 54 58 Z" fill="url(#lilac-soft-grad)" />
+            </svg>
+            <span class="rose-caption">رزِ قدردانی</span>
+          </div>
+        </div>
+
+        <!-- Small Interactive Botanical Details -->
+        <div class="botanical-curiosities">
+          <button type="button" class="curiosity-chip" data-curiosity="dew">
+            <span>💧</span>
+            <span>شبنمِ صبحگاهی روی گلبرگ</span>
+          </button>
+          <button type="button" class="curiosity-chip" data-curiosity="scent">
+            <span>🌿</span>
+            <span>عطرِ لوندر و رزِ بارون‌خورده</span>
+          </button>
+          <button type="button" class="curiosity-chip" data-curiosity="butterfly">
+            <span>🦋</span>
+            <span>پروانه‌ی کوچکِ باغچه</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Botanical Divider -->
+    <div class="botanical-divider" aria-hidden="true">
+      <svg viewBox="0 0 200 32" fill="none">
+        <path d="M10 16 H82" stroke="#B9A0D5" stroke-width="1" stroke-linecap="round"/>
+        <path d="M118 16 H190" stroke="#B9A0D5" stroke-width="1" stroke-linecap="round"/>
+        <circle cx="100" cy="16" r="5" fill="#B9A0D5" />
+        <ellipse cx="90" cy="16" rx="5" ry="2.5" fill="#89977F" opacity="0.7"/>
+        <ellipse cx="110" cy="16" rx="5" ry="2.5" fill="#89977F" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <!-- ========================================================================
+         3. A LITTLE MOOD CORNER
+         ======================================================================== -->
+    <section class="section-block reveal-on-scroll" id="section-mood" aria-labelledby="mood-heading">
+      <div class="section-header">
+        <span class="section-eyebrow">A Safe Corner for Your Heart</span>
+        <h2 class="section-title" id="mood-heading">«الان دلت چی می‌خواد، هانیه؟»</h2>
+        <p class="section-desc">
+          هر حالی که الان داری کاملاً محترمه. یکی از گزینه‌های زیر رو انتخاب کن تا کنار هم باشیم:
+        </p>
+      </div>
+
+      <div class="mood-corner-wrap">
+        <div class="mood-options-grid" role="tablist" aria-label="انتخاب حالِ دل">
+          <button type="button" class="mood-choice-btn selected" role="tab" aria-selected="true" data-mood="sad">
+            <span>«یه کم دلم گرفته»</span>
+            <span class="mood-choice-icon" aria-hidden="true">🌧️</span>
+          </button>
+
+          <button type="button" class="mood-choice-btn" role="tab" aria-selected="false" data-mood="tired">
+            <span>«حوصله هیچ‌چیزی رو ندارم»</span>
+            <span class="mood-choice-icon" aria-hidden="true">🍵</span>
+          </button>
+
+          <button type="button" class="mood-choice-btn" role="tab" aria-selected="false" data-mood="smile">
+            <span>«دلم یه لبخند می‌خواد»</span>
+            <span class="mood-choice-icon" aria-hidden="true">🌸</span>
+          </button>
+
+          <button type="button" class="mood-choice-btn" role="tab" aria-selected="false" data-mood="care">
+            <span>«فقط می‌خوام یکی حواسش بهم باشه»</span>
+            <span class="mood-choice-icon" aria-hidden="true">🤍</span>
+          </button>
+        </div>
+
+        <div class="mood-response-card" id="mood-response-card" aria-live="polite">
+          <div class="mood-response-header" id="mood-response-title">
+            <span>بیا اینجا، لازم نیست چیزی رو توضیح بدی...</span>
+          </div>
+          <p class="mood-response-body" id="mood-response-body">
+            هانیه قشنگم، اشکالی نداره اگه امروز دلت ابریه و سنگینه. اصلاً قرار نیست عجله کنی تا زود خوب بشی یا به خودت فشار بیاری. بعضی وقتا دلِ آدم فقط یه گوشه‌ی امن و بی‌سروصدا می‌خواد تا آروم بگیره. من از همین راه دور، بی‌هیچ سوالی و با تمام وجودم کنارت نشستم تا هر وقت که خودت خواستی، کم‌کم آفتاب بزنه.
+          </p>
+          <div class="mood-comfort-footer">
+            <span id="mood-whisper-note">یادآوری کوچک: تو توی ابری‌ترین روزهات هم بی‌نهایت دوست‌داشتنی هستی.</span>
+            <button type="button" class="breath-trigger-btn" id="open-breath-btn">
+              یه نفسِ عمیق با هم بکشیم ✿
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Botanical Divider -->
+    <div class="botanical-divider" aria-hidden="true">
+      <svg viewBox="0 0 200 32" fill="none">
+        <path d="M10 16 H82" stroke="#B9A0D5" stroke-width="1" stroke-linecap="round"/>
+        <path d="M118 16 H190" stroke="#B9A0D5" stroke-width="1" stroke-linecap="round"/>
+        <circle cx="100" cy="16" r="5" fill="#D9A9BD" />
+        <ellipse cx="90" cy="16" rx="5" ry="2.5" fill="#89977F" opacity="0.7"/>
+        <ellipse cx="110" cy="16" rx="5" ry="2.5" fill="#89977F" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <!-- ========================================================================
+         4. A MESSAGE JUST FOR YOU (PERSONAL LETTER)
+         ======================================================================== -->
+    <section class="section-block reveal-on-scroll" id="section-letter" aria-labelledby="letter-heading-title">
+      <div class="section-header">
+        <span class="section-eyebrow">A Keepsake Letter for You</span>
+      </div>
+
+      <div class="letter-stage">
+        <article class="artisanal-letter">
+          <div class="letter-top-ornament">
+            <span class="letter-date-note">For Haniyeh, Always</span>
+            <!-- Pressed Lilac Sprig Illustration -->
+            <svg width="76" height="32" viewBox="0 0 76 32" fill="none" aria-hidden="true">
+              <path d="M6 22 Q38 14 70 10" stroke="#89977F" stroke-width="1.3" stroke-linecap="round"/>
+              <ellipse cx="22" cy="15" rx="5.5" ry="2.8" transform="rotate(-25 22 15)" fill="#B9A0D5"/>
+              <ellipse cx="36" cy="12" rx="5.5" ry="2.8" transform="rotate(-20 36 12)" fill="#D9A9BD"/>
+              <ellipse cx="50" cy="10" rx="5" ry="2.6" transform="rotate(-15 50 10)" fill="#B9A0D5"/>
+              <ellipse cx="30" cy="21" rx="5" ry="2.4" transform="rotate(20 30 21)" fill="#89977F" opacity="0.8"/>
+              <ellipse cx="46" cy="18" rx="5" ry="2.4" transform="rotate(15 46 18)" fill="#89977F" opacity="0.8"/>
+            </svg>
+          </div>
+
+          <h2 class="letter-heading" id="letter-heading-title">«یه چیزی هست که می‌خوام یادت بمونه...»</h2>
+
+          <p class="letter-paragraph">
+            «هانیه جان، می‌دونم همیشه همه روزا اون‌طوری که دلمون می‌خواد پیش نمی‌رن. بعضی روزا آدم فقط خسته‌ست و دلش می‌خواد هیچ کاری نکنه. اما می‌خوام بدونی <span class="letter-highlight">برای دوست‌داشتنی بودن لازم نیست همیشه بخندی، همیشه پرانرژی باشی یا حال همه‌چیز رو خوب کنی.</span> تو با تمام حال‌های مختلفت عزیزی. حتی وقتی حوصله نداری، حتی وقتی خسته‌ای. از همین فاصله هم حواسم بهته و دوست دارم بدونی یکی هست که لبخندت براش خیلی ارزشمنده.»
+          </p>
+
+          <div class="letter-footer">
+            <button type="button" class="wax-seal-btn" id="wax-seal-btn" title="لمس مهرِ نامه برای پخش گلبرگ">
+              <span>H ♡</span>
+            </button>
+            <div class="letter-signoff">
+              <span>نوشته‌شده با تمامِ مهر برای تو</span>
+              <strong>With Love &amp; Lilac Roses</strong>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Botanical Divider -->
+    <div class="botanical-divider" aria-hidden="true">
+      <svg viewBox="0 0 200 32" fill="none">
+        <path d="M10 16 H82" stroke="#B9A0D5" stroke-width="1" stroke-linecap="round"/>
+        <path d="M118 16 H190" stroke="#B9A0D5" stroke-width="1" stroke-linecap="round"/>
+        <circle cx="100" cy="16" r="5" fill="#B9A0D5" />
+        <ellipse cx="90" cy="16" rx="5" ry="2.5" fill="#89977F" opacity="0.7"/>
+        <ellipse cx="110" cy="16" rx="5" ry="2.5" fill="#89977F" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <!-- ========================================================================
+         5. LITTLE SURPRISES
+         ======================================================================== -->
+    <section class="section-block reveal-on-scroll" id="section-surprises" aria-labelledby="surprises-heading">
+      <div class="section-header">
+        <span class="section-eyebrow">Three Little Tokens of Joy</span>
+        <h2 class="section-title" id="surprises-heading">سه تا غافلگیریِ کوچیک برای هانیه</h2>
+        <p class="section-desc">
+          هر وقت دلت یه حسِ تازه خواست، روی دکمه‌های زیر بزن تا یه شاخه گل، یه لبخند یا یه آرزوی تازه برات باز بشه.
+        </p>
+      </div>
+
+      <div class="surprises-grid">
+        <!-- Surprise 1: یک رز برای تو -->
+        <div class="surprise-box">
+          <span class="surprise-num">Surprise I</span>
+          <h3 class="surprise-title">یک رز برای تو</h3>
+          <div class="surprise-visual-stage">
+            <svg class="gift-rose-anim" id="surprise-rose-svg" viewBox="0 0 120 140">
+              <circle cx="60" cy="54" r="34" fill="url(#rose-heart-glow)" opacity="0.65" />
+              <use href="#botanical-stem-leaves" />
+              <path d="M60 84 C32 84 20 58 34 38 C44 26 56 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path d="M60 84 C88 84 100 58 86 38 C76 26 64 34 60 46 Z" fill="url(#lilac-mid-grad)" />
+              <path d="M38 42 C40 20 80 20 82 42 C76 58 44 58 38 42 Z" fill="url(#lilac-soft-grad)" />
+              <path d="M60 82 C42 78 36 58 46 44 C54 35 66 35 74 44 C84 58 78 78 60 82 Z" fill="url(#lilac-deep-grad)" />
+              <ellipse cx="60" cy="48" rx="16" ry="12" fill="url(#rose-heart-glow)" />
+              <path d="M48 52 C50 42 66 40 70 48 C72 55 62 62 54 58 Z" fill="url(#lilac-soft-grad)" />
+            </svg>
+            <p class="surprise-message-output" id="surprise-rose-msg">
+              «این شاخه رزِ یاسی رو همین الان، تازه و خوش‌عطر تقدیم می‌کنم به قشنگ‌ترین هانیه‌ی دنیا.»
+            </p>
+          </div>
+          <button type="button" class="surprise-action-btn" id="btn-surprise-rose">
+            <span>یک رز برای تو</span>
+            <span aria-hidden="true">🌷</span>
+          </button>
+        </div>
+
+        <!-- Surprise 2: لبخند کوچولوت -->
+        <div class="surprise-box">
+          <span class="surprise-num">Surprise II</span>
+          <h3 class="surprise-title">لبخند کوچولوت</h3>
+          <div class="surprise-visual-stage">
+            <div class="smile-sparkle-badge" id="smile-badge">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L14.4 8.2L21 9.2L16.2 13.8L17.4 20.4L12 17.2L6.6 20.4L7.8 13.8L3 9.2L9.6 8.2L12 2Z" fill="#D9A9BD" stroke="#70518F" stroke-width="1.3"/>
+              </svg>
+            </div>
+            <p class="surprise-message-output" id="surprise-smile-msg">
+              «آیا می‌دونستی وقتی یه لبخندِ کوچولو می‌زنی، حتی گل‌های یاسی هم به قشنگیِ تو حسودی‌شون می‌شه؟»
+            </p>
+          </div>
+          <button type="button" class="surprise-action-btn" id="btn-surprise-smile">
+            <span>لبخند کوچولوت</span>
+            <span aria-hidden="true">✨</span>
+          </button>
+        </div>
+
+        <!-- Surprise 3: یه آرزوی قشنگ -->
+        <div class="surprise-box">
+          <span class="surprise-num">Surprise III</span>
+          <h3 class="surprise-title">یه آرزوی قشنگ</h3>
+          <div class="surprise-visual-stage">
+            <div class="wish-orb" id="wish-orb">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3C12 7.97 16.03 12 21 12C16.03 12 12 16.03 12 21C12 16.03 7.97 12 3 12C7.97 12 12 7.97 12 3Z" fill="#B9A0D5" stroke="#70518F" stroke-width="1.3"/>
+              </svg>
+            </div>
+            <p class="surprise-message-output" id="surprise-wish-msg">
+              «آرزو می‌کنم امروز یه اتفاقِ کوچیک اما شیرین بیفته که بی‌اختیار لبخند بیاره روی لبت.»
+            </p>
+          </div>
+          <button type="button" class="surprise-action-btn" id="btn-surprise-wish">
+            <span>یه آرزوی قشنگ</span>
+            <span aria-hidden="true">🕊️</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. FINAL EXPERIENCE
+         ======================================================================== -->
+    <footer class="final-sanctuary reveal-on-scroll" id="section-ending">
+      <div class="final-rose-crest" id="final-rose-crest" title="لمس برای باران گلبرگ‌های یاسی">
+        <svg viewBox="0 0 180 190" fill="none">
+          <circle cx="90" cy="80" r="56" fill="url(#rose-heart-glow)" opacity="0.45" />
+          <!-- Floating little petals around the final rose -->
+          <ellipse cx="32" cy="52" rx="7" ry="4" transform="rotate(-28 32 52)" fill="#B9A0D5" opacity="0.75" />
+          <ellipse cx="148" cy="48" rx="6" ry="3.5" transform="rotate(35 148 48)" fill="#D9A9BD" opacity="0.8" />
+          <ellipse cx="26" cy="112" rx="6" ry="3" transform="rotate(18 26 112)" fill="#D9A9BD" opacity="0.7" />
+          <ellipse cx="152" cy="114" rx="7" ry="3.8" transform="rotate(-22 152 114)" fill="#B9A0D5" opacity="0.7" />
+
+          <!-- Stem & Leaves -->
+          <path d="M90 120 Q88 150 92 178" stroke="url(#stem-green-grad)" stroke-width="4" stroke-linecap="round" />
+          <path d="M89 148 C68 144 52 130 56 118 C70 120 82 132 89 148 Z" fill="url(#stem-green-grad)" />
+          <path d="M91 156 C112 152 128 138 124 126 C110 128 98 140 91 156 Z" fill="url(#stem-green-grad)" />
+
+          <!-- Rose Bloom -->
+          <path d="M90 122 C52 122 34 88 50 60 C64 42 84 52 90 68 Z" fill="url(#lilac-mid-grad)" />
+          <path d="M90 122 C128 122 146 88 130 60 C116 42 96 52 90 68 Z" fill="url(#lilac-mid-grad)" />
+          <path d="M58 64 C60 36 120 36 122 64 C114 84 66 84 58 64 Z" fill="url(#lilac-soft-grad)" />
+          <path d="M90 118 C62 114 52 84 68 64 C80 50 100 50 112 64 C128 84 118 114 90 118 Z" fill="url(#lilac-deep-grad)" />
+          <ellipse cx="90" cy="76" rx="24" ry="18" fill="url(#rose-heart-glow)" />
+          <path d="M72 78 C72 62 94 56 102 66 C108 76 96 90 82 86 Z" fill="url(#lilac-soft-grad)" />
+          <path d="M80 74 C82 66 96 64 100 72 C102 78 92 84 84 80 Z" fill="url(#dusty-rose-grad)" />
+          <circle cx="90" cy="73" r="4" fill="#FFF9F5" opacity="0.9" />
+        </svg>
+      </div>
+
+      <p class="final-remember-quote">
+        «اگه امروز فقط یه چیز رو یادت بمونه، اون این باشه که تو خیلی عزیزی.»
+      </p>
+
+      <p class="final-love-line">
+        «با کلی عشق، از راه دور برای تو ♡»
+      </p>
+
+      <div class="final-signature">
+        Haniyeh's Little Garden
+      </div>
+
+      <button type="button" class="petal-shower-btn" id="final-petal-shower-btn">
+        <span>بارانِ گلبرگ‌های یاسی برای هانیه</span>
+        <span aria-hidden="true">🌸</span>
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- Gentle Guided Breathing Overlay (Triggered from Mood Corner) -->
+  <div class="breath-overlay" id="breath-overlay" role="dialog" aria-modal="true" aria-labelledby="breath-modal-title">
+    <div class="breath-modal">
+      <h3 id="breath-modal-title" style="color: var(--violet-deep); margin-bottom: 6px;">یه نفسِ آروم با عطرِ رز یاسی</h3>
+      <p style="font-size: 0.88rem; color: #634F77;">
+        همراه با باز و بسته شدن این گل، آروم نفس بکش و رها کن...
+      </p>
+      <div class="breath-flower-circle" id="breath-cue-text">دمِ آروم...</div>
+      <p style="font-size: 0.82rem; color: var(--green-deep); margin-bottom: 18px;">
+        هیچ عجله‌ای نیست؛ امروز فقط مالِ آرامشِ توئه.
+      </p>
+      <button type="button" class="surprise-action-btn" id="close-breath-btn">
+        <span>حالم یه کم آروم‌تر شد ♡</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Whisper Notification -->
+  <div class="garden-toast" id="garden-toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ======================================================================
+         1. FLOATING LILAC PETALS CANVAS ENGINE
+         ====================================================================== */
+      const canvas = document.getElementById('petals-canvas');
+      const ctx = canvas.getContext('2d');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let petals = [];
+      let burstPetals = [];
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+
+      const petalColors = [
+        'rgba(185, 160, 213, 0.55)', // Soft lavender
+        'rgba(217, 169, 189, 0.52)', // Dusty rose
+        'rgba(234, 224, 246, 0.68)', // Pale lilac
+        'rgba(155, 123, 184, 0.40)', // Deeper lilac
+        'rgba(137, 151, 127, 0.32)'  // Botanical leaf tint
+      ];
+
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+
+      function createPetal(isBurst, startX, startY) {
+        const size = isBurst ? (Math.random() * 8 + 6) : (Math.random() * 7 + 5);
+        return {
+          x: startX !== undefined ? startX : Math.random() * width,
+          y: startY !== undefined ? startY : Math.random() * height,
+          size: size,
+          speedY: isBurst ? (Math.random() * 2.2 - 1.4) : (Math.random() * 0.55 + 0.25),
+          speedX: isBurst ? (Math.random() * 3.6 - 1.8) : (Math.random() * 0.5 - 0.25),
+          gravity: isBurst ? 0.035 : 0,
+          angle: Math.random() * Math.PI * 2,
+          spin: (Math.random() - 0.5) * 0.025,
+          swayAmp: Math.random() * 0.6 + 0.2,
+          swayStep: Math.random() * Math.PI * 2,
+          color: petalColors[Math.floor(Math.random() * petalColors.length)],
+          alpha: isBurst ? 1 : (Math.random() * 0.5 + 0.35),
+          isBurst: Boolean(isBurst)
+        };
+      }
+
+      function initAmbientPetals() {
+        petals = [];
+        const count = width < 600 ? 18 : 28;
+        for (let i = 0; i < count; i++) {
+          petals.push(createPetal(false));
+        }
+      }
+
+      function spawnPetalBurst(originX, originY, count = 18) {
+        if (prefersReducedMotion) return;
+        const cx = originX !== undefined ? originX : width / 2;
+        const cy = originY !== undefined ? originY : height / 2;
+        for (let i = 0; i < count; i++) {
+          burstPetals.push(createPetal(true, cx, cy));
+        }
+      }
+
+      function drawPetalShape(p) {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+
+        ctx.beginPath();
+        ctx.moveTo(0, -p.size);
+        ctx.bezierCurveTo(p.size * 0.9, -p.size * 0.8, p.size * 0.95, p.size * 0.6, 0, p.size);
+        ctx.bezierCurveTo(-p.size * 0.95, p.size * 0.6, -p.size * 0.9, -p.size * 0.8, 0, -p.size);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function animateCanvas() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < petals.length; i++) {
+          const p = petals[i];
+          if (!prefersReducedMotion) {
+            p.swayStep += 0.015;
+            p.y += p.speedY;
+            p.x += p.speedX + Math.sin(p.swayStep) * p.swayAmp;
+            p.angle += p.spin;
+
+            if (p.y > height + 20) {
+              p.y = -15;
+              p.x = Math.random() * width;
+            }
+            if (p.x > width + 20) p.x = -15;
+            if (p.x < -20) p.x = width + 15;
+          }
+          drawPetalShape(p);
+        }
+
+        for (let j = burstPetals.length - 1; j >= 0; j--) {
+          const bp = burstPetals[j];
+          bp.speedY += bp.gravity;
+          bp.x += bp.speedX;
+          bp.y += bp.speedY;
+          bp.angle += bp.spin * 2;
+          bp.alpha -= 0.008;
+
+          if (bp.alpha <= 0 || bp.y > height + 30) {
+            burstPetals.splice(j, 1);
+          } else {
+            drawPetalShape(bp);
+          }
+        }
+
+        if (!prefersReducedMotion) {
+          requestAnimationFrame(animateCanvas);
+        }
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      initAmbientPetals();
+      animateCanvas();
+
+      /* ======================================================================
+         2. TOAST WHISPER HELPER
+         ====================================================================== */
+      const toastEl = document.getElementById('garden-toast');
+      let toastTimer = null;
+
+      function showWhisperToast(message) {
+        toastEl.textContent = message;
+        toastEl.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.remove('show');
+        }, 3600);
+      }
+
+      /* ======================================================================
+         3. OPENING EXPERIENCE & SMOOTH TRANSITION
+         ====================================================================== */
+      const enterBtn = document.getElementById('enter-garden-btn');
+      const mainWorld = document.getElementById('main-world');
+      const topNav = document.getElementById('top-nav');
+      const heroRoseInteractive = document.getElementById('hero-rose-interactive');
+      const breezeTrigger = document.getElementById('breeze-trigger');
+
+      function openGardenExperience(scrollToGarden) {
+        mainWorld.classList.add('entered');
+        topNav.classList.add('visible');
+
+        const rect = enterBtn.getBoundingClientRect();
+        spawnPetalBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 24);
+
+        if (scrollToGarden) {
+          const gardenSection = document.getElementById('section-garden');
+          setTimeout(() => {
+            gardenSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+          }, 120);
+        }
+      }
+
+      // Reveal main world immediately if user scrolls down naturally, or on button click
+      enterBtn.addEventListener('click', () => {
+        openGardenExperience(true);
+      });
+
+      heroRoseInteractive.addEventListener('click', (e) => {
+        spawnPetalBurst(e.clientX || width / 2, e.clientY || height / 3, 20);
+        showWhisperToast('این رزِ یاسی همیشه به افتخار لبخندِ هانیه شکوفاست ♡');
+      });
+
+      heroRoseInteractive.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          heroRoseInteractive.click();
+        }
+      });
+
+      breezeTrigger.addEventListener('click', () => {
+        spawnPetalBurst(width * 0.25, 80, 12);
+        spawnPetalBurst(width * 0.5, 60, 14);
+        spawnPetalBurst(width * 0.75, 80, 12);
+        showWhisperToast('نسیمِ گلبرگ‌های یاسی برای حالِ خوبِ هانیه ✿');
+      });
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 120) {
+          mainWorld.classList.add('entered');
+          topNav.classList.add('visible');
+        }
+      }, { passive: true });
+
+      /* ======================================================================
+         4. THE LITTLE GARDEN (INTERACTIVE BLOOMING ROSES)
+         ====================================================================== */
+      const gardenMessages = [
+        {
+          label: 'پیامِ رزِ آرامش',
+          text: '«تو حتی توی روزای سختت هم برای من عزیزی.»'
+        },
+        {
+          label: 'پیامِ رزِ مهربانی',
+          text: '«لازم نیست همیشه قوی و پرانرژی باشی.»'
+        },
+        {
+          label: 'پیامِ رزِ اصالت',
+          text: '«همین که خودتی، قشنگه.»'
+        },
+        {
+          label: 'پیامِ رزِ دلگرمی',
+          text: '«امیدوارم امروز دلت آروم‌تر از دیروز باشه.»'
+        },
+        {
+          label: 'پیامِ رزِ لبخند',
+          text: '«بودنت مثل عطرِ همین رزهای یاسی، حالِ دنیا رو لطیف‌تر و قشنگ‌تر می‌کنه.»'
+        },
+        {
+          label: 'پیامِ رزِ قدردانی',
+          text: '«هر وقت خسته شدی، یادت باشه اینجا یه نفر همیشه قدردانِ وجودِ قشنگته.»'
+        }
+      ];
+
+      const rosePlots = document.querySelectorAll('.rose-plot');
+      const whisperLabel = document.getElementById('garden-whisper-label');
+      const whisperText = document.getElementById('garden-whisper-text');
+      const bloomCounterText = document.getElementById('bloom-counter-text');
+      const bloomAllBtn = document.getElementById('bloom-all-btn');
+
+      const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+      function toPersianNum(num) {
+        return String(num).replace(/\d/g, d => persianDigits[d]);
+      }
+
+      function updateBloomCounter() {
+        const bloomedCount = document.querySelectorAll('.rose-plot.bloomed').length;
+        bloomCounterText.textContent = `رزهای شکوفاشده: ${toPersianNum(bloomedCount)} از ${toPersianNum(rosePlots.length)}`;
+        if (bloomedCount === rosePlots.length) {
+          bloomAllBtn.textContent = 'همه رزهای باغچه شکوفا شدن ♡';
+        }
+      }
+
+      function activateRose(plot, index, event) {
+        const wasBloomed = plot.classList.contains('bloomed');
+        plot.classList.add('bloomed');
+
+        const badge = plot.querySelector('.rose-stage-badge');
+        if (badge) badge.textContent = 'شکوفا شده';
+
+        rosePlots.forEach(p => p.classList.remove('active-rose'));
+        plot.classList.add('active-rose');
+
+        // Smoothly update message
+        whisperText.style.opacity = '0';
+        whisperText.style.transform = 'translateY(6px)';
+
+        setTimeout(() => {
+          whisperLabel.textContent = gardenMessages[index].label;
+          whisperText.textContent = gardenMessages[index].text;
+          whisperText.style.opacity = '1';
+          whisperText.style.transform = 'translateY(0)';
+        }, 160);
+
+        updateBloomCounter();
+
+        // Release floating petals from the tapped rose
+        const rect = plot.getBoundingClientRect();
+        const cx = (event && event.clientX) ? event.clientX : (rect.left + rect.width / 2);
+        const cy = (event && event.clientY) ? event.clientY : (rect.top + rect.height / 3);
+        spawnPetalBurst(cx, cy, wasBloomed ? 10 : 18);
+      }
+
+      rosePlots.forEach((plot, idx) => {
+        plot.addEventListener('click', (e) => activateRose(plot, idx, e));
+        plot.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activateRose(plot, idx, null);
+          }
+        });
+      });
+
+      bloomAllBtn.addEventListener('click', (e) => {
+        rosePlots.forEach((plot, i) => {
+          setTimeout(() => {
+            plot.classList.add('bloomed');
+            const badge = plot.querySelector('.rose-stage-badge');
+            if (badge) badge.textContent = 'شکوفا شده';
+            const rect = plot.getBoundingClientRect();
+            spawnPetalBurst(rect.left + rect.width / 2, rect.top + 40, 8);
+            updateBloomCounter();
+          }, i * 130);
+        });
+        showWhisperToast('تمام رزهای یاسیِ باغچه به خاطرِ تو شکفتن ✿');
+      });
+
+      // Small Botanical Curiosities inside the garden
+      const curiosityMessages = {
+        dew: 'یه قطره شبنمِ خنک روی گلبرگِ یاسی نشسته تا بهت بگه: امروز با خودت مهربون‌تر باش 💧',
+        scent: 'چشم‌هات رو برای یه لحظه ببند و عطرِ ملایمِ رز یاسی و لوندر رو توی هوا حس کن 🌿',
+        butterfly: 'پروانه‌ی کوچکِ باغچه اومده رو شونه‌ت بشینه و یادت بندازه چقدر برای من عزیزی 🦋'
+      };
+
+      document.querySelectorAll('.curiosity-chip').forEach(chip => {
+        chip.addEventListener('click', (e) => {
+          const key = chip.getAttribute('data-curiosity');
+          showWhisperToast(curiosityMessages[key]);
+          spawnPetalBurst(e.clientX, e.clientY, 10);
+        });
+      });
+
+      /* ======================================================================
+         5. A LITTLE MOOD CORNER
+         ====================================================================== */
+      const moodData = {
+        sad: {
+          title: 'بیا اینجا، لازم نیست چیزی رو توضیح بدی...',
+          body: 'هانیه قشنگم، اشکالی نداره اگه امروز دلت ابریه و سنگینه. اصلاً قرار نیست عجله کنی تا زود خوب بشی یا به خودت فشار بیاری. بعضی وقتا دلِ آدم فقط یه گوشه‌ی امن و بی‌سروصدا می‌خواد تا آروم بگیره. من از همین راه دور، بی‌هیچ سوالی و با تمام وجودم کنارت نشستم تا هر وقت که خودت خواستی، کم‌کم آفتاب بزنه.',
+          note: 'یادآوری کوچک: تو توی ابری‌ترین روزهات هم بی‌نهایت دوست‌داشتنی هستی.'
+        },
+        tired: {
+          title: 'امروز به خودت مرخصیِ کامل بده، دخترِ قشنگم...',
+          body: 'کاملاً حق داری که بعضی روزا باتریِ آدم خالی بشه و حوصله‌ی هیچ کار و هیچ حرفی رو نداشته باشه. اصلاً بابتش حس بدی نداشته باش؛ دنیا هیچ‌جا نمی‌ره. کارها رو بذار کنار، یه نوشیدنیِ گرم برای خودت بریز و بذار ذهنت استراحت کنه. تو حتی وقتی هیچ کاری نمی‌کنی و فقط در حالِ استراحتی، برای من عزیزترین آدمی.',
+          note: 'یادآوری کوچک: استراحت کردن و بی‌حوصله بودن، حقِ طبیعیِ قلبِ مهربونته.'
+        },
+        smile: {
+          title: 'یه لبخندِ مخصوص برای قشنگ‌ترین چشم‌های دنیا 🌸',
+          body: 'می‌دونستی هانیه، هر بار که گوشه‌ی لبت حتی یه کوچولو به لبخند باز می‌شه، انگار یه شاخه رزِ یاسیِ تازه وسطِ قلبِ من جوونه می‌زنه؟ راستش رو بخوای، قشنگیِ لبخندت یه طوریه که آدم دلش می‌خواد کلِ روز بشینه و فقط تماشات کنه. امیدوارم همین الان یه لبخندِ آروم و شیرین اومده باشه روی لبت ♡',
+          note: 'یادآوری کوچک: لبخندِ تو قشنگ‌ترین اتفاقِ دنیای منه.'
+        },
+        care: {
+          title: 'حواسم شش‌دانگ به توئه، هانیه جانم 🤍',
+          body: 'حتی وقتی دوریم، حتی وسطِ شلوغ‌ترین ساعت‌های روز، یه گوشه‌ی امن از ذهن و قلبِ من همیشه پیشِ توئه. حواسم به خستگی‌هات، به تلاش‌هات، به ظرافتِ دلت و به تک‌تکِ لحظه‌هات هست. هیچ‌وقت فکر نکن تنهایی؛ یکی اینجاست که همیشه برات بهترین‌ها رو آرزو می‌کنه و از راهِ دور هم مراقبِ حالِ دلته.',
+          note: 'یادآوری کوچک: تو همیشه توی امن‌ترین جایِ قلبِ منی.'
+        }
+      };
+
+      const moodBtns = document.querySelectorAll('.mood-choice-btn');
+      const moodTitleEl = document.getElementById('mood-response-title');
+      const moodBodyEl = document.getElementById('mood-response-body');
+      const moodNoteEl = document.getElementById('mood-whisper-note');
+      const moodCardEl = document.getElementById('mood-response-card');
+
+      moodBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const key = btn.getAttribute('data-mood');
+          const data = moodData[key];
+          if (!data) return;
+
+          moodBtns.forEach(b => {
+            b.classList.remove('selected');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('selected');
+          btn.setAttribute('aria-selected', 'true');
+
+          moodCardEl.style.opacity = '0.4';
+          moodCardEl.style.transform = 'translateY(6px)';
+
+          setTimeout(() => {
+            moodTitleEl.textContent = data.title;
+            moodBodyEl.textContent = data.body;
+            moodNoteEl.textContent = data.note;
+            moodCardEl.style.opacity = '1';
+            moodCardEl.style.transform = 'translateY(0)';
+          }, 170);
+
+          spawnPetalBurst(e.clientX, e.clientY, 12);
+        });
+      });
+
+      // Guided Breathing Modal inside Mood Corner
+      const openBreathBtn = document.getElementById('open-breath-btn');
+      const closeBreathBtn = document.getElementById('close-breath-btn');
+      const breathOverlay = document.getElementById('breath-overlay');
+      const breathCueText = document.getElementById('breath-cue-text');
+      let breathInterval = null;
+
+      openBreathBtn.addEventListener('click', () => {
+        breathOverlay.classList.add('open');
+        let inhale = true;
+        breathCueText.textContent = 'دمِ آروم...';
+        if (breathInterval) clearInterval(breathInterval);
+        breathInterval = setInterval(() => {
+          inhale = !inhale;
+          breathCueText.textContent = inhale ? 'دمِ آروم...' : 'بازدمِ رها...';
+        }, 4000);
+      });
+
+      closeBreathBtn.addEventListener('click', () => {
+        breathOverlay.classList.remove('open');
+        if (breathInterval) clearInterval(breathInterval);
+        showWhisperToast('عافیتِ جانِ قشنگت باشه هانیه جان ♡');
+      });
+
+      breathOverlay.addEventListener('click', (e) => {
+        if (e.target === breathOverlay) {
+          closeBreathBtn.click();
+        }
+      });
+
+      /* ======================================================================
+         6. LETTER WAX SEAL INTERACTION
+         ====================================================================== */
+      const waxSealBtn = document.getElementById('wax-seal-btn');
+      waxSealBtn.addEventListener('click', (e) => {
+        spawnPetalBurst(e.clientX, e.clientY, 22);
+        showWhisperToast('مهرِ این نامه برای همیشه به نامِ هانیه خورده ♡');
+      });
+
+      /* ======================================================================
+         7. THREE LITTLE SURPRISES
+         ====================================================================== */
+      // Surprise 1: یک رز برای تو
+      const roseDedications = [
+        '«این شاخه رزِ یاسی رو همین الان، تازه و خوش‌عطر تقدیم می‌کنم به قشنگ‌ترین هانیه‌ی دنیا.»',
+        '«یه رزِ یاسیِ دیگه برای دختری که مهربونیِ چشماش از هر گلی توی دنیا لطیف‌تره.»',
+        '«این شاخه گل مالِ توئه؛ بذارش کنارِ دلت تا یادت بمونه چقدر برام باارزشی.»',
+        '«هر گلبرگِ این رز یاسی یه جمله‌ست که می‌گه: مرسی که توی دنیای من هستی هانیه جان.»',
+        '«تقدیم به تو که سلیقه‌ت هم مثلِ رزهای یاسی، خاص، آروم و بی‌نهایت قشنگه ♡»'
+      ];
+      let roseIdx = 0;
+      const btnSurpriseRose = document.getElementById('btn-surprise-rose');
+      const surpriseRoseSvg = document.getElementById('surprise-rose-svg');
+      const surpriseRoseMsg = document.getElementById('surprise-rose-msg');
+
+      btnSurpriseRose.addEventListener('click', (e) => {
+        roseIdx = (roseIdx + 1) % roseDedications.length;
+        surpriseRoseSvg.classList.remove('pop-bloom');
+        void surpriseRoseSvg.offsetWidth;
+        surpriseRoseSvg.classList.add('pop-bloom');
+
+        surpriseRoseMsg.style.opacity = '0';
+        setTimeout(() => {
+          surpriseRoseMsg.textContent = roseDedications[roseIdx];
+          surpriseRoseMsg.style.opacity = '1';
+        }, 160);
+
+        spawnPetalBurst(e.clientX, e.clientY, 16);
+      });
+
+      // Surprise 2: لبخند کوچولوت (Random non-repeating affectionate/playful messages)
+      const smileMessages = [
+        '«آیا می‌دونستی وقتی یه لبخندِ کوچولو می‌زنی، حتی گل‌های یاسی هم به قشنگیِ تو حسودی‌شون می‌شه؟»',
+        '«گزارشِ ویژه از باغچه: امروز هم طبقِ معمول، هانیه قشنگ‌ترین دخترِ کلِ منظومه‌ی شمسی اعلام شد!»',
+        '«راستش رو بگو... الان که این دکمه رو زدی، یه لبخندِ ریز نیومد گوشه‌ی لبت؟ مچت رو گرفتم ♡»',
+        '«اگه لبخندِ تو واحدِ اندازه‌گیری داشت، قطعاً قشنگ‌ترین اتفاقِ قرن می‌شد.»',
+        '«حتی وقتایی که غر می‌زنی یا خسته‌ای هم از نظرِ من بامزه‌ترین و دوست‌داشتنی‌ترین آدمی!»',
+        '«قانونِ اولِ این باغچه: هانیه حق داره هر وقت دلش خواست ناز کنه، استراحت کنه و فقط لبخند بزنه.»',
+        '«یه حقیقتِ علمی: دیدنِ خنده‌ی هانیه مسکنِ فوریِ تمامِ خستگی‌های دنیاست ✨»',
+        '«تو همونی هستی که حتی فکر کردن به اسمش هم حالِ دلِ آدم رو روشن می‌کنه.»'
+      ];
+      let lastSmileIdx = 0;
+      const btnSurpriseSmile = document.getElementById('btn-surprise-smile');
+      const surpriseSmileMsg = document.getElementById('surprise-smile-msg');
+      const smileBadge = document.getElementById('smile-badge');
+
+      btnSurpriseSmile.addEventListener('click', (e) => {
+        let nextIdx;
+        do {
+          nextIdx = Math.floor(Math.random() * smileMessages.length);
+        } while (nextIdx === lastSmileIdx && smileMessages.length > 1);
+        lastSmileIdx = nextIdx;
+
+        smileBadge.style.transform = 'scale(1.22) rotate(18deg)';
+        setTimeout(() => {
+          smileBadge.style.transform = 'scale(1) rotate(0deg)';
+        }, 380);
+
+        surpriseSmileMsg.style.opacity = '0';
+        setTimeout(() => {
+          surpriseSmileMsg.textContent = smileMessages[nextIdx];
+          surpriseSmileMsg.style.opacity = '1';
+        }, 160);
+
+        spawnPetalBurst(e.clientX, e.clientY, 14);
+      });
+
+      // Surprise 3: یه آرزوی قشنگ
+      const lovelyWishes = [
+        '«آرزو می‌کنم امروز یه اتفاقِ کوچیک اما شیرین بیفته که بی‌اختیار لبخند بیاره روی لبت.»',
+        '«آرزو می‌کنم امشب که سرت رو می‌ذاری روی بالش، خیالت راحت و قلبت پر از آرامش باشه.»',
+        '«برات آرزو می‌کنم هر چی که این روزا گوشه‌ی ذهنت رو خسته کرده، مثلِ ابرهای بهاری آروم بگذره و بره.»',
+        '«آرزو می‌کنم همیشه دور و برت پر از حسِ امنیت، مهربونی و آدم‌هایی باشه که قدرِ دلت رو می‌دونن.»',
+        '«برات یه فنجون آرامش، یه دنیا دلخوشی‌های واقعی و کلی روزهای روشنِ پیشِ رو آرزو می‌کنم ♡»',
+        '«آرزو می‌کنم هر آرزوی قشنگی که همین الان توی دلِ خودت داری، به بهترین شکل برات خاطره بشه.»'
+      ];
+      let wishIdx = 0;
+      const btnSurpriseWish = document.getElementById('btn-surprise-wish');
+      const surpriseWishMsg = document.getElementById('surprise-wish-msg');
+      const wishOrb = document.getElementById('wish-orb');
+
+      btnSurpriseWish.addEventListener('click', (e) => {
+        wishIdx = (wishIdx + 1) % lovelyWishes.length;
+
+        wishOrb.style.transform = 'scale(1.25) rotate(-25deg)';
+        setTimeout(() => {
+          wishOrb.style.transform = 'scale(1) rotate(0deg)';
+        }, 420);
+
+        surpriseWishMsg.style.opacity = '0';
+        setTimeout(() => {
+          surpriseWishMsg.textContent = lovelyWishes[wishIdx];
+          surpriseWishMsg.style.opacity = '1';
+        }, 160);
+
+        spawnPetalBurst(e.clientX, e.clientY, 16);
+      });
+
+      /* ======================================================================
+         8. FINAL EXPERIENCE INTERACTIONS & SCROLL REVEAL
+         ====================================================================== */
+      const finalPetalBtn = document.getElementById('final-petal-shower-btn');
+      const finalRoseCrest = document.getElementById('final-rose-crest');
+
+      function triggerGrandPetalShower() {
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            spawnPetalBurst(
+              width * (0.15 + Math.random() * 0.7),
+              height * (0.2 + Math.random() * 0.4),
+              16
+            );
+          }, i * 160);
+        }
+        showWhisperToast('با تمامِ عشق، برای هانیه‌ی عزیزم ♡');
+      }
+
+      finalPetalBtn.addEventListener('click', triggerGrandPetalShower);
+      finalRoseCrest.addEventListener('click', triggerGrandPetalShower);
+
+      // IntersectionObserver for gentle section reveals
+      const revealEls = document.querySelectorAll('.reveal-on-scroll');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(el => observer.observe(el));
+      } else {
+        revealEls.forEach(el => el.classList.add('in-view'));
+      }
+    })();
+  </script>
+</body>
+</html>
