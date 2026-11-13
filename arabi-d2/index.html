@@ -1,0 +1,4778 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="referrer" content="no-referrer" />
+  <title>بازی عربی یاد بگیر | درس دوم نهم — اَلْعُبورُ الْآمِنُ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-navy: #0c1428;
+      --bg-navy-soft: #16213e;
+      --bg-navy-card: #1b2849;
+      --cream: #fcfaf2;
+      --cream-alt: #f4efe3;
+      --ink: #172036;
+      --ink-muted: #51607a;
+      --jade: #059669;
+      --jade-light: #10b981;
+      --jade-bg: #dcfce7;
+      --jade-border: #34d399;
+      --amber: #d97706;
+      --amber-light: #f59e0b;
+      --amber-bg: #fef3c7;
+      --coral: #e11d48;
+      --coral-light: #fb7185;
+      --coral-bg: #ffe4e6;
+      --royal: #2563eb;
+      --royal-light: #3b82f6;
+      --border-soft: #dfd7c6;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow-card: 0 14px 34px rgba(5, 10, 24, 0.32);
+      --shadow-arcade: 0 5px 0 rgba(15, 23, 42, 0.25);
+      --font-main: 'Vazirmatn', 'Tahoma', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-ar: 'Vazirmatn', 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: var(--font-main);
+      background-color: var(--bg-navy);
+      color: var(--cream);
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.14), transparent 36%),
+        radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.14), transparent 38%),
+        radial-gradient(circle at 50% 90%, rgba(37, 99, 235, 0.16), transparent 44%),
+        linear-gradient(160deg, #0b1326 0%, #121d38 55%, #0d162c 100%);
+      background-attachment: fixed;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      touch-action: manipulation;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background-color 0.18s ease, opacity 0.18s ease;
+    }
+
+    button:focus-visible {
+      outline: 3px solid var(--amber-light);
+      outline-offset: 2px;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      transform: none !important;
+    }
+
+    .arabic-text {
+      font-family: var(--font-ar);
+      direction: rtl;
+      unicode-bidi: isolate;
+      line-height: 1.95;
+      letter-spacing: 0;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ================= SPLASH SCREEN ================= */
+    #screen-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(16, 185, 129, 0.2), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.18), transparent 45%),
+        linear-gradient(145deg, #091022 0%, #132040 50%, #0b1328 100%);
+      opacity: 1;
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    #screen-splash.fade-out {
+      opacity: 0;
+      transform: scale(1.02);
+      pointer-events: none;
+    }
+
+    .splash-card {
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(180deg, #fffdf7 0%, #f7f1e3 100%);
+      color: var(--ink);
+      border-radius: 28px;
+      padding: 28px 22px 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 4px rgba(245, 158, 11, 0.28);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: splashPop 0.7s cubic-bezier(0.2, 0.9, 0.25, 1) both;
+    }
+
+    @keyframes splashPop {
+      from { opacity: 0; transform: translateY(18px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .splash-emblem {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 14px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, var(--jade) 0%, #047857 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px rgba(5, 150, 105, 0.35);
+    }
+
+    .splash-title {
+      margin: 0 0 6px;
+      font-size: clamp(1.4rem, 4.5vw, 1.85rem);
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .splash-subtitle {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: var(--amber-bg);
+      color: #92400e;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .credits-box {
+      background: #ffffff;
+      border: 2px solid #e7decb;
+      border-radius: 18px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+      box-shadow: inset 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+
+    .credit-line {
+      font-size: clamp(0.94rem, 3.2vw, 1.04rem);
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.65;
+      padding: 4px 8px;
+      border-radius: 10px;
+    }
+
+    .credit-line:first-child {
+      color: var(--jade);
+      font-weight: 800;
+      background: #ecfdf5;
+    }
+
+    .credit-line:last-child {
+      color: #1d4ed8;
+      background: #eff6ff;
+      font-weight: 800;
+    }
+
+    .splash-timer-wrap {
+      margin-top: 20px;
+    }
+
+    .splash-timer-track {
+      width: 100%;
+      height: 8px;
+      background: #e5dec9;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .splash-timer-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--jade-light), var(--amber-light));
+      border-radius: 999px;
+      animation: splashBar 10s linear forwards;
+    }
+
+    @keyframes splashBar {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+
+    .splash-timer-note {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    /* ================= APP SHELL & HEADER ================= */
+    .app-shell {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 14px 14px 32px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      .app-shell {
+        padding: 22px 24px 40px;
+      }
+    }
+
+    .screen {
+      animation: screenIn 0.28s ease-out both;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes screenIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 253, 247, 0.12);
+      color: var(--cream);
+      border: 1.5px solid rgba(255, 253, 247, 0.24);
+      padding: 9px 14px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      min-height: 44px;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 253, 247, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .btn-back:active {
+      transform: translateY(1px);
+    }
+
+    .btn-sound {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 253, 247, 0.12);
+      color: var(--cream);
+      border: 1.5px solid rgba(255, 253, 247, 0.22);
+      padding: 8px 13px;
+      border-radius: 14px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      min-height: 44px;
+    }
+
+    .btn-sound:hover {
+      background: rgba(255, 253, 247, 0.2);
+    }
+
+    .btn-sound.muted {
+      color: #fda4af;
+      border-color: rgba(251, 113, 133, 0.4);
+    }
+
+    /* ================= MAIN MENU ================= */
+    .menu-header {
+      text-align: center;
+      margin: 4px auto 22px;
+      max-width: 640px;
+    }
+
+    .menu-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.16);
+      border: 1.5px solid rgba(245, 158, 11, 0.45);
+      color: #fcd34d;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .menu-title {
+      margin: 0 0 8px;
+      font-size: clamp(1.55rem, 5vw, 2.35rem);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      color: #fffdf7;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-desc {
+      margin: 0;
+      font-size: clamp(0.88rem, 2.8vw, 1rem);
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .menu-grid {
+      width: 100%;
+      max-width: 540px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 4px 0 12px;
+    }
+
+    @media (min-width: 640px) {
+      .menu-grid {
+        gap: 18px;
+        max-width: 580px;
+      }
+    }
+
+    .game-tile {
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 0 rgba(0, 0, 0, 0.28), 0 18px 30px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.24);
+    }
+
+    .game-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.26), transparent 55%);
+      pointer-events: none;
+    }
+
+    .game-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 0 rgba(0, 0, 0, 0.28), 0 24px 36px rgba(0, 0, 0, 0.36);
+    }
+
+    .game-tile:active {
+      transform: translateY(3px);
+      box-shadow: 0 5px 0 rgba(0, 0, 0, 0.28), 0 10px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .tile-pron {
+      background: linear-gradient(145deg, #0d9488 0%, #059669 100%);
+    }
+
+    .tile-snl {
+      background: linear-gradient(145deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .tile-wazn {
+      background: linear-gradient(145deg, #3b82f6 0%, #1d4ed8 100%);
+    }
+
+    .tile-judge {
+      background: linear-gradient(145deg, #f43f5e 0%, #be123c 100%);
+    }
+
+    .tile-icon {
+      width: clamp(50px, 13vw, 76px);
+      height: clamp(50px, 13vw, 76px);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.25);
+      flex-shrink: 0;
+    }
+
+    .tile-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tile-title {
+      font-size: clamp(1rem, 3.6vw, 1.32rem);
+      font-weight: 900;
+      line-height: 1.3;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+    }
+
+    .tile-meta {
+      font-size: clamp(0.7rem, 2.3vw, 0.82rem);
+      font-weight: 700;
+      background: rgba(15, 23, 42, 0.22);
+      padding: 3px 10px;
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .menu-footer-note {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    /* ================= SHARED CARD & BUTTONS ================= */
+    .arcade-card {
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px;
+      box-shadow: var(--shadow-card), 0 6px 0 #d6cbb5;
+      border: 2px solid #efe7d6;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .arcade-card {
+        padding: 28px 28px;
+      }
+    }
+
+    .intro-card {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .intro-icon-wrap {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 14px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.16);
+    }
+
+    .intro-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .intro-text {
+      margin: 0 auto 18px;
+      max-width: 540px;
+      font-size: clamp(0.95rem, 3vw, 1.06rem);
+      line-height: 1.85;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .intro-tips {
+      background: var(--cream-alt);
+      border: 1.5px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 0 auto 22px;
+      max-width: 540px;
+      text-align: right;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: #475569;
+    }
+
+    .intro-tips strong {
+      color: var(--ink);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(180deg, var(--jade-light) 0%, var(--jade) 100%);
+      color: #ffffff;
+      font-size: 1.04rem;
+      font-weight: 800;
+      padding: 13px 26px;
+      border-radius: 16px;
+      min-height: 50px;
+      box-shadow: 0 5px 0 #047857, 0 10px 20px rgba(5, 150, 105, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #047857, 0 14px 24px rgba(5, 150, 105, 0.34);
+    }
+
+    .btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #047857;
+    }
+
+    .btn-amber {
+      background: linear-gradient(180deg, #fbbf24 0%, var(--amber) 100%);
+      box-shadow: 0 5px 0 #92400e, 0 10px 20px rgba(217, 119, 6, 0.3);
+      color: #fff;
+    }
+
+    .btn-amber:hover {
+      box-shadow: 0 7px 0 #92400e, 0 14px 24px rgba(217, 119, 6, 0.36);
+    }
+
+    .btn-amber:active {
+      box-shadow: 0 2px 0 #92400e;
+    }
+
+    .btn-royal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(180deg, var(--royal-light) 0%, var(--royal) 100%);
+      color: #ffffff;
+      font-size: 0.94rem;
+      font-weight: 800;
+      padding: 11px 18px;
+      border-radius: 14px;
+      min-height: 46px;
+      box-shadow: 0 4px 0 #1e40af;
+    }
+
+    .btn-royal:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #1e40af;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #e2e8f0;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 800;
+      padding: 11px 18px;
+      border-radius: 14px;
+      min-height: 46px;
+      box-shadow: 0 4px 0 #cbd5e1;
+    }
+
+    .btn-secondary:hover {
+      background: #cbd5e1;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #94a3b8;
+    }
+
+    .btn-secondary.speaking {
+      background: #dbeafe;
+      color: #1e40af;
+      box-shadow: 0 4px 0 #93c5fd;
+    }
+
+    .btn-big-arrow {
+      font-size: 1.12rem;
+      padding: 15px 32px;
+      min-height: 56px;
+      border-radius: 18px;
+    }
+
+    .progress-wrap {
+      margin-bottom: 18px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #334155;
+      margin-bottom: 7px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #e7dfd0;
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--jade) 0%, #34d399 100%);
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .feedback-box {
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-top: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: right;
+      animation: fadeSlide 0.22s ease-out both;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-box.success {
+      background: var(--jade-bg);
+      border: 2px solid var(--jade-border);
+      color: #065f46;
+    }
+
+    .feedback-box.error {
+      background: var(--coral-bg);
+      border: 2px solid var(--coral-light);
+      color: #9f1239;
+    }
+
+    .feedback-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .feedback-box.success .feedback-icon {
+      background: var(--jade);
+    }
+
+    .feedback-box.error .feedback-icon {
+      background: var(--coral);
+    }
+
+    .feedback-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .feedback-title {
+      font-weight: 900;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .feedback-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+    /* ================= GAME 1: PRONUNCIATION ================= */
+    .pron-word-stage {
+      background: linear-gradient(180deg, #ffffff 0%, #f5efe2 100%);
+      border: 2px solid #e5dcc9;
+      border-radius: 22px;
+      padding: 24px 16px;
+      text-align: center;
+      margin-bottom: 16px;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .pron-word-stage.state-success {
+      background: #ecfdf5;
+      border-color: var(--jade-light);
+    }
+
+    .pron-word-stage.state-error {
+      background: #fff1f2;
+      border-color: var(--coral-light);
+    }
+
+    .pron-arabic-word {
+      font-size: clamp(2.1rem, 8vw, 3.3rem);
+      font-weight: 900;
+      color: var(--ink);
+      margin: 4px 0 8px;
+      padding: 6px 4px;
+    }
+
+    .pron-meaning {
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #1e293b;
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .pron-phonetic {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      font-weight: 700;
+    }
+
+    .pron-honest-note {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      color: #1e40af;
+      border-radius: 14px;
+      padding: 10px 13px;
+      font-size: 0.82rem;
+      line-height: 1.65;
+      font-weight: 600;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .pron-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mic-btn {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #0ea5e9 0%, #2563eb 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 7px 0 #1d4ed8, 0 14px 26px rgba(37, 99, 235, 0.35);
+      position: relative;
+    }
+
+    .mic-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .mic-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #1d4ed8;
+    }
+
+    .mic-btn.listening {
+      background: linear-gradient(145deg, #f43f5e 0%, #e11d48 100%);
+      box-shadow: 0 6px 0 #9f1239, 0 0 0 10px rgba(244, 63, 94, 0.2);
+      animation: micPulse 1.1s infinite ease-in-out;
+    }
+
+    @keyframes micPulse {
+      0%, 100% { box-shadow: 0 6px 0 #9f1239, 0 0 0 6px rgba(244, 63, 94, 0.25); }
+      50% { box-shadow: 0 6px 0 #9f1239, 0 0 0 16px rgba(244, 63, 94, 0.08); }
+    }
+
+    .mic-status {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #334155;
+      min-height: 24px;
+      text-align: center;
+      line-height: 1.65;
+    }
+
+    .vu-meter {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 6px;
+      height: 34px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1.5px solid #cbd5e1;
+    }
+
+    .vu-bar {
+      width: 7px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #0ea5e9, #059669);
+      transition: height 0.06s ease-out;
+    }
+
+    .heard-pill {
+      display: inline-block;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      color: #0f172a;
+      border-radius: 12px;
+      padding: 6px 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .recorder-review-box {
+      width: 100%;
+      background: #f0f9ff;
+      border: 2px solid #bae6fd;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+      animation: fadeSlide 0.2s ease-out both;
+    }
+
+    .recorder-review-title {
+      font-size: 0.92rem;
+      font-weight: 900;
+      color: #0369a1;
+      margin-bottom: 10px;
+    }
+
+    .pron-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .fallback-panel {
+      width: 100%;
+      background: #fffbeb;
+      border: 2px dashed #f59e0b;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .fallback-title {
+      font-weight: 900;
+      color: #92400e;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .fallback-desc {
+      font-size: 0.84rem;
+      color: #78350f;
+      line-height: 1.75;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .fallback-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-coral {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(180deg, #fb7185 0%, var(--coral) 100%);
+      color: #fff;
+      font-size: 0.94rem;
+      font-weight: 800;
+      padding: 11px 18px;
+      border-radius: 14px;
+      min-height: 46px;
+      box-shadow: 0 4px 0 #9f1239;
+    }
+
+    .btn-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #9f1239;
+    }
+
+    .tts-notice {
+      font-size: 0.82rem;
+      color: #b45309;
+      background: #fef3c7;
+      border: 1.5px solid #fde68a;
+      padding: 8px 13px;
+      border-radius: 12px;
+      font-weight: 700;
+      margin-top: 4px;
+      text-align: center;
+      line-height: 1.65;
+    }
+
+    /* ================= GAME 2: SNAKES & LADDERS ================= */
+    .snl-hud {
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 20px;
+      padding: 12px 14px;
+      margin: 0 auto 14px;
+      width: 100%;
+      max-width: 780px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), 0 4px 0 #d6cbb5;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      align-items: center;
+    }
+
+    @media (min-width: 680px) {
+      .snl-hud {
+        grid-template-columns: 1fr 1fr auto auto;
+        padding: 12px 18px;
+      }
+    }
+
+    .hud-stat {
+      background: var(--cream-alt);
+      border: 1.5px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hud-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+    }
+
+    .hud-value {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .hud-value.score-val {
+      color: var(--jade);
+    }
+
+    .hud-value.timer-val {
+      color: var(--royal);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hud-value.timer-val.urgent {
+      color: var(--coral);
+      animation: pulseText 0.8s infinite;
+    }
+
+    @keyframes pulseText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.55; }
+    }
+
+    .dice-box-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .dice-face {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 2.5px solid #cbd5e1;
+      box-shadow: 0 4px 0 #94a3b8, inset 0 2px 5px rgba(0, 0, 0, 0.05);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      padding: 7px;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+
+    .dice-face.rolling {
+      animation: diceShake 0.45s linear infinite;
+    }
+
+    @keyframes diceShake {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-12deg) scale(1.08); }
+      50% { transform: rotate(8deg) scale(0.96); }
+      75% { transform: rotate(-6deg) scale(1.06); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
+    .dice-pip {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: transparent;
+    }
+
+    .dice-pip.on {
+      background: #1e293b;
+      box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .dice-pip.on.pip-6 {
+      background: var(--amber);
+    }
+
+    .snl-roll-btn {
+      width: 100%;
+      min-height: 50px;
+      font-size: 0.98rem;
+      padding: 10px 18px;
+    }
+
+    .snl-board-card {
+      background: var(--cream);
+      border-radius: 22px;
+      padding: 10px;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 530px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.36), 0 6px 0 #d6cbb5;
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .snl-board-card {
+        padding: 14px;
+      }
+    }
+
+    .snl-status-banner {
+      background: #eef2ff;
+      color: #1e3a8a;
+      border: 1.5px solid #c7d2fe;
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 10px;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .snl-status-banner.good {
+      background: var(--jade-bg);
+      color: #065f46;
+      border-color: var(--jade-border);
+    }
+
+    .snl-status-banner.bad {
+      background: var(--coral-bg);
+      color: #9f1239;
+      border-color: var(--coral-light);
+    }
+
+    .snl-status-banner.gold {
+      background: var(--amber-bg);
+      color: #92400e;
+      border-color: #fbbf24;
+    }
+
+    .snl-board-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 3px solid #94a3b8;
+      background: #ffffff;
+      direction: ltr;
+      user-select: none;
+    }
+
+    .snl-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+      width: 100%;
+      height: 100%;
+    }
+
+    .snl-cell {
+      border: 0.5px solid rgba(148, 163, 184, 0.38);
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 2px 3px;
+      font-size: clamp(0.55rem, 2vw, 0.78rem);
+      font-weight: 800;
+      color: #334155;
+      position: relative;
+    }
+
+    .snl-cell.c0 { background: #fffdf7; }
+    .snl-cell.c1 { background: #eff6ff; }
+    .snl-cell.c2 { background: #ecfdf5; }
+    .snl-cell.c3 { background: #fffbeb; }
+
+    .snl-cell.cell-100 {
+      background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+      color: #78350f;
+    }
+
+    .snl-cell.cell-1 {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      color: #065f46;
+    }
+
+    .snl-svg-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .snl-pawn {
+      position: absolute;
+      width: 7.4%;
+      height: 7.4%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      pointer-events: none;
+      transition: left 0.2s cubic-bezier(0.34, 1.4, 0.64, 1), top 0.2s cubic-bezier(0.34, 1.4, 0.64, 1);
+      filter: drop-shadow(0 3px 4px rgba(15, 23, 42, 0.48));
+    }
+
+    .snl-pawn.sliding {
+      transition: left 0.62s cubic-bezier(0.25, 0.9, 0.3, 1), top 0.62s cubic-bezier(0.25, 0.9, 0.3, 1);
+    }
+
+    .snl-pawn.bounce {
+      animation: pawnHop 0.35s ease;
+    }
+
+    @keyframes pawnHop {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -68%) scale(1.2); }
+    }
+
+    .snl-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 16px;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    /* Snakes & Ladders Question Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(8, 14, 30, 0.76);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      animation: fadeInFast 0.18s ease-out both;
+    }
+
+    @keyframes fadeInFast {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 540px;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 20px 18px;
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.45), 0 0 0 3px rgba(245, 158, 11, 0.4);
+      animation: splashPop 0.24s cubic-bezier(0.2, 0.9, 0.25, 1) both;
+    }
+
+    .modal-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ebe3d2;
+      flex-wrap: wrap;
+    }
+
+    .level-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      background: var(--amber-bg);
+      color: #92400e;
+    }
+
+    .modal-live-stats {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .modal-question-text {
+      font-size: clamp(1.05rem, 3.5vw, 1.24rem);
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.85;
+      margin: 0 0 16px;
+      background: #ffffff;
+      border: 2px solid #e7decb;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .options-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .option-btn {
+      width: 100%;
+      background: #ffffff;
+      color: var(--ink);
+      border: 2px solid #cbd5e1;
+      box-shadow: 0 3px 0 #cbd5e1;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-align: center;
+      min-height: 48px;
+      line-height: 1.6;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--royal-light);
+      background: #eff6ff;
+      transform: translateY(-1px);
+    }
+
+    .option-btn.selected {
+      border-color: var(--royal);
+      background: #dbeafe;
+      color: #1e3a8a;
+      box-shadow: 0 3px 0 var(--royal);
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--jade);
+      background: var(--jade-bg);
+      color: #065f46;
+      box-shadow: 0 3px 0 var(--jade);
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--coral);
+      background: var(--coral-bg);
+      color: #9f1239;
+      box-shadow: 0 3px 0 var(--coral);
+    }
+
+    /* ================= GAME 3: WORD PATTERNS (WAZN) ================= */
+    .wazn-target-box {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 18px 16px;
+      text-align: center;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    .wazn-word {
+      font-size: clamp(2rem, 7vw, 2.8rem);
+      font-weight: 900;
+      margin: 0 0 4px;
+    }
+
+    .wazn-meaning {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .wazn-sections {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 680px) {
+      .wazn-sections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .wazn-part {
+      background: #ffffff;
+      border: 2px solid #e6decb;
+      border-radius: 16px;
+      padding: 12px;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .wazn-part.part-ok {
+      border-color: var(--jade-light);
+      background: #f0fdf4;
+    }
+
+    .wazn-part.part-err {
+      border-color: var(--coral-light);
+      background: #fff1f2;
+    }
+
+    .wazn-part-title {
+      font-size: 0.9rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .wazn-part-badge {
+      font-size: 0.74rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .wazn-part-badge.ok { background: var(--jade-bg); color: #065f46; }
+    .wazn-part-badge.err { background: var(--coral-bg); color: #9f1239; }
+
+    .wazn-choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .wazn-choices.single-col {
+      grid-template-columns: 1fr;
+    }
+
+    .chip-btn {
+      background: var(--cream-alt);
+      color: var(--ink);
+      border: 2px solid #d9d0bd;
+      border-radius: 12px;
+      padding: 9px 10px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      min-height: 44px;
+      text-align: center;
+    }
+
+    .chip-btn:hover:not(:disabled) {
+      border-color: var(--royal-light);
+      background: #eff6ff;
+    }
+
+    .chip-btn.selected {
+      background: #2563eb;
+      color: #fff;
+      border-color: #1d4ed8;
+      box-shadow: 0 3px 0 #1e40af;
+    }
+
+    .chip-btn.true-ans {
+      background: var(--jade);
+      color: #fff;
+      border-color: #047857;
+    }
+
+    .chip-btn.wrong-ans {
+      background: var(--coral);
+      color: #fff;
+      border-color: #be123c;
+    }
+
+    .wazn-actions {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ================= GAME 4: JUDGE (TASHKHIS BEDEH) ================= */
+    .judge-sentence-box {
+      background: linear-gradient(180deg, #ffffff 0%, #f6f1e6 100%);
+      border: 2px solid #e3dac7;
+      border-radius: 20px;
+      padding: 26px 16px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .judge-prompt-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+
+    .judge-sentence {
+      font-size: clamp(1.35rem, 5vw, 1.95rem);
+      font-weight: 900;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .judge-btns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .judge-btn {
+      border-radius: 18px;
+      padding: 16px 12px;
+      font-size: 1.08rem;
+      font-weight: 900;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #fff;
+    }
+
+    .judge-btn-yes {
+      background: linear-gradient(180deg, var(--jade-light) 0%, var(--jade) 100%);
+      box-shadow: 0 5px 0 #047857;
+    }
+
+    .judge-btn-no {
+      background: linear-gradient(180deg, var(--coral-light) 0%, var(--coral) 100%);
+      box-shadow: 0 5px 0 #9f1239;
+    }
+
+    .judge-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .judge-btn:active:not(:disabled) {
+      transform: translateY(3px);
+    }
+
+    /* ================= END / RESULTS SCREEN ================= */
+    .result-card {
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .result-trophy {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.22);
+    }
+
+    .result-trophy.win {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    }
+
+    .result-trophy.lose {
+      background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+    }
+
+    .result-title {
+      margin: 0 0 8px;
+      font-size: clamp(1.4rem, 5vw, 1.9rem);
+      font-weight: 900;
+    }
+
+    .result-sub {
+      margin: 0 auto 20px;
+      max-width: 480px;
+      color: #475569;
+      font-size: 0.96rem;
+      line-height: 1.75;
+      font-weight: 600;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+
+    .stat-tile {
+      background: var(--cream-alt);
+      border: 2px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 12px 10px;
+    }
+
+    .stat-num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .stat-num.good { color: var(--jade); }
+    .stat-num.bad { color: var(--coral); }
+    .stat-num.gold { color: var(--amber); }
+
+    .stat-lbl {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden reusable audio elements for cross-browser TTS & voice playback -->
+  <audio id="tts-audio-player" preload="none" playsinline referrerpolicy="no-referrer"></audio>
+  <audio id="pron-recorded-audio" preload="none" playsinline></audio>
+
+  <!-- ==================== 1. SPLASH / CREDITS SCREEN (10s) ==================== -->
+  <section id="screen-splash" aria-label="صفحه معرفی سازندگان">
+    <div class="splash-card">
+      <div class="splash-emblem" aria-hidden="true">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+          <path d="M9 7h6"/>
+          <path d="M9 11h4"/>
+        </svg>
+      </div>
+      <h1 class="splash-title">بازی عربی یاد بگیر</h1>
+      <div class="splash-subtitle">عربی پایه نهم • درس دوم: العُبورُ الآمِن</div>
+
+      <div class="credits-box">
+        <div class="credit-line">سازنده: آذین منکاوی</div>
+        <div class="credit-line">دبیر: خانم عطایی فر عزیز</div>
+        <div class="credit-line">با سپاس از خانم بهرامی عزیز، مدیر مدرسه</div>
+        <div class="credit-line">مدرسه زینب، منطقه ۶</div>
+      </div>
+
+      <div class="splash-timer-wrap">
+        <div class="splash-timer-track">
+          <div class="splash-timer-fill"></div>
+        </div>
+        <div class="splash-timer-note" id="splash-countdown-note">در حال آماده‌سازی بازی‌ها... (۱۰ ثانیه)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN APPLICATION SHELL ==================== -->
+  <div class="app-shell">
+
+    <!-- ==================== 2. MAIN MENU ==================== -->
+    <main id="screen-menu" class="screen hidden">
+      <div class="topbar">
+        <div style="font-size: 0.85rem; font-weight: 800; color: #94a3b8;">پایه نهم • درس دوم</div>
+        <button type="button" class="btn-sound" id="btn-sound-menu" aria-label="تغییر وضعیت صدا">
+          <span class="sound-icon-slot"></span>
+          <span class="sound-label-slot">صدا روشن</span>
+        </button>
+      </div>
+
+      <header class="menu-header">
+        <div class="menu-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>درس دوم: العُبورُ الآمِن</span>
+        </div>
+        <h1 class="menu-title">بازی عربی یاد بگیر</h1>
+        <p class="menu-desc">یکی از چهار بازی آموزشی زیر را انتخاب کن و مهارت عربی خودت را تقویت کن!</p>
+      </header>
+
+      <nav class="menu-grid" aria-label="فهرست بازی‌ها">
+        <button type="button" class="game-tile tile-pron" data-open-game="pronunciation">
+          <div class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" x2="12" y1="19" y2="22"/>
+            </svg>
+          </div>
+          <div class="tile-title">بازی تلفظ</div>
+          <div class="tile-meta">۲۱ واژه جدید درس</div>
+        </button>
+
+        <button type="button" class="game-tile tile-snl" data-open-game="snakes">
+          <div class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="4"/>
+              <circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/>
+              <circle cx="15.5" cy="8.5" r="1.3" fill="currentColor"/>
+              <circle cx="12" cy="12" r="1.3" fill="currentColor"/>
+              <circle cx="8.5" cy="15.5" r="1.3" fill="currentColor"/>
+              <circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="tile-title">مار و پله</div>
+          <div class="tile-meta">چالش ۶ دقیقه‌ای • ۱۰۰ امتیاز</div>
+        </button>
+
+        <button type="button" class="game-tile tile-wazn" data-open-game="wazn">
+          <div class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+              <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+              <path d="M7 21h10"/>
+              <path d="M12 3v18"/>
+              <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+            </svg>
+          </div>
+          <div class="tile-title">وزن فعل‌ها</div>
+          <div class="tile-meta">حروف اصلی، زائد و وزن</div>
+        </button>
+
+        <button type="button" class="game-tile tile-judge" data-open-game="judge">
+          <div class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <div class="tile-title">تشخیص بده</div>
+          <div class="tile-meta">تناسب ضمیر و فعل</div>
+        </button>
+      </nav>
+
+      <div class="menu-footer-note">منبع آموزشی: کتاب رسمی عربی پایه نهم (درس دوم: العُبورُ الآمِن)</div>
+    </main>
+
+    <!-- ==================== 3. GAME 1: PRONUNCIATION ==================== -->
+    <section id="screen-pronunciation" class="screen hidden" aria-label="بازی تلفظ">
+      <div class="topbar">
+        <button type="button" class="btn-back" data-back-menu>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span>بازگشت به منو</span>
+        </button>
+        <button type="button" class="btn-sound" data-toggle-sound>
+          <span class="sound-icon-slot"></span>
+          <span class="sound-label-slot">صدا روشن</span>
+        </button>
+      </div>
+
+      <!-- Intro -->
+      <div id="pron-intro" class="arcade-card intro-card">
+        <div class="intro-icon-wrap" style="background: linear-gradient(145deg, #0d9488, #059669);">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </svg>
+        </div>
+        <h2 class="intro-title">بازی تلفظ</h2>
+        <p class="intro-text">
+          در این بازی واژه‌های درس دوم عربی را می‌بینی، تلفظ صحیح آن‌ها را می‌شنوی و با میکروفون تمرین می‌کنی. ترتیب کلمات تصادفی است و باید همه ۲۱ واژه را پشت سر بگذاری.
+        </p>
+        <div class="intro-tips">
+          <strong>سازگاری کامل با همه گوشی‌ها و مرورگرها:</strong><br/>
+          • اگر مرورگر از تشخیص گفتار عربی پشتیبانی کند، تلفظت به‌صورت خودکار و با تطبیق آوایی بررسی می‌شود.<br/>
+          • در سایر مرورگرها یا شبکه‌ها (مانند فایرفاکس، مرورگرهای آیفون یا هنگام قطعی سرویس گفتار)، حالت <strong>ضبط واقعی میکروفون و مقایسه صوتی</strong> فعال می‌شود تا صدایت را ضبط کنی و با تلفظ صحیح بسنجی.
+        </div>
+        <button type="button" class="btn-primary btn-big-arrow" id="btn-pron-start">
+          <span>شروع بازی</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        </button>
+      </div>
+
+      <!-- Play -->
+      <div id="pron-play" class="arcade-card hidden">
+        <div class="progress-wrap">
+          <div class="progress-meta">
+            <span id="pron-progress-label">۰ از ۲۱ واژه</span>
+            <span id="pron-attempts-label">تلاش‌ها: ۰</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="pron-progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="pron-honest-note" id="pron-mode-note">
+          بررسی هوشمند تلفظ عربی با میکروفون
+        </div>
+
+        <div class="pron-word-stage" id="pron-stage">
+          <div style="font-size: 0.8rem; font-weight: 800; color: #64748b;">این واژه را با صدای بلند بخوان:</div>
+          <div class="pron-arabic-word arabic-text" id="pron-word-ar">آمَنَ</div>
+          <div class="pron-meaning" id="pron-word-fa">ایمان آورد</div>
+          <div class="pron-phonetic" id="pron-word-phonetic">تلفظ راهنما: آ مَ نَ</div>
+        </div>
+
+        <div class="pron-controls">
+          <div id="pron-speech-controls" class="pron-controls" style="width: 100%;">
+            <button type="button" class="mic-btn" id="btn-pron-mic" aria-label="شروع ضبط تلفظ">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" x2="12" y1="19" y2="22"/>
+              </svg>
+            </button>
+
+            <div id="pron-vu-meter" class="vu-meter hidden" aria-hidden="true">
+              <span class="vu-bar"></span>
+              <span class="vu-bar"></span>
+              <span class="vu-bar"></span>
+              <span class="vu-bar"></span>
+              <span class="vu-bar"></span>
+            </div>
+
+            <div id="pron-heard-box" class="heard-pill hidden"></div>
+            <div class="mic-status" id="pron-mic-status">برای تلفظ، دکمه میکروفون را لمس کن</div>
+
+            <div id="pron-recorder-review" class="recorder-review-box hidden">
+              <div class="recorder-review-title" id="pron-recorder-title">صدای تو ضبط شد! حالا با تلفظ صحیح مقایسه کن:</div>
+              <div class="fallback-btns">
+                <button type="button" class="btn-royal hidden" id="btn-pron-play-mine">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>پخش صدای خودم</span>
+                </button>
+                <button type="button" class="btn-primary" id="btn-pron-rec-ok">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>تلفظم درست بود</span>
+                </button>
+                <button type="button" class="btn-coral" id="btn-pron-rec-retry">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                  <span>ضبط دوباره</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="pron-fallback-panel" class="fallback-panel hidden">
+            <div class="fallback-title">تمرین و ارزیابی شخصی (بدون میکروفون)</div>
+            <div class="fallback-desc" id="pron-fallback-reason">
+              ابتدا «پخش تلفظ صحیح» را بشنو، واژه را با صدای بلند بخوان و سپس نتیجه را ثبت کن.
+            </div>
+            <div class="fallback-btns">
+              <button type="button" class="btn-primary" id="btn-pron-self-ok">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>درست تلفظ کردم</span>
+              </button>
+              <button type="button" class="btn-coral" id="btn-pron-self-retry">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>نیاز به تمرین دوباره</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="pron-action-row">
+            <button type="button" class="btn-secondary" id="btn-pron-listen">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              <span id="pron-listen-label">پخش تلفظ صحیح</span>
+            </button>
+            <button type="button" class="btn-secondary" id="btn-pron-toggle-mode">
+              <span>تغییر روش بررسی</span>
+            </button>
+          </div>
+
+          <div id="pron-tts-notice" class="tts-notice hidden"></div>
+        </div>
+
+        <div id="pron-feedback" class="hidden"></div>
+      </div>
+
+      <!-- End -->
+      <div id="pron-end" class="arcade-card result-card hidden">
+        <div class="result-trophy win">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55-.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        </div>
+        <h2 class="result-title">آفرین! تمرین تلفظ کامل شد!</h2>
+        <p class="result-sub">تمام ۲۱ واژه جدید درس دوم را با موفقیت پشت سر گذاشتی.</p>
+        <div class="stats-grid">
+          <div class="stat-tile">
+            <div class="stat-num good" id="pron-stat-words">۲۱</div>
+            <div class="stat-lbl">واژه تمرین‌شده</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num gold" id="pron-stat-attempts">۲۱</div>
+            <div class="stat-lbl">تعداد کل تلاش‌ها</div>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn-primary" id="btn-pron-restart">تمرین دوباره</button>
+          <button type="button" class="btn-amber btn-big-arrow" data-back-menu>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>بازگشت به منوی اصلی</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. GAME 2: SNAKES & LADDERS ==================== -->
+    <section id="screen-snakes" class="screen hidden" aria-label="بازی مار و پله">
+      <div class="topbar">
+        <button type="button" class="btn-back" data-back-menu>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span>بازگشت به منو</span>
+        </button>
+        <button type="button" class="btn-sound" data-toggle-sound>
+          <span class="sound-icon-slot"></span>
+          <span class="sound-label-slot">صدا روشن</span>
+        </button>
+      </div>
+
+      <!-- Intro -->
+      <div id="snl-intro" class="arcade-card intro-card">
+        <div class="intro-icon-wrap" style="background: linear-gradient(145deg, #f59e0b, #d97706);">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="4"/>
+            <circle cx="8.5" cy="8.5" r="1.4" fill="currentColor"/>
+            <circle cx="15.5" cy="15.5" r="1.4" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1.4" fill="currentColor"/>
+          </svg>
+        </div>
+        <h2 class="intro-title">مار و پله</h2>
+        <p class="intro-text">
+          در این بازی با پرتاب تاس روی صفحه مار و پله حرکت می‌کنی. در هر نوبت باید به یک سؤال عربی پاسخ بدهی و امتیاز جمع کنی. برای برنده شدن باید در شش دقیقه به ۱۰۰ امتیاز برسی.
+        </p>
+        <div class="intro-tips">
+          <strong>قوانین بازی:</strong><br/>
+          • عدد تاس (۱ تا ۵) سطح دشواری و امتیاز سؤال را مشخص می‌کند.<br/>
+          • با عدد <strong>۶</strong>، مهره ۶ خانه جلو می‌رود و <strong>۶ امتیاز خودکار</strong> بدون سؤال می‌گیری!<br/>
+          • پاسخ نادرست <strong>۱ امتیاز</strong> کم می‌کند (امتیاز از صفر کمتر نمی‌شود).<br/>
+          • مارها و نردبان‌ها فقط جای مهره را تغییر می‌دهند و بر امتیاز اثری ندارند. رسیدن به خانه ۱۰۰ به تنهایی پایان بازی نیست؛ شرط برد کسب ۱۰۰ امتیاز در ۶ دقیقه است!
+        </div>
+        <button type="button" class="btn-amber btn-big-arrow" id="btn-snl-enter">
+          <span>ورود به بازی</span>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        </button>
+      </div>
+
+      <!-- Play -->
+      <div id="snl-play" class="hidden">
+        <div class="snl-hud">
+          <div class="hud-stat">
+            <span class="hud-label">امتیاز فعلی</span>
+            <span class="hud-value score-val" id="snl-score-display">۰ / ۱۰۰</span>
+          </div>
+          <div class="hud-stat">
+            <span class="hud-label">زمان باقی‌مانده</span>
+            <span class="hud-value timer-val" id="snl-timer-display">۰۶:۰۰</span>
+          </div>
+          <div class="dice-box-wrap">
+            <div class="dice-face" id="snl-dice-face" aria-label="تاس"></div>
+          </div>
+          <button type="button" class="btn-amber snl-roll-btn" id="btn-snl-roll">شروع</button>
+        </div>
+
+        <div class="snl-board-card">
+          <div class="snl-status-banner" id="snl-status-banner">برای آغاز تایمر ۶ دقیقه‌ای و اولین حرکت، دکمه «شروع» را بزن!</div>
+
+          <div class="snl-board-wrap">
+            <div class="snl-grid" id="snl-grid"></div>
+            <svg class="snl-svg-overlay" id="snl-svg-overlay" viewBox="0 0 1000 1000"></svg>
+            <div class="snl-pawn" id="snl-pawn" style="left: -4%; top: 95%; opacity: 0;" aria-label="مهره بازیکن">
+              <svg viewBox="0 0 40 40" width="100%" height="100%">
+                <circle cx="20" cy="20" r="17" fill="#2563eb" stroke="#ffffff" stroke-width="3.5"/>
+                <circle cx="20" cy="20" r="8" fill="#93c5fd"/>
+                <circle cx="17" cy="16" r="3" fill="#ffffff" opacity="0.85"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="snl-legend">
+            <span>🔵 مهره تو (خانه <strong id="snl-pos-display">شروع</strong>)</span>
+            <span>🪜 نردبان: صعود</span>
+            <span>🐍 مار: سقوط</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question Modal -->
+      <div id="snl-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="snl-q-text">
+        <div class="modal-card">
+          <div class="modal-top-bar">
+            <span class="level-pill" id="snl-q-level">تاس ۱ • ۱ امتیاز</span>
+            <div class="modal-live-stats">
+              <span style="color: var(--jade);">امتیاز: <span id="snl-modal-score">۰</span></span>
+              <span style="color: var(--royal);" id="snl-modal-timer">۰۶:۰۰</span>
+            </div>
+          </div>
+          <p class="modal-question-text arabic-text" id="snl-q-text"></p>
+          <div class="options-list" id="snl-q-options"></div>
+          <div id="snl-q-feedback" class="hidden"></div>
+          <div style="margin-top: 14px; text-align: center;" id="snl-q-next-wrap" class="hidden">
+            <button type="button" class="btn-primary" id="btn-snl-q-continue">ادامه و پرتاب بعدی</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- End (Win / Lose) -->
+      <div id="snl-end" class="arcade-card result-card hidden">
+        <div class="result-trophy" id="snl-result-icon"></div>
+        <h2 class="result-title" id="snl-result-title"></h2>
+        <p class="result-sub" id="snl-result-sub"></p>
+        <div class="stats-grid">
+          <div class="stat-tile">
+            <div class="stat-num gold" id="snl-end-score">۰</div>
+            <div class="stat-lbl">امتیاز نهایی</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num" id="snl-end-time">۰۰:۰۰</div>
+            <div class="stat-lbl">زمان سپری‌شده</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num good" id="snl-end-pos">۰</div>
+            <div class="stat-lbl">خانه پایانی</div>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn-primary" id="btn-snl-restart">شروع دوباره</button>
+          <button type="button" class="btn-amber btn-big-arrow" data-back-menu>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>بازگشت به منوی اصلی</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. GAME 3: WORD PATTERNS (WAZN) ==================== -->
+    <section id="screen-wazn" class="screen hidden" aria-label="بازی وزن فعل‌ها">
+      <div class="topbar">
+        <button type="button" class="btn-back" data-back-menu>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span>بازگشت به منو</span>
+        </button>
+        <button type="button" class="btn-sound" data-toggle-sound>
+          <span class="sound-icon-slot"></span>
+          <span class="sound-label-slot">صدا روشن</span>
+        </button>
+      </div>
+
+      <!-- Intro -->
+      <div id="wazn-intro" class="arcade-card intro-card">
+        <div class="intro-icon-wrap" style="background: linear-gradient(145deg, #3b82f6, #1d4ed8);">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+            <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+            <path d="M7 21h10"/>
+            <path d="M12 3v18"/>
+            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+          </svg>
+        </div>
+        <h2 class="intro-title">وزن فعل‌ها</h2>
+        <p class="intro-text">
+          در این بازی با کلمات درس دوم تمرین می‌کنی تا حروف اصلی، حروف زائد، وزن کلمه و معنی ریشه آن را تشخیص بدهی.
+        </p>
+        <div class="intro-tips">
+          <strong>یادآوری درس دوم:</strong><br/>
+          • وزن <strong>فاعِل</strong> به معنای انجام‌دهنده یا دارندهٔ حالت است (حرف زائد: <strong>ا</strong>).<br/>
+          • وزن <strong>مَفْعول</strong> به معنای انجام‌شده است (حروف زائد: <strong>م، و</strong>).<br/>
+          • در هر مرحله هر ۴ بخش را انتخاب کن و دکمه «بررسی پاسخ» را بزن.
+        </div>
+        <button type="button" class="btn-primary btn-big-arrow" id="btn-wazn-start">
+          <span>شروع بازی</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        </button>
+      </div>
+
+      <!-- Play -->
+      <div id="wazn-play" class="arcade-card hidden">
+        <div class="progress-wrap">
+          <div class="progress-meta">
+            <span id="wazn-progress-label">۱ از ۱۲ کلمه</span>
+            <span id="wazn-score-label">درست: ۰ | غلط: ۰</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="wazn-progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="wazn-target-box">
+          <div class="wazn-word arabic-text" id="wazn-target-word">عابِد</div>
+          <div class="wazn-meaning" id="wazn-target-meaning">عبادت‌کننده</div>
+        </div>
+
+        <div class="wazn-sections" id="wazn-sections"></div>
+
+        <div class="wazn-actions">
+          <button type="button" class="btn-primary" id="btn-wazn-check" disabled>ابتدا هر ۴ بخش را انتخاب کن</button>
+          <button type="button" class="btn-amber hidden" id="btn-wazn-next">سؤال بعدی</button>
+        </div>
+
+        <div id="wazn-feedback" class="hidden"></div>
+      </div>
+
+      <!-- End -->
+      <div id="wazn-end" class="arcade-card result-card hidden">
+        <div class="result-trophy win" id="wazn-end-trophy">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        </div>
+        <h2 class="result-title">پایان بازی وزن فعل‌ها</h2>
+        <p class="result-sub" id="wazn-end-msg"></p>
+        <div class="stats-grid">
+          <div class="stat-tile">
+            <div class="stat-num good" id="wazn-stat-correct">۰</div>
+            <div class="stat-lbl">پاسخ درست</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num bad" id="wazn-stat-wrong">۰</div>
+            <div class="stat-lbl">پاسخ نادرست</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num gold" id="wazn-stat-pct">۰٪</div>
+            <div class="stat-lbl">درصد موفقیت</div>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn-primary" id="btn-wazn-restart">بازی دوباره</button>
+          <button type="button" class="btn-amber btn-big-arrow" data-back-menu>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>بازگشت به منوی اصلی</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. GAME 4: JUDGE (TASHKHIS BEDE) ==================== -->
+    <section id="screen-judge" class="screen hidden" aria-label="بازی تشخیص بده">
+      <div class="topbar">
+        <button type="button" class="btn-back" data-back-menu>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span>بازگشت به منو</span>
+        </button>
+        <button type="button" class="btn-sound" data-toggle-sound>
+          <span class="sound-icon-slot"></span>
+          <span class="sound-label-slot">صدا روشن</span>
+        </button>
+      </div>
+
+      <!-- Intro -->
+      <div id="judge-intro" class="arcade-card intro-card">
+        <div class="intro-icon-wrap" style="background: linear-gradient(145deg, #f43f5e, #be123c);">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </div>
+        <h2 class="intro-title">تشخیص بده</h2>
+        <p class="intro-text">
+          در این بازی چند جمله عربی می‌بینی. باید تشخیص بدهی آیا ضمیر و فعل با هم درست استفاده شده‌اند یا اشتباه هستند.
+        </p>
+        <div class="intro-tips">
+          <strong>راهنمای سریع:</strong><br/>
+          در هر دور ۱۵ جمله تصادفی از ضمایر و فعل‌های کتاب درسی نمایش داده می‌شود. به شناسهٔ فعل در پایان فعل ماضی و ابتدا/انتهای فعل مضارع دقت کن و بگو جمله «درست است» یا «نادرست است».
+        </div>
+        <button type="button" class="btn-primary btn-big-arrow" id="btn-judge-start">
+          <span>شروع بازی</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        </button>
+      </div>
+
+      <!-- Play -->
+      <div id="judge-play" class="arcade-card hidden">
+        <div class="progress-wrap">
+          <div class="progress-meta">
+            <span id="judge-progress-label">۱ از ۱۵ جمله</span>
+            <span id="judge-score-label">درست: ۰ | غلط: ۰</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="judge-progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="judge-sentence-box">
+          <div class="judge-prompt-label">آیا تطابق ضمیر و فعل در این جمله درست است؟</div>
+          <p class="judge-sentence arabic-text" id="judge-sentence-text"></p>
+        </div>
+
+        <div class="judge-btns">
+          <button type="button" class="judge-btn judge-btn-yes" id="btn-judge-yes">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>درست است</span>
+          </button>
+          <button type="button" class="judge-btn judge-btn-no" id="btn-judge-no">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>نادرست است</span>
+          </button>
+        </div>
+
+        <div id="judge-feedback" class="hidden"></div>
+
+        <div style="margin-top: 16px; text-align: center;" id="judge-next-wrap" class="hidden">
+          <button type="button" class="btn-primary" id="btn-judge-next">سؤال بعدی</button>
+        </div>
+      </div>
+
+      <!-- End -->
+      <div id="judge-end" class="arcade-card result-card hidden">
+        <div class="result-trophy win" id="judge-end-trophy">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        </div>
+        <h2 class="result-title">نتیجه بازی تشخیص بده</h2>
+        <p class="result-sub" id="judge-end-msg"></p>
+        <div class="stats-grid">
+          <div class="stat-tile">
+            <div class="stat-num good" id="judge-stat-correct">۰</div>
+            <div class="stat-lbl">پاسخ صحیح</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num bad" id="judge-stat-wrong">۰</div>
+            <div class="stat-lbl">پاسخ نادرست</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num gold" id="judge-stat-pct">۰٪</div>
+            <div class="stat-lbl">درصد پاسخ صحیح</div>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn-primary" id="btn-judge-restart">بازی دوباره</button>
+          <button type="button" class="btn-amber btn-big-arrow" data-back-menu>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>بازگشت به منوی اصلی</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* =====================================================================
+         1. UTILITIES & ARABIC / PERSIAN HELPERS
+      ===================================================================== */
+      const PERSIAN_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+
+      function toFa(value) {
+        return String(value).replace(/\d/g, (d) => PERSIAN_DIGITS[Number(d)]);
+      }
+
+      function shuffleArray(arr) {
+        const copy = arr.slice();
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const tmp = copy[i];
+          copy[i] = copy[j];
+          copy[j] = tmp;
+        }
+        return copy;
+      }
+
+      function formatMMSS(totalSeconds) {
+        const s = Math.max(0, Math.floor(totalSeconds));
+        const mins = Math.floor(s / 60);
+        const secs = s % 60;
+        const mm = mins < 10 ? "0" + mins : String(mins);
+        const ss = secs < 10 ? "0" + secs : String(secs);
+        return toFa(mm + ":" + ss);
+      }
+
+      function toStandardArabicForTTS(str) {
+        return String(str || "")
+          .replace(/ک/g, "ك")
+          .replace(/ی/g, "ي")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function normalizeArabic(str) {
+        if (!str) return "";
+        return String(str)
+          .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, "")
+          .replace(/[أإآٱ]/g, "ا")
+          .replace(/[ىيیئ]/g, "ي")
+          .replace(/ؤ/g, "و")
+          .replace(/[کك]/g, "ك")
+          .replace(/[ةه]/g, "ه")
+          .replace(/[،؛؟.!?"'«»\-_ـ()]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function phoneticArabic(str) {
+        return normalizeArabic(str)
+          .replace(/ء/g, "")
+          .replace(/[عأإآ]/g, "ا")
+          .replace(/[ثص]/g, "س")
+          .replace(/[ذضظ]/g, "ز")
+          .replace(/ط/g, "ت")
+          .replace(/غ/g, "ق")
+          .replace(/ح/g, "ه")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function levenshtein(a, b) {
+        const m = a.length;
+        const n = b.length;
+        if (m === 0) return n;
+        if (n === 0) return m;
+        const dp = new Array(n + 1);
+        for (let j = 0; j <= n; j++) dp[j] = j;
+        for (let i = 1; i <= m; i++) {
+          let prev = dp[0];
+          dp[0] = i;
+          for (let j = 1; j <= n; j++) {
+            const temp = dp[j];
+            if (a[i - 1] === b[j - 1]) {
+              dp[j] = prev;
+            } else {
+              dp[j] = 1 + Math.min(prev, dp[j], dp[j - 1]);
+            }
+            prev = temp;
+          }
+        }
+        return dp[n];
+      }
+
+      function similarityRatio(a, b) {
+        const maxLen = Math.max(a.length, b.length);
+        if (maxLen === 0) return 1;
+        return 1 - levenshtein(a, b) / maxLen;
+      }
+
+      const ICON_CHECK = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      const ICON_CROSS = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+      const ICON_SOUND_ON = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
+      const ICON_SOUND_OFF = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+
+      /* =====================================================================
+         2. EDUCATIONAL DATA BANKS (LESSON 2 - GRADE 9 OFFICIAL 1405 BOOK)
+      ===================================================================== */
+
+      // Game 1: Exact 21 new vocabulary items of Lesson 2 + realistic Persian/Arabic ASR variants
+      const PRONUNCIATION_BANK = [
+        { id: "p1", word: "آمَنَ", meaning: "ایمان آورد", phonetic: "آ مَ نَ", variants: ["امن", "آمن", "امنه", "آمنه", "امنا", "آمنو", "عمن"] },
+        { id: "p2", word: "أَحَبُّ", meaning: "محبوب‌ترین", phonetic: "اَ حَبْ بُ", variants: ["احب", "احبه", "احبو", "اهب"] },
+        { id: "p3", word: "إِشاراتُ الْمُرور", meaning: "علائم راهنمایی و رانندگی", phonetic: "اِشاراتُلْ مُرور", variants: ["اشارات المرور", "اشارات مرور", "اشاره المرور", "اشاره مرور", "اشارات مروري"] },
+        { id: "p4", word: "أَنْصَح", meaning: "اندرزگوترین", phonetic: "اَنْ صَحْ", variants: ["انصح", "انصحك", "انسح", "انصه", "انسه"] },
+        { id: "p5", word: "بُکاء", meaning: "گریه کردن، گریه", phonetic: "بُ کاء", variants: ["بكاء", "بكا", "بوكا", "بوكاء", "البكاء"] },
+        { id: "p6", word: "تَکَلَّمَ", meaning: "صحبت کرد", phonetic: "تَ کَلْ لَ مَ", variants: ["تكلم", "تكلمه", "تكلام", "تكلمت"] },
+        { id: "p7", word: "ذَکِيّ", meaning: "باهوش", phonetic: "ذَ کِیّ", variants: ["ذكي", "زكي", "ذكيه", "زكيه"] },
+        { id: "p8", word: "رَقَدَ", meaning: "بستری شد، خوابید", phonetic: "رَ قَ دَ", variants: ["رقد", "رغد", "ركد", "رقدا"] },
+        { id: "p9", word: "سَتَرَ", meaning: "پوشاند، پنهان کرد", phonetic: "سَ تَ رَ", variants: ["ستر", "ستره", "سطر"] },
+        { id: "p10", word: "شَقاوَة", meaning: "بدبختی", phonetic: "شَ قا وَة", variants: ["شقاوه", "شقاوة", "شغاوه", "شكاوه"] },
+        { id: "p11", word: "صَحیفَة", meaning: "روزنامه", phonetic: "صَ حی فَة", variants: ["صحيفه", "صحيفة", "سحيفه", "سهيفه"] },
+        { id: "p12", word: "صَدَمَ", meaning: "برخورد کرد", phonetic: "صَ دَ مَ", variants: ["صدم", "سدم", "صدمه"] },
+        { id: "p13", word: "فَجْأَة", meaning: "ناگهان", phonetic: "فَجْ اَة", variants: ["فجاة", "فجاه", "فجاءه", "فجأه", "فجا"] },
+        { id: "p14", word: "قُبْح", meaning: "زشتی", phonetic: "قُبْح", variants: ["قبح", "غبح", "قبه", "غبه", "قبوح"] },
+        { id: "p15", word: "لَقَدْ", meaning: "قطعاً", phonetic: "لَ قَدْ", variants: ["لقد", "لغد", "لكد"] },
+        { id: "p16", word: "تالي", meaning: "بعدی", phonetic: "تا لی", variants: ["تالي", "التالي", "تالی", "تاليه"] },
+        { id: "p17", word: "لِمَ", meaning: "برای چه", phonetic: "لِ مَ", variants: ["لم", "لما", "لماذا", "لمه", "ليما", "ليمه"] },
+        { id: "p18", word: "ما", meaning: "آنچه", phonetic: "ما", variants: ["ما", "ماء", "مه", "مع"] },
+        { id: "p19", word: "مُستَشفى", meaning: "بیمارستان", phonetic: "مُسْ تَشْ فا", variants: ["مستشفي", "مستشفى", "مستشفا", "المستشفى"] },
+        { id: "p20", word: "نادى", meaning: "صدا زد", phonetic: "نا دا", variants: ["نادي", "نادى", "نادا", "ناده"] },
+        { id: "p21", word: "هادِئ", meaning: "آرام", phonetic: "ها دِئ", variants: ["هادي", "هادئ", "هادئه", "هاديء"] }
+      ];
+
+      // Game 2: Snakes & Ladders Question Bank (16 questions per difficulty level 1..5)
+      const SNL_QUESTIONS = {
+        1: [
+          { id: "s1_1", q: "«لِمَ؟»", opts: ["برای چه", "بدبختی", "آرام", "آنچه"], ans: 0, exp: "«لِمَ» (لِـ + ما) به معنای «برای چه» است." },
+          { id: "s1_2", q: "«ما» در درس دوم به چه معناست؟", opts: ["بیمارستان", "آنچه", "قطعاً", "بعدی"], ans: 1, exp: "«ما» در واژگان درس دوم به معنای «آنچه» است." },
+          { id: "s1_3", q: "معنای واژه «فَجْأَةً» کدام است؟", opts: ["آرام", "روزنامه", "ناگهان", "زشتی"], ans: 2, exp: "«فَجْأَةً» به معنای «ناگهان» است." },
+          { id: "s1_4", q: "«هادِئ» چه معنایی دارد؟", opts: ["باهوش", "گریه", "اندرزگوترین", "آرام"], ans: 3, exp: "«هادِئ» یعنی «آرام»." },
+          { id: "s1_5", q: "«ذَکِيّ» به چه معناست؟", opts: ["باهوش", "بدبختی", "ناگهان", "صحبت کرد"], ans: 0, exp: "«ذَکِيّ» یعنی «باهوش»." },
+          { id: "s1_6", q: "«بُکاء» چه معنایی دارد؟", opts: ["خوابید", "گریه کردن، گریه", "پوشاند", "صدا زد"], ans: 1, exp: "«بُکاء» به معنای «گریه کردن، گریه» است." },
+          { id: "s1_7", q: "«مُسْتَشْفىٰ» یعنی چه؟", opts: ["مدرسه", "پیاده‌رو", "بیمارستان", "روزنامه"], ans: 2, exp: "«مُسْتَشْفىٰ» یعنی «بیمارستان»." },
+          { id: "s1_8", q: "معنای «صَحيفَة» چیست؟", opts: ["خیابان", "ماشین", "زشتی", "روزنامه"], ans: 3, exp: "«صَحيفَة» به معنای «روزنامه» است." },
+          { id: "s1_9", q: "«لَقَدْ» به چه معناست؟", opts: ["قطعاً", "برای چه", "بعدی", "آنچه"], ans: 0, exp: "«لَقَدْ» یعنی «قطعاً»." },
+          { id: "s1_10", q: "«قُبْح» چه معنایی دارد؟", opts: ["خوبی", "زشتی", "شادی", "گذر کردن"], ans: 1, exp: "«قُبْح» یعنی «زشتی»." },
+          { id: "s1_11", q: "«شَقاوَة» به چه معناست؟", opts: ["خوشبختی", "سلامتی", "بدبختی", "آرامی"], ans: 2, exp: "«شَقاوَة» به معنای «بدبختی» است." },
+          { id: "s1_12", q: "معنای «تالي» کدام است؟", opts: ["آرام", "محبوب‌ترین", "قطعاً", "بعدی"], ans: 3, exp: "«تالي» به معنای «بعدی» است." },
+          { id: "s1_13", q: "«أَنْصَح» چه معنایی دارد؟", opts: ["اندرزگوترین", "محبوب‌ترین", "باهوش‌ترین", "بزرگ‌ترین"], ans: 0, exp: "«أَنْصَح» یعنی «اندرزگوترین»." },
+          { id: "s1_14", q: "«أَحَبُّ» یعنی چه؟", opts: ["اندرزگوترین", "محبوب‌ترین", "آرام‌ترین", "نزدیک‌ترین"], ans: 1, exp: "«أَحَبُّ» به معنای «محبوب‌ترین» است." },
+          { id: "s1_15", q: "«رَصيف» چه معنایی دارد؟", opts: ["خیابان", "گذرگاه پیاده", "پیاده‌رو", "چراغ راهنما"], ans: 2, exp: "«رَصيف» یعنی «پیاده‌رو»." },
+          { id: "s1_16", q: "«سَيّارَة» به چه معناست؟", opts: ["پیاده‌رو", "بیمارستان", "قطار", "خودرو، ماشین"], ans: 3, exp: "«سَيّارَة» یعنی «خودرو، ماشین»." }
+        ],
+        2: [
+          { id: "s2_1", q: "فعل «آمَنَ» به چه معناست؟", opts: ["ایمان آورد", "صحبت کرد", "پنهان کرد", "صدا زد"], ans: 0, exp: "«آمَنَ» (مضارع: يُؤْمِنُ) یعنی «ایمان آورد»." },
+          { id: "s2_2", q: "معنای فعل «تَکَلَّمَ» کدام است؟", opts: ["بستری شد", "صحبت کرد", "برخورد کرد", "گذر کرد"], ans: 1, exp: "«تَکَلَّمَ» (مضارع: يَتَکَلَّمُ) یعنی «صحبت کرد»." },
+          { id: "s2_3", q: "«رَقَدَ» چه معنایی دارد؟", opts: ["بیدار شد", "گریه کرد", "بستری شد، خوابید", "ایمان آورد"], ans: 2, exp: "«رَقَدَ» (مضارع: يَرْقُدُ) به معنای «بستری شد، خوابید» است." },
+          { id: "s2_4", q: "فعل «سَتَرَ» به چه معناست؟", opts: ["آشکار کرد", "برخورد کرد", "صدا زد", "پوشاند، پنهان کرد"], ans: 3, exp: "«سَتَرَ» به معنای «پوشاند، پنهان کرد» است." },
+          { id: "s2_5", q: "معنای «صَدَمَ» چیست؟", opts: ["برخورد کرد", "صحبت کرد", "گذر کرد", "آرام شد"], ans: 0, exp: "«صَدَمَ» (مضارع: يَصْدِمُ) یعنی «برخورد کرد»." },
+          { id: "s2_6", q: "فعل «نادىٰ» چه معنایی دارد؟", opts: ["خوابید", "صدا زد", "پوشاند", "گریه کرد"], ans: 1, exp: "«نادىٰ» (مضارع: يُنادي) یعنی «صدا زد»." },
+          { id: "s2_7", q: "«إِشاراتُ الْمُرورِ» چه معنایی دارد؟", opts: ["ادارهٔ راهنمایی", "قوانین رانندگی", "علائم راهنمایی و رانندگی", "محل عبور عابر پیاده"], ans: 2, exp: "«إِشاراتُ الْمُرورِ» به معنای «علائم راهنمایی و رانندگی» است." },
+          { id: "s2_8", q: "«إِدارَةُ الْمُرورِ» کدام است؟", opts: ["علائم راهنمایی", "پارک آموزش ترافیک", "گذرگاه پیاده", "ادارهٔ راهنمایی و رانندگی"], ans: 3, exp: "«إِدارَةُ الْمُرورِ» یعنی «ادارهٔ راهنمایی و رانندگی»." },
+          { id: "s2_9", q: "معنای «مَمَرُّ الْمُشاةِ» چیست؟", opts: ["گذرگاه پیاده", "پیاده‌رو", "چهارراه", "پلیس راهنمایی"], ans: 0, exp: "«مَمَرُّ الْمُشاةِ» یعنی «گذرگاه پیاده (محل عبور عابر پیاده)»." },
+          { id: "s2_10", q: "عبارت «اَلْيَوْمُ التّالي» به چه معناست؟", opts: ["امروز", "روز بعد", "دیروز", "روز گذشته"], ans: 1, exp: "«اَلْيَوْمُ التّالي» یعنی «روز بعد»." },
+          { id: "s2_11", q: "«صَحيفَةٌ جِدارِيَّةٌ» یعنی چه؟", opts: ["کتاب درسی", "برگهٔ امتحان", "روزنامه دیواری", "نامهٔ دوستانه"], ans: 2, exp: "«صَحيفَةٌ جِدارِيَّةٌ» یعنی «روزنامه دیواری»." },
+          { id: "s2_12", q: "فعل مضارع «يَتَکَلَّمُ» به چه معناست؟", opts: ["برخورد می‌کند", "ایمان می‌آورد", "صدا می‌زند", "صحبت می‌کند"], ans: 3, exp: "«يَتَکَلَّمُ» مضارعِ «تَکَلَّمَ» و به معنای «صحبت می‌کند» است." },
+          { id: "s2_13", q: "فعل مضارع «يُؤْمِنُ» چه معنایی دارد؟", opts: ["ایمان می‌آورد", "پنهان می‌کند", "بستری می‌شود", "می‌شنود"], ans: 0, exp: "«يُؤْمِنُ» مضارعِ «آمَنَ» به معنای «ایمان می‌آورد» است." },
+          { id: "s2_14", q: "«يَصْدِمُ» به چه معناست؟", opts: ["می‌خوابد", "برخورد می‌کند", "می‌پوشاند", "عبور می‌کند"], ans: 1, exp: "«يَصْدِمُ» مضارعِ «صَدَمَ» به معنای «برخورد می‌کند» است." },
+          { id: "s2_15", q: "«يُنادي» یعنی چه؟", opts: ["خواب است", "گریه می‌کند", "صدا می‌زند", "سخن می‌گوید"], ans: 2, exp: "«يُنادي» مضارعِ «نادىٰ» به معنای «صدا می‌زند» است." },
+          { id: "s2_16", q: "واژه «مُرور» در درس دوم به چه معناست؟", opts: ["ایستادن", "نوشتن", "شنیدن", "گذر کردن"], ans: 3, exp: "«مُرور» یعنی «گذر کردن»." }
+        ],
+        3: [
+          { id: "s3_1", q: "ترجمهٔ «بَدَأَ بِالْبُکاءِ فَجْأَةً» کدام است؟", opts: ["ناگهان شروع به گریه کرد", "ناگهان از اتاق بیرون رفت", "آرام با پدرش صحبت کرد", "ناگهان به خواب رفت"], ans: 0, exp: "«بَدَأَ» (شروع کرد) + «بِالْبُکاءِ» (به گریه) + «فَجْأَةً» (ناگهان)." },
+          { id: "s3_2", q: "معنای «هُوَ وَلَدٌ ذَکِيٌّ وَ هادِئٌ» چیست؟", opts: ["او پسری مجروح و غمگین است", "او پسری باهوش و آرام است", "او دانش‌آموزی خسته و ناآرام است", "او پسری شلوغ و پرحرف است"], ans: 1, exp: "«ذَکِيٌّ» یعنی باهوش و «هادِئٌ» یعنی آرام." },
+          { id: "s3_3", q: "«صَدَمَتْهُ سَيّارَةٌ» به چه معناست؟", opts: ["او سوار ماشین شد", "ماشین از کنار او گذشت", "خودرویی با او برخورد کرد", "او خودرو را دید"], ans: 2, exp: "«صَدَمَتْ» (برخورد کرد) + «هُ» (به او) + «سَيّارَةٌ» (خودرویی)." },
+          { id: "s3_4", q: "ترجمهٔ «رَقَدَ فِي الْمُسْتَشْفىٰ» کدام است؟", opts: ["به مدرسه رفت", "به خانه بازگشت", "در اتاقش خوابید", "در بیمارستان بستری شد"], ans: 3, exp: "«رَقَدَ فِي الْمُسْتَشْفىٰ» یعنی «در بیمارستان بستری شد»." },
+          { id: "s3_5", q: "«رَجَعَ سَجّادٌ مِنَ الْمَدْرَسَةِ حَزيناً» یعنی چه؟", opts: ["سجاد غمگین از مدرسه برگشت", "سجاد خوشحال به مدرسه رفت", "سجاد با دوستش به خانه برگشت", "سجاد از بیمارستان برگشت"], ans: 0, exp: "«رَجَعَ» (برگشت) + «حَزيناً» (غمگین)." },
+          { id: "s3_6", q: "معنای «بِدونِ النَّظَرِ إِلَى السَّيّاراتِ» کدام است؟", opts: ["با دقت به ماشین‌ها نگاه کرد", "بدون نگاه کردن به ماشین‌ها", "در کنار ماشین‌های پارک‌شده", "پیش از آمدن ماشین‌ها"], ans: 1, exp: "«بِدونِ» (بدونِ) + «النَّظَرِ إِلَى السَّيّاراتِ» (نگاه کردن به ماشین‌ها)." },
+          { id: "s3_7", q: "«مِنْ غَيْرِ مَمَرِّ الْمُشاةِ» چه معنایی دارد؟", opts: ["از روی خط عابر پیاده", "از میان پیاده‌روی خیابان", "از غیر محل عبور عابر پیاده", "از کنار چراغ راهنمایی"], ans: 2, exp: "«مِنْ غَيْرِ» (از غیرِ) + «مَمَرِّ الْمُشاةِ» (گذرگاه عابر پیاده)." },
+          { id: "s3_8", q: "بر اساس متن کتاب، معنای «کانَتْ سُرْعَةُ السَّيّارَةِ کَثيرَةً» چیست؟", opts: ["سرعت ماشین کم بود", "ماشین کنار خیابان ایستاد", "چراغ‌های ماشین روشن بود", "سرعت ماشین زیاد بود"], ans: 3, exp: "در کتاب درسی پایه نهم (چاپ ۱۴۰۵)، «کَثيرَةً» به معنای «زیاد» آمده است." },
+          { id: "s3_9", q: "ترجمهٔ «فِي الْيَوْمِ التّالي» کدام است؟", opts: ["در روز بعد", "در همان شب", "دو روز بعد", "در پایان هفته"], ans: 0, exp: "«اَلْيَوْمُ التّالي» به معنای «روز بعد» است." },
+          { id: "s3_10", q: "معنای «عَلىٰ الرَّصيفِ الْمُقابِلِ» چیست؟", opts: ["در وسط خیابان", "در پیاده‌روی روبه‌رو", "در ورودی بیمارستان", "در حیاط مدرسه"], ans: 1, exp: "«الرَّصيفِ» (پیاده‌رو) + «الْمُقابِلِ» (روبه‌رو)." },
+          { id: "s3_11", q: "عبارت «مَکانٌ مُجَهَّزٌ لِفَحْصِ الْمَرْضىٰ» تعریف کدام واژه است؟", opts: ["اَلرَّصيفُ", "اَلصَّحيفَةُ", "اَلْمُسْتَشْفىٰ", "اَلْمَدْرَسَةُ"], ans: 2, exp: "مکانی مجهز برای معاینهٔ بیماران یعنی «بیمارستان (اَلْمُسْتَشْفىٰ)»." },
+          { id: "s3_12", q: "عبارت «جانِبٌ مِنَ الشّارِعِ لِمُرورِ النّاسِ» به کدام واژه اشاره دارد؟", opts: ["اَلْمُسْتَشْفىٰ", "اَلْقَوانينُ", "اَلصَّحيفَةُ", "اَلرَّصيفُ"], ans: 3, exp: "قسمتی از خیابان برای عبور مردم یعنی «پیاده‌رو (اَلرَّصيفُ)»." },
+          { id: "s3_13", q: "«أَوْراقٌ فيها أَخْبارٌ وَ مَعْلوماتٌ أُخْرىٰ» توضیح کدام کلمه است؟", opts: ["اَلصَّحيفَةُ", "اَلْبُکاءُ", "اَلْمُرورُ", "اَلشّارِعُ"], ans: 0, exp: "برگه‌هایی که در آن خبرها و اطلاعات دیگر است یعنی «روزنامه (اَلصَّحيفَةُ)»." },
+          { id: "s3_14", q: "«جَرَيانُ الدُّموعِ مِنَ الْحُزْنِ» تعریف کدام واژه است؟", opts: ["اَلْمُرورُ", "اَلْبُکاءُ", "اَلذَّکاءُ", "اَلرَّصيفُ"], ans: 1, exp: "جاری شدن اشک از ناراحتی یعنی «گریه کردن (اَلْبُکاءُ)»." },
+          { id: "s3_15", q: "معنای حدیث «حُسْنُ الْأَدَبِ يَسْتُرُ قُبْحَ النَّسَبِ» کدام است؟", opts: ["علم نیکو، بدبختی را دور می‌کند", "اخلاق خوب نشانهٔ خوشبختی است", "ادب نیکو، زشتی نَسَب را می‌پوشاند", "سخن زیبا موجب دوستی می‌شود"], ans: 2, exp: "«يَسْتُرُ» یعنی می‌پوشاند و «قُبْحَ النَّسَبِ» یعنی زشتی نسب." },
+          { id: "s3_16", q: "ترجمهٔ «مِنْ سَعادَةِ ابْنِ آدَمَ حُسْنُ الْخُلُقِ» کدام است؟", opts: ["از نشانه‌های علم، ادب نیکو است", "بدبختی انسان از بدخلقی است", "خوشبختی انسان در ثروت است", "از خوشبختی انسان، اخلاق خوب است"], ans: 3, exp: "«سَعادَةِ ابْنِ آدَمَ» یعنی خوشبختی انسان و «حُسْنُ الْخُلُقِ» یعنی اخلاق خوب." }
+        ],
+        4: [
+          { id: "s4_1", q: "«اَلدَّوَرانُ عَلَى الْيَمينِ مَمْنوعٌ» — آیا معنی آن «چرخش به سمت چپ غیرمجاز است»؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 1, exp: "پاسخ: لا! «اَلْيَمين» به معنای «راست» است؛ یعنی گردش به راست ممنوع، نه چپ." },
+          { id: "s4_2", q: "«اَلدَّوَرانُ عَلَى الْيَسارِ مَمْنوعٌ» — آیا معنی آن «گردش به چپ ممنوع است»؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 0, exp: "پاسخ: نَعَم! «اَلْيَسار» به معنای «چپ» است؛ پس گردش به چپ ممنوع است." },
+          { id: "s4_3", q: "«مَمْنوعُ الدُّخولِ» — آیا معنی آن «ورود ممنوع» است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 0, exp: "پاسخ: نَعَم! «مَمْنوعُ الدُّخولِ» دقیقاً یعنی ورود ممنوع." },
+          { id: "s4_4", q: "«مُرورُ حَيَواناتٍ أَهْلِيَّةٍ» — آیا معنی آن «عبور حیوانات وحشی» است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 1, exp: "پاسخ: لا! «حَيَواناتٍ أَهْلِيَّةٍ» به معنای حیوانات اهلی است، نه وحشی." },
+          { id: "s4_5", q: "«إِشارَةُ مُرورِ الْمُشاةِ» — آیا به معنای «گردش به راست ممنوع» است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 1, exp: "پاسخ: لا! این تابلو به معنای چراغ راهنمای عبور عابر پیاده است." },
+          { id: "s4_6", q: "«مَمَرُّ الْمُشاةِ» — آیا به معنای «محل عبور عابر پیاده» است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 0, exp: "پاسخ: نَعَم! «مَمَرُّ الْمُشاةِ» یعنی گذرگاه / محل عبور عابر پیاده." },
+          { id: "s4_7", q: "بر اساس متن درس: «رَقَدَ حُسَيْنٌ في مُسْتَوْصَفٍ قَريبٍ مِنْ بَيْتِهِ.» (درمانگاه نزدیک خانه‌اش) — آیا درست است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 1, exp: "پاسخ: لا! حسین در بیمارستان (فِي الْمُسْتَشْفىٰ) بستری شد، نه در درمانگاه." },
+          { id: "s4_8", q: "بر اساس متن درس: «کانَ مَوْضوعُ الصَّحيفَةِ الْجِدارِيَّةِ قَوانينَ الْمُرورِ.» — آیا درست است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 0, exp: "پاسخ: نَعَم! موضوع روزنامه دیواری دانش‌آموزان، قوانین راهنمایی و رانندگی بود." },
+          { id: "s4_9", q: "بر اساس متن درس: «أَبو سَجّادٍ ما عَرَفَ حُسَيْناً.» (پدر سجاد حسین را نشناخت) — آیا درست است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 1, exp: "پاسخ: لا! پدر سجاد گفت: «نَعَم؛ أَعْرِفُهُ»؛ یعنی او را می‌شناخت." },
+          { id: "s4_10", q: "بر اساس متن درس: «أَلْمُديرُ أَخَذَ التَّلاميذَ إِلىٰ مِنْطَقَةِ تَعْليمِ الْمُرورِ.» — آیا درست است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 0, exp: "پاسخ: نَعَم! مدیر مدرسه دانش‌آموزان را به پارک آموزش ترافیک برد." },
+          { id: "s4_11", q: "بر اساس متن درس: «رَجَعَ سَجّادٌ إِلىٰ مَنْزِلِهِ مَسْروراً.» (سجاد خوشحال به خانه‌اش برگشت) — آیا درست است؟", opts: ["نَعَم (بله)", "لا (خیر)"], ans: 1, exp: "پاسخ: لا! سجاد غمگین (حَزيناً) از مدرسه برگشت و گریه کرد." },
+          { id: "s4_12", q: "چه کسی از «إِدارَةِ الْمُرورِ» برای توضیح علائم به مدرسه آمد؟", opts: ["شُرْطِيُّ الْمُرورِ (پلیس راهنمایی)", "أَبو سَجّادٍ (پدر سجاد)", "مُديرُ الْمُسْتَشْفىٰ", "سائِقُ السَّيّارَةِ"], ans: 0, exp: "طبق متن درس، پلیسی از اداره راهنمایی و رانندگی (جاءَ شُرْطِيٌّ إِلىٰ الْمَدْرَسَةِ مِنْ إِدارَةِ الْمُرورِ) آمد." },
+          { id: "s4_13", q: "تابلوی «اَلدَّوَرانُ عَلَى الْيَمينِ مَمْنوعٌ» نشان‌دهندهٔ کدام مورد است؟", opts: ["گردش به چپ ممنوع", "گردش به راست ممنوع", "ورود ممنوع", "عبور حیوانات اهلی"], ans: 1, exp: "«عَلَى الْيَمينِ» یعنی به سمت راست، پس «گردش به راست ممنوع» است." },
+          { id: "s4_14", q: "چرا حسین در داستان درس دوم تصادف کرد؟", opts: ["چون چراغ قرمز ماشین‌ها خراب بود", "چون در پیاده‌رو نشسته بود", "چون بدون نگاه به ماشین‌ها و از غیر گذرگاه پیاده عبور کرد", "چون پلیس به او اجازه عبور داد"], ans: 2, exp: "او با شنیدن صدای سجاد، بدون نگاه کردن به خودروها و از غیر گذرگاه پیاده قصد عبور کرد." },
+          { id: "s4_15", q: "کدام عبارت عربی معنای «عبور حیوانات اهلی» را می‌رساند؟", opts: ["مَمَرُّ الْمُشاةِ", "مَمْنوعُ الدُّخولِ", "إِشارَةُ مُرورِ الْمُشاةِ", "مُرورُ حَيَواناتٍ أَهْلِيَّةٍ"], ans: 3, exp: "«مُرورُ حَيَواناتٍ أَهْلِيَّةٍ» یعنی عبور حیوانات اهلی." },
+          { id: "s4_16", q: "بر اساس متن کتاب رسمی (چاپ ۱۴۰۵)، سجاد وضعیت کنونی حسین را چگونه توصیف کرد؟", opts: ["هُوَ مَجْروحٌ (او مجروح است)", "هُوَ مَسْرورٌ (او خوشحال است)", "هُوَ في بَيْتِهِ (در خانه‌اش است)", "هُوَ فِي الْمَلْعَبِ (در ورزشگاه است)"], ans: 0, exp: "در پاسخ پدر که پرسید «کَيفَ حالُهُ الْآنَ؟»، سجاد گفت: «هُوَ مَجْروحٌ.»" }
+        ],
+        5: [
+          { id: "s5_1", q: "أَيْنَ رَقَدَ حُسَيْنٌ؟", opts: ["فِي الْمُسْتَشْفىٰ", "فِي الْمَدْرَسَةِ", "فِي الْبَيْتِ"], ans: 0, exp: "رَقَدَ حُسَيْنٌ فِي الْمُسْتَشْفىٰ (حسین در بیمارستان بستری شد)." },
+          { id: "s5_2", q: "کَيْفَ رَجَعَ سَجّادٌ مِنَ الْمَدْرَسَةِ؟", opts: ["مَسْروراً", "حَزيناً", "ضاحِکاً"], ans: 1, exp: "رَجَعَ سَجّادٌ مِنَ الْمَدْرَسَةِ حَزيناً (سجاد غمگین از مدرسه برگشت)." },
+          { id: "s5_3", q: "مَنْ طَلَبَ مِنَ التَّلاميذِ کِتابَةَ قَوانينِ الْمُرورِ؟", opts: ["أَبو سَجّادٍ", "حُسَيْنٌ", "اَلْمُدَرِّسُ"], ans: 2, exp: "طَلَبَ الْمُدَرِّسُ مِنْ تَلاميذِهِ کِتابَةَ قَوانينِ الْمُرورِ (معلم خواست)." },
+          { id: "s5_4", q: "إِلىٰ أَيْنَ أَخَذَ الْمُديرُ تَلاميذَ الْمَدْرَسَةِ؟", opts: ["إِلىٰ مِنْطَقَةِ تَعْليمِ الْمُرورِ", "إِلَى الْمُسْتَشْفىٰ", "إِلَى السّوقِ"], ans: 0, exp: "أَخَذَ الْمُديرُ تَلاميذَ الْمَدْرَسَةِ إِلىٰ مِنْطَقَةِ تَعْليمِ الْمُرورِ (به پارک آموزش ترافیک)." },
+          { id: "s5_5", q: "کَيْفَ کانَتْ سُرْعَةُ السَّيّارَةِ عِنْدَ الْحادِثَةِ؟", opts: ["قَليلَةً", "کَثيرَةً", "بَطيئَةً"], ans: 1, exp: "طبق متن کتاب: کانَتْ سُرْعَةُ السَّيّارَةِ کَثيرَةً (سرعت خودرو زیاد بود)." },
+          { id: "s5_6", q: "أَيْنَ شاهَدَ سَجّادٌ صَديقَهُ حُسَيْناً قَبْلَ الْحادِثَةِ؟", opts: ["فِي الْمُسْتَشْفىٰ", "فِي الصَّفِّ", "عَلَى الرَّصيفِ الْمُقابِلِ"], ans: 2, exp: "شاهَدْتُهُ عَلَى الرَّصيفِ الْمُقابِلِ (در پیاده‌روی روبه‌رو)." },
+          { id: "s5_7", q: "مَنْ جاءَ إِلَى الْمَدْرَسَةِ مِنْ إِدارَةِ الْمُرورِ؟", opts: ["شُرْطِيٌّ", "طَبيبٌ", "حَلْوانِيٌّ"], ans: 0, exp: "جاءَ شُرْطِيٌّ إِلَى الْمَدْرَسَةِ مِنْ إِدارَةِ الْمُرورِ (یک پلیس آمد)." },
+          { id: "s5_8", q: "ماذا رَسَمَ التَّلاميذُ فِي الصَّحيفَةِ الْجِدارِيَّةِ؟", opts: ["صُوَرَ الْحَيَواناتِ", "عَلاماتِ الْمُرورِ", "أَشْجارَ الْغابَةِ"], ans: 1, exp: "رَسَموا فيها عَلاماتِ الْمُرورِ وَ شَرَحوا مَعانيَها (علائم راهنمایی و رانندگی)." },
+          { id: "s5_9", q: "مِنْ أَيْنَ طَلَبَ الشُّرْطِيُّ مِنَ التَّلاميذِ أَنْ يَعْبُروا؟", opts: ["مِنْ وَسَطِ الشّارِعِ", "مِنْ غَيْرِ مَمَرِّ الْمُشاةِ", "مِنْ مَمَرِّ الْمُشاةِ"], ans: 2, exp: "طَلَبَ مِنْهُمُ الْعُبورَ مِنْ مَمَرِّ الْمُشاةِ (از گذرگاه پیاده عبور کنند)." },
+          { id: "s5_10", q: "ماذا قالَ سَجّادٌ عَنْ حالِ حُسَيْنٍ في حِوارِهِ مَعَ أَبيهِ؟", opts: ["هُوَ مَجْروحٌ", "هُوَ نائِمٌ فِي الْبَيْتِ", "هُوَ فِي الْمَلْعَبِ"], ans: 0, exp: "قالَ سَجّادٌ: «هُوَ مَجْروحٌ» (او زخمی/مجروح است)." },
+          { id: "s5_11", q: "کَيْفَ عَبَرَ حُسَيْنٌ الشّارِعَ قَبْلَ التَّصادُمِ؟", opts: ["مِنْ مَمَرِّ الْمُشاةِ بِدِقَّةٍ", "بِدونِ النَّظَرِ إِلَى السَّيّاراتِ", "مَعَ شُرْطِيِّ الْمُرورِ"], ans: 1, exp: "قَصَدَ الْعُبورَ بِدونِ النَّظَرِ إِلَى السَّيّاراتِ وَ مِنْ غَيْرِ مَمَرِّ الْمُشاةِ." },
+          { id: "s5_12", q: "ما مَعْنىٰ «اَلدَّوَرانُ عَلَى الْيَسارِ مَمْنوعٌ»؟", opts: ["لا تَسْتَدِرْ إِلَى الْيَمينِ", "لا تَدْخُلْ مِنْ هُنا", "لا تَسْتَدِرْ إِلَى الْيَسارِ"], ans: 2, exp: "الدوران علی الیسار ممنوع یعنی به سمت چپ نپیچ (گردش به چپ ممنوع)." },
+          { id: "s5_13", q: "عَلىٰ أَيِّ وَزْنٍ کَلِمَةُ «عالِم» فِي الْآيَةِ: ﴿إِنَّ اللهَ عالِمُ غَيْبِ السَّماواتِ وَ الْأَرْضِ﴾؟", opts: ["فاعِل", "مَفْعول", "فَعالَة"], ans: 0, exp: "«عالِم» دارای ریشهٔ «ع، ل، م» و بر وزن «فاعِل» است." },
+          { id: "s5_14", q: "ما هِيَ الْحُروفُ الْأَصْلِيَّةُ لِکَلِمَةِ «مَکْتوب»؟", opts: ["م، و، ت", "ک، ت، ب", "ک، و، ب"], ans: 1, exp: "حروف اصلی «مَکْتوب» عبارت‌اند از «ک، ت، ب» و بر وزن مَفْعول است." },
+          { id: "s5_15", q: "مَنْ وُصِفَ فِي النَّصِّ بِأَنَّهُ «وَلَدٌ ذَکِيٌّ وَ هادِئٌ»؟", opts: ["هاشِمٌ", "أَبو سَجّادٍ", "حُسَيْنٌ"], ans: 2, exp: "پدر سجاد دربارهٔ حسین گفت: «هُوَ وَلَدٌ ذَکِيٌّ وَ هادِئٌ.»" },
+          { id: "s5_16", q: "مَتىٰ بَدَأَ سَجّادٌ بِالْبُکاءِ فَجْأَةً؟", opts: ["عِنْدَما جَلَسَ عَلَى الْمائِدَةِ مَعَ أُسْرَتِهِ", "فِي مِنْطَقَةِ تَعْليمِ الْمُرورِ", "عَلىٰ مَمَرِّ الْمُشاةِ"], ans: 0, exp: "عِنْدَما جَلَسَ عَلَى الْمائِدَةِ مَعَ أُسْرَتِهِ، بَدَأَ بِالْبُکاءِ فَجْأَةً." }
+        ]
+      };
+
+      // Game 3: Word Patterns & Root Analyzer (12 textbook words)
+      const WAZN_BANK = [
+        { id: "w1", word: "عابِد", meaning: "عبادت‌کننده", root: "ع، ب، د", extra: "ا", wazn: "فاعِل", rootMeaning: "عبادت کرد (عَبَدَ)" },
+        { id: "w2", word: "مَعبود", meaning: "عبادت‌شده", root: "ع، ب، د", extra: "م، و", wazn: "مَفْعول", rootMeaning: "عبادت کرد (عَبَدَ)" },
+        { id: "w3", word: "فاتِح", meaning: "گشاینده", root: "ف، ت، ح", extra: "ا", wazn: "فاعِل", rootMeaning: "گشود، باز کرد (فَتَحَ)" },
+        { id: "w4", word: "مَفتوح", meaning: "گشوده‌شده", root: "ف، ت، ح", extra: "م، و", wazn: "مَفْعول", rootMeaning: "گشود، باز کرد (فَتَحَ)" },
+        { id: "w5", word: "کاتِب", meaning: "نویسنده", root: "ک، ت، ب", extra: "ا", wazn: "فاعِل", rootMeaning: "نوشت (کَتَبَ)" },
+        { id: "w6", word: "مَکتوب", meaning: "نوشته‌شده", root: "ک، ت، ب", extra: "م، و", wazn: "مَفْعول", rootMeaning: "نوشت (کَتَبَ)" },
+        { id: "w7", word: "ضارِب", meaning: "زننده", root: "ض، ر، ب", extra: "ا", wazn: "فاعِل", rootMeaning: "زد (ضَرَبَ)" },
+        { id: "w8", word: "مَضروب", meaning: "زده‌شده", root: "ض، ر، ب", extra: "م، و", wazn: "مَفْعول", rootMeaning: "زد (ضَرَبَ)" },
+        { id: "w9", word: "خادِم", meaning: "خدمتکار", root: "خ، د، م", extra: "ا", wazn: "فاعِل", rootMeaning: "خدمت کرد (خَدَمَ)" },
+        { id: "w10", word: "مَخدوم", meaning: "کسی که به او خدمت می‌شود", root: "خ، د، م", extra: "م، و", wazn: "مَفْعول", rootMeaning: "خدمت کرد (خَدَمَ)" },
+        { id: "w11", word: "شاهِد", meaning: "بیننده", root: "ش، ه، د", extra: "ا", wazn: "فاعِل", rootMeaning: "دید، گواهی داد (شَهِدَ)" },
+        { id: "w12", word: "مَشهود", meaning: "دیده‌شده", root: "ش، ه، د", extra: "م، و", wazn: "مَفْعول", rootMeaning: "دید، گواهی داد (شَهِدَ)" }
+      ];
+
+      const WAZN_ALL_ROOTS = ["ع، ب، د", "ف، ت، ح", "ک، ت، ب", "ض، ر، ب", "خ، د، م", "ش، ه، د"];
+      const WAZN_EXTRA_OPTIONS = ["ا", "م، و", "ت، ا", "م، ي"];
+      const WAZN_WEIGHT_OPTIONS = ["فاعِل", "مَفْعول", "فَعيل", "فَعالَة"];
+      const WAZN_ALL_ROOT_MEANINGS = [
+        "عبادت کرد (عَبَدَ)",
+        "گشود، باز کرد (فَتَحَ)",
+        "نوشت (کَتَبَ)",
+        "زد (ضَرَبَ)",
+        "خدمت کرد (خَدَمَ)",
+        "دید، گواهی داد (شَهِدَ)"
+      ];
+
+      // Game 4: Pronoun-Verb Agreement Judge Bank
+      const JUDGE_BANK = [
+        { id: "j1", sentence: "أَنا ذَهَبْتُ إِلَى الْمَدْرَسَةِ.", isCorrect: true, exp: "برای ضمیر «أَنا» (من)، فعل ماضی با شناسهٔ «تُ» می‌آید: ذَهَبْتُ." },
+        { id: "j2", sentence: "نَحْنُ ذَهَبْنا إِلَى الصَّفِّ.", isCorrect: true, exp: "برای ضمیر «نَحْنُ» (ما)، فعل ماضی با شناسهٔ «نا» می‌آید: ذَهَبْنا." },
+        { id: "j3", sentence: "هُوَ يَذْهَبُ إِلَى الْمُسْتَشْفىٰ.", isCorrect: true, exp: "برای ضمیر «هُوَ» (او مذکر)، فعل مضارع با «يَـ» آغاز می‌شود: يَذْهَبُ." },
+        { id: "j4", sentence: "هِيَ تَذْهَبُ إِلَى الْمَکْتَبَةِ.", isCorrect: true, exp: "برای ضمیر «هِيَ» (او مؤنث)، فعل مضارع با «تَـ» آغاز می‌شود: تَذْهَبُ." },
+        { id: "j5", sentence: "هُمْ ذَهَبوا إِلَى الْمَلْعَبِ.", isCorrect: true, exp: "برای ضمیر «هُمْ» (ایشان مذکر)، فعل ماضی با «وا» می‌آید: ذَهَبوا." },
+        { id: "j6", sentence: "أَنْتَ تَذْهَبُ مَعَ أَبيکَ.", isCorrect: true, exp: "برای ضمیر «أَنْتَ» (تو مذکر)، فعل مضارع با «تَـ» می‌آید: تَذْهَبُ." },
+        { id: "j7", sentence: "أَنْتُمْ تَذْهَبونَ إِلَى الْمَدْرَسَةِ.", isCorrect: true, exp: "برای ضمیر «أَنْتُمْ» (شما جمع مذکر)، فعل مضارع «تَـ ... ونَ» است: تَذْهَبونَ." },
+        { id: "j8", sentence: "أَنْتِ تَکْتُبينَ الصَّحيفَةَ.", isCorrect: true, exp: "برای ضمیر «أَنْتِ» (تو مؤنث)، فعل مضارع «تَـ ... ينَ» می‌آید: تَکْتُبينَ." },
+        { id: "j9", sentence: "هُنَّ يَدْرُسْنَ فِي الصَّفِّ.", isCorrect: true, exp: "برای ضمیر «هُنَّ» (ایشان جمع مؤنث)، فعل مضارع «يَـ ... نَ» می‌آید: يَدْرُسْنَ." },
+        { id: "j10", sentence: "أَنْتُنَّ کَتَبْتُنَّ الْواجِباتِ.", isCorrect: true, exp: "برای ضمیر «أَنْتُنَّ» (شما جمع مؤنث)، فعل ماضی با «تُنَّ» می‌آید: کَتَبْتُنَّ." },
+        { id: "j11", sentence: "نَحْنُ نَجَحْنا فِي الاِمْتِحانِ.", isCorrect: true, exp: "برای ضمیر «نَحْنُ» (ما)، فعل ماضی با «نا» همخوانی کامل دارد: نَجَحْنا." },
+        { id: "j12", sentence: "هُمْ يَنْصُرونَ الْمَظْلومَ.", isCorrect: true, exp: "برای ضمیر «هُمْ» (ایشان جمع مذکر)، فعل مضارع با «يَـ ... ونَ» می‌آید: يَنْصُرونَ." },
+        { id: "j13", sentence: "أَنْتُمْ وَصَلْتُمْ إِلَى الْمَسْجِدِ.", isCorrect: true, exp: "برای ضمیر «أَنْتُمْ» (شما جمع مذکر)، فعل ماضی با «تُمْ» می‌آید: وَصَلْتُمْ." },
+        { id: "j14", sentence: "هُنَّ يَقْدِرْنَ عَلَى الرَّسْمِ.", isCorrect: true, exp: "برای ضمیر «هُنَّ» (ایشان جمع مؤنث)، فعل مضارع با «يَـ ... نَ» می‌آید: يَقْدِرْنَ." },
+        { id: "j15", sentence: "هِيَ شَرَحَتِ الدَّرْسَ جَيِّداً.", isCorrect: true, exp: "برای ضمیر «هِيَ» (او مؤنث)، فعل ماضی با «تْ» می‌آید: شَرَحَتْ." },
+        { id: "j16", sentence: "أَنا أَعْرِفُ صَديقي حُسَيْناً.", isCorrect: true, exp: "برای ضمیر «أَنا» (من)، فعل مضارع با «أَ» آغاز می‌شود: أَعْرِفُ." },
+
+        { id: "j17", sentence: "نَحْنُ ذَهَبوا إِلَى الْمَدْرَسَةِ.", isCorrect: false, exp: "«ذَهَبوا» برای «هُمْ» است؛ با ضمیر «نَحْنُ» (ما) باید «ذَهَبْنا» بیاید." },
+        { id: "j18", sentence: "أَنا ذَهَبَ إِلَى الْمُسْتَشْفىٰ.", isCorrect: false, exp: "«ذَهَبَ» برای «هُوَ» است؛ با ضمیر «أَنا» (من) باید «ذَهَبْتُ» بیاید." },
+        { id: "j19", sentence: "هُوَ تَکْتُبُ الدَّرْسَ.", isCorrect: false, exp: "«تَکْتُبُ» برای «هُوَ» درست نیست؛ برای «هُوَ» (او مذکر) باید «يَکْتُبُ» بیاید." },
+        { id: "j20", sentence: "هِيَ يَذْهَبُ إِلَى الْمَدْرَسَةِ.", isCorrect: false, exp: "«يَذْهَبُ» برای «هُوَ» است؛ با ضمیر «هِيَ» (او مؤنث) باید «تَذْهَبُ» بیاید." },
+        { id: "j21", sentence: "أَنْتَ يَسْمَعُ کَلامَ الْمُدَرِّسِ.", isCorrect: false, exp: "«يَسْمَعُ» برای «هُوَ» است؛ با ضمیر «أَنْتَ» (تو مذکر) باید «تَسْمَعُ» بیاید." },
+        { id: "j22", sentence: "أَنْتُمْ ذَهَبْنا إِلَى الصَّفِّ.", isCorrect: false, exp: "«ذَهَبْنا» برای «نَحْنُ» است؛ با ضمیر «أَنْتُمْ» (شما جمع مذکر) باید «ذَهَبْتُمْ» بیاید." },
+        { id: "j23", sentence: "هُمْ نَجَحْنا فِي الصَّفِّ التّاسِعِ.", isCorrect: false, exp: "«نَجَحْنا» برای «نَحْنُ» است؛ با ضمیر «هُمْ» (ایشان مذکر) باید «نَجَحوا» بیاید." },
+        { id: "j24", sentence: "أَنْتِ تَذْهَبُ إِلَى الْمَکْتَبَةِ.", isCorrect: false, exp: "«تَذْهَبُ» برای «أَنْتَ» (مذکر) است؛ با ضمیر «أَنْتِ» (تو مؤنث) باید «تَذْهَبينَ» بیاید." },
+        { id: "j25", sentence: "هُنَّ وَصَلْتُمْ إِلَى الْبَيْتِ.", isCorrect: false, exp: "«وَصَلْتُمْ» برای «أَنْتُمْ» است؛ با ضمیر «هُنَّ» (ایشان مؤنث) باید «وَصَلْنَ» بیاید." },
+        { id: "j26", sentence: "نَحْنُ أَعْرِفُ قَوانينَ الْمُرورِ.", isCorrect: false, exp: "«أَعْرِفُ» برای «أَنا» است؛ با ضمیر «نَحْنُ» (ما) باید «نَعْرِفُ» بیاید." },
+        { id: "j27", sentence: "أَنْتَ کَتَبْتِ الصَّحيفَةَ.", isCorrect: false, exp: "«کَتَبْتِ» برای «أَنْتِ» (مؤنث) است؛ با «أَنْتَ» (تو مذکر) باید «کَتَبْتَ» بیاید." },
+        { id: "j28", sentence: "هِيَ شَرِبَ الْماءَ.", isCorrect: false, exp: "«شَرِبَ» برای «هُوَ» است؛ با ضمیر «هِيَ» (او مؤنث) باید «شَرِبَتْ» بیاید." },
+        { id: "j29", sentence: "أَنْتُمْ يَنْصُرونَ أَصْدِقاءَکُمْ.", isCorrect: false, exp: "«يَنْصُرونَ» برای «هُمْ» است؛ با ضمیر «أَنْتُمْ» (شما جمع مذکر) باید «تَنْصُرونَ» بیاید." },
+        { id: "j30", sentence: "أَنْتُنَّ يَعْمَلْنَ بِجِدٍّ.", isCorrect: false, exp: "«يَعْمَلْنَ» برای «هُنَّ» است؛ با ضمیر «أَنْتُنَّ» (شما جمع مؤنث) باید «تَعْمَلْنَ» بیاید." },
+        { id: "j31", sentence: "أَنا کَتَبْتَ الْواجِباتِ.", isCorrect: false, exp: "«کَتَبْتَ» برای «أَنْتَ» است؛ با ضمیر «أَنا» (من) باید «کَتَبْتُ» بیاید." },
+        { id: "j32", sentence: "هُمْ يَرْسُمُ عَلاماتِ الْمُرورِ.", isCorrect: false, exp: "«يَرْسُمُ» برای مفرد «هُوَ» است؛ با ضمیر «هُمْ» (ایشان جمع مذکر) باید «يَرْسُمونَ» بیاید." }
+      ];
+
+      /* =====================================================================
+         3. SETTINGS, STORAGE & WEB AUDIO EFFECTS
+      ===================================================================== */
+      const STORAGE_KEY = "arabi9_lesson2_settings_v1";
+      let settings = { soundEnabled: true };
+
+      function loadSettings() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (typeof parsed.soundEnabled === "boolean") {
+              settings.soundEnabled = parsed.soundEnabled;
+            }
+          }
+        } catch (e) {}
+      }
+
+      function saveSettings() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+        } catch (e) {}
+      }
+
+      let audioCtx = null;
+
+      function getAudioCtx() {
+        if (!settings.soundEnabled) return null;
+        try {
+          if (!audioCtx || audioCtx.state === "closed") {
+            const Ctx = window.AudioContext || window.webkitAudioContext;
+            if (!Ctx) return null;
+            audioCtx = new Ctx();
+          }
+          if (audioCtx.state === "suspended") {
+            audioCtx.resume();
+          }
+          return audioCtx;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function playTone(freq, duration, type = "sine", volume = 0.09, delay = 0) {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        try {
+          const now = ctx.currentTime + delay;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, now);
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(volume, now + 0.015);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + duration + 0.02);
+        } catch (e) {}
+      }
+
+      const SFX = {
+        click() { playTone(520, 0.07, "triangle", 0.06); },
+        success() {
+          playTone(523.25, 0.12, "triangle", 0.08, 0);
+          playTone(659.25, 0.14, "triangle", 0.08, 0.08);
+          playTone(783.99, 0.22, "triangle", 0.09, 0.16);
+        },
+        error() {
+          playTone(260, 0.15, "sawtooth", 0.05, 0);
+          playTone(210, 0.22, "sawtooth", 0.05, 0.11);
+        },
+        dice() {
+          for (let i = 0; i < 4; i++) {
+            playTone(320 + i * 70, 0.05, "square", 0.035, i * 0.07);
+          }
+        },
+        ladder() {
+          [392, 493.88, 587.33, 783.99].forEach((f, idx) => playTone(f, 0.12, "triangle", 0.08, idx * 0.07));
+        },
+        snake() {
+          [480, 410, 340, 260].forEach((f, idx) => playTone(f, 0.14, "sine", 0.08, idx * 0.08));
+        },
+        win() {
+          [523.25, 659.25, 783.99, 1046.5].forEach((f, idx) => playTone(f, 0.22, "triangle", 0.09, idx * 0.1));
+        }
+      };
+
+      function syncSoundButtons() {
+        document.querySelectorAll("#btn-sound-menu, [data-toggle-sound]").forEach((btn) => {
+          const iconSlot = btn.querySelector(".sound-icon-slot");
+          const labelSlot = btn.querySelector(".sound-label-slot");
+          if (settings.soundEnabled) {
+            btn.classList.remove("muted");
+            if (iconSlot) iconSlot.innerHTML = ICON_SOUND_ON;
+            if (labelSlot) labelSlot.textContent = "صدا روشن";
+          } else {
+            btn.classList.add("muted");
+            if (iconSlot) iconSlot.innerHTML = ICON_SOUND_OFF;
+            if (labelSlot) labelSlot.textContent = "صدا خاموش";
+          }
+        });
+      }
+
+      /* =====================================================================
+         4. SCREEN & NAVIGATION MANAGER
+      ===================================================================== */
+      const SCREENS = {
+        menu: document.getElementById("screen-menu"),
+        pronunciation: document.getElementById("screen-pronunciation"),
+        snakes: document.getElementById("screen-snakes"),
+        wazn: document.getElementById("screen-wazn"),
+        judge: document.getElementById("screen-judge")
+      };
+
+      function cleanupAllActiveGames() {
+        PronGame.cleanup();
+        SnakesGame.cleanup();
+        WaznGame.cleanup();
+        JudgeGame.cleanup();
+      }
+
+      function showScreen(name) {
+        cleanupAllActiveGames();
+        Object.keys(SCREENS).forEach((key) => {
+          if (key === name) {
+            SCREENS[key].classList.remove("hidden");
+          } else {
+            SCREENS[key].classList.add("hidden");
+          }
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function openGameIntro(gameName) {
+        SFX.click();
+        showScreen(gameName);
+        if (gameName === "pronunciation") PronGame.showIntro();
+        if (gameName === "snakes") SnakesGame.showIntro();
+        if (gameName === "wazn") WaznGame.showIntro();
+        if (gameName === "judge") JudgeGame.showIntro();
+      }
+
+      /* =====================================================================
+         5. SPLASH SCREEN CONTROLLER (EXACT 10 SECONDS)
+      ===================================================================== */
+      function initSplashScreen() {
+        const splashEl = document.getElementById("screen-splash");
+        const noteEl = document.getElementById("splash-countdown-note");
+        let remaining = 10;
+
+        const secTimer = setInterval(() => {
+          remaining -= 1;
+          if (remaining > 0) {
+            noteEl.textContent = "در حال آماده‌سازی بازی‌ها... (" + toFa(remaining) + " ثانیه)";
+          } else {
+            noteEl.textContent = "ورود به منوی اصلی...";
+            clearInterval(secTimer);
+          }
+        }, 1000);
+
+        setTimeout(() => {
+          clearInterval(secTimer);
+          splashEl.classList.add("fade-out");
+          setTimeout(() => {
+            splashEl.classList.add("hidden");
+            showScreen("menu");
+          }, 650);
+        }, 10000);
+      }
+
+      /* =====================================================================
+         6. GAME 1: PRONUNCIATION GAME (UNIVERSAL MOBILE & CROSS-BROWSER FIX)
+      ===================================================================== */
+      const PronGame = (() => {
+        const introEl = document.getElementById("pron-intro");
+        const playEl = document.getElementById("pron-play");
+        const endEl = document.getElementById("pron-end");
+
+        const progressLbl = document.getElementById("pron-progress-label");
+        const attemptsLbl = document.getElementById("pron-attempts-label");
+        const progressBar = document.getElementById("pron-progress-bar");
+        const modeNote = document.getElementById("pron-mode-note");
+        const stageEl = document.getElementById("pron-stage");
+        const wordArEl = document.getElementById("pron-word-ar");
+        const wordFaEl = document.getElementById("pron-word-fa");
+        const wordPhonEl = document.getElementById("pron-word-phonetic");
+
+        const speechControls = document.getElementById("pron-speech-controls");
+        const btnMic = document.getElementById("btn-pron-mic");
+        const vuMeterEl = document.getElementById("pron-vu-meter");
+        const vuBars = Array.from(vuMeterEl.querySelectorAll(".vu-bar"));
+        const heardBox = document.getElementById("pron-heard-box");
+        const micStatus = document.getElementById("pron-mic-status");
+
+        const recReviewBox = document.getElementById("pron-recorder-review");
+        const recReviewTitle = document.getElementById("pron-recorder-title");
+        const btnPlayMine = document.getElementById("btn-pron-play-mine");
+        const btnRecOk = document.getElementById("btn-pron-rec-ok");
+        const btnRecRetry = document.getElementById("btn-pron-rec-retry");
+
+        const fallbackPanel = document.getElementById("pron-fallback-panel");
+        const fallbackReason = document.getElementById("pron-fallback-reason");
+
+        const btnListen = document.getElementById("btn-pron-listen");
+        const listenLabel = document.getElementById("pron-listen-label");
+        const btnToggleMode = document.getElementById("btn-pron-toggle-mode");
+        const ttsNotice = document.getElementById("pron-tts-notice");
+        const feedbackEl = document.getElementById("pron-feedback");
+
+        const ttsAudioEl = document.getElementById("tts-audio-player");
+        const recordedAudioEl = document.getElementById("pron-recorded-audio");
+
+        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+
+        function hasGetUserMedia() {
+          return !!(navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === "function");
+        }
+
+        function isInsecureNonLocalOrigin() {
+          if (window.isSecureContext === false) return true;
+          const p = location.protocol;
+          if (p === "file:" || p === "content:") return true;
+          return false;
+        }
+
+        // Modes: "speech" | "recorder" | "self"
+        let activeMode = "self";
+        let preferredAsrLang = "ar-SA";
+
+        let queue = [];
+        let currentIndex = 0;
+        let attempts = 0;
+        let isTransitioning = false;
+        let advanceTimeout = null;
+
+        // Mode 1 (SpeechRecognition) state
+        let recognition = null;
+        let isListening = false;
+        let speechSafetyTimer = null;
+        let speechEndTimer = null;
+
+        // Mode 2 (MediaRecorder + Web Audio Analyser) state
+        let isRecording = false;
+        let mediaStream = null;
+        let mediaRecorder = null;
+        let recordedChunks = [];
+        let recordedBlobUrl = null;
+        let micAnalyserCtx = null;
+        let micSourceNode = null;
+        let vuRafId = null;
+        let recAutoStopTimer = null;
+        let voicedFrames = 0;
+        let recStartTime = 0;
+
+        // TTS state
+        let ttsSessionId = 0;
+        let ttsWatchdogTimer = null;
+        let ttsSafetyResetTimer = null;
+        let ttsAudioTimeout = null;
+        let activeUtterance = null;
+        let cachedArabicVoice = null;
+        let silentUnlockUrl = null;
+
+        function findArabicVoice() {
+          if (!("speechSynthesis" in window)) return null;
+          let voices = [];
+          try {
+            voices = window.speechSynthesis.getVoices() || [];
+          } catch (e) {
+            voices = [];
+          }
+          if (!voices.length) return null;
+          const norm = (s) => (s || "").toLowerCase().replace(/_/g, "-");
+          cachedArabicVoice =
+            voices.find((v) => norm(v.lang) === "ar-sa") ||
+            voices.find((v) => norm(v.lang) === "ar-001") ||
+            voices.find((v) => /^ar(-|$)/.test(norm(v.lang))) ||
+            voices.find((v) => norm(v.lang).startsWith("ara")) ||
+            voices.find((v) => /arabic|majed|maged|tarik|laila|zeina|hala|naayf|عرب/i.test(v.name || "")) ||
+            null;
+          return cachedArabicVoice;
+        }
+
+        if ("speechSynthesis" in window) {
+          findArabicVoice();
+          if (typeof window.speechSynthesis.addEventListener === "function") {
+            window.speechSynthesis.addEventListener("voiceschanged", findArabicVoice);
+          } else if (typeof window.speechSynthesis.onvoiceschanged !== "undefined") {
+            window.speechSynthesis.onvoiceschanged = findArabicVoice;
+          }
+        }
+
+        function unlockAudioEnginesOnGesture() {
+          // 1. Unlock HTML5 <audio> with a valid 46-byte silent PCM WAV blob
+          try {
+            if (!silentUnlockUrl) {
+              const silentWav = new Uint8Array([
+                0x52, 0x49, 0x46, 0x46, 38, 0, 0, 0,
+                0x57, 0x41, 0x56, 0x45, 0x66, 0x6d, 0x74, 0x20,
+                16, 0, 0, 0, 1, 0, 1, 0,
+                0x40, 0x1f, 0, 0, 0x80, 0x3e, 0, 0,
+                2, 0, 16, 0, 0x64, 0x61, 0x74, 0x61,
+                2, 0, 0, 0, 0, 0
+              ]);
+              silentUnlockUrl = URL.createObjectURL(new Blob([silentWav], { type: "audio/wav" }));
+            }
+            ttsAudioEl.src = silentUnlockUrl;
+            const p = ttsAudioEl.play();
+            if (p && typeof p.then === "function") {
+              p.then(() => {
+                ttsAudioEl.pause();
+                ttsAudioEl.currentTime = 0;
+              }).catch(() => {});
+            }
+          } catch (e) {}
+
+          // 2. Wake up SpeechSynthesis voice list on iOS/Android
+          if ("speechSynthesis" in window) {
+            try {
+              const u = new SpeechSynthesisUtterance("");
+              u.volume = 0;
+              window.speechSynthesis.speak(u);
+            } catch (e) {}
+            findArabicVoice();
+          }
+        }
+
+        function setListenBtnPlaying(playing) {
+          if (playing) {
+            btnListen.classList.add("speaking");
+            listenLabel.textContent = "در حال پخش تلفظ...";
+          } else {
+            btnListen.classList.remove("speaking");
+            listenLabel.textContent = "پخش تلفظ صحیح";
+          }
+        }
+
+        function stopAllPlayback() {
+          ttsSessionId += 1;
+          clearTimeout(ttsWatchdogTimer);
+          clearTimeout(ttsSafetyResetTimer);
+          clearTimeout(ttsAudioTimeout);
+          ttsAudioEl.onended = null;
+          ttsAudioEl.onerror = null;
+          ttsAudioEl.onplaying = null;
+          try {
+            ttsAudioEl.pause();
+            ttsAudioEl.currentTime = 0;
+          } catch (e) {}
+
+          try {
+            recordedAudioEl.pause();
+            recordedAudioEl.currentTime = 0;
+          } catch (e) {}
+
+          let wasSynthActive = false;
+          if ("speechSynthesis" in window) {
+            try {
+              wasSynthActive = window.speechSynthesis.speaking || window.speechSynthesis.pending;
+              if (wasSynthActive) {
+                window.speechSynthesis.cancel();
+              }
+            } catch (e) {}
+          }
+          activeUtterance = null;
+          setListenBtnPlaying(false);
+          return wasSynthActive;
+        }
+
+        function buildOnlineTtsUrls(arabicText) {
+          const encoded = encodeURIComponent(arabicText);
+          const len = arabicText.length;
+          return [
+            `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ar&total=1&idx=0&textlen=${len}&q=${encoded}`,
+            `https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=ar&total=1&idx=0&textlen=${len}&q=${encoded}`
+          ];
+        }
+
+        function tryNativeSpeechSynth(arabicText, sessionId, voice, onFail) {
+          if (sessionId !== ttsSessionId) return;
+          if (!("speechSynthesis" in window)) {
+            onFail();
+            return;
+          }
+
+          try {
+            try { window.speechSynthesis.resume(); } catch (e) {}
+
+            const utter = new SpeechSynthesisUtterance(arabicText);
+            activeUtterance = utter;
+            utter.lang = voice ? voice.lang : "ar-SA";
+            if (voice) utter.voice = voice;
+            utter.rate = 0.85;
+            utter.pitch = 1.0;
+            utter.volume = 1.0;
+
+            let started = false;
+            let settled = false;
+            const startTime = Date.now();
+
+            ttsWatchdogTimer = setTimeout(() => {
+              if (sessionId !== ttsSessionId || settled) return;
+              if (!started) {
+                settled = true;
+                try { window.speechSynthesis.cancel(); } catch (e) {}
+                activeUtterance = null;
+                onFail();
+              }
+            }, 1250);
+
+            ttsSafetyResetTimer = setTimeout(() => {
+              if (sessionId === ttsSessionId && !settled) {
+                settled = true;
+                activeUtterance = null;
+                setListenBtnPlaying(false);
+              }
+            }, 6500);
+
+            utter.onstart = () => {
+              if (sessionId !== ttsSessionId || settled) return;
+              started = true;
+              clearTimeout(ttsWatchdogTimer);
+              setListenBtnPlaying(true);
+            };
+
+            utter.onend = () => {
+              clearTimeout(ttsWatchdogTimer);
+              clearTimeout(ttsSafetyResetTimer);
+              if (sessionId !== ttsSessionId || settled) return;
+              settled = true;
+              activeUtterance = null;
+              const elapsed = Date.now() - startTime;
+              // Classic silent-failure check (Android/Chrome ends immediately without audio)
+              if ((!started && elapsed < 150) || (arabicText.length > 2 && elapsed < 90)) {
+                onFail();
+                return;
+              }
+              setListenBtnPlaying(false);
+            };
+
+            utter.onerror = (ev) => {
+              clearTimeout(ttsWatchdogTimer);
+              clearTimeout(ttsSafetyResetTimer);
+              if (sessionId !== ttsSessionId || settled) return;
+              settled = true;
+              activeUtterance = null;
+              if (ev && (ev.error === "interrupted" || ev.error === "canceled")) {
+                setListenBtnPlaying(false);
+                return;
+              }
+              onFail();
+            };
+
+            setListenBtnPlaying(true);
+            window.speechSynthesis.speak(utter);
+          } catch (e) {
+            onFail();
+          }
+        }
+
+        function tryOnlineAudioTts(urls, idx, sessionId, onAllFailed) {
+          if (sessionId !== ttsSessionId) return;
+          if (idx >= urls.length) {
+            onAllFailed();
+            return;
+          }
+
+          let settled = false;
+          const failCurrent = () => {
+            if (settled || sessionId !== ttsSessionId) return;
+            settled = true;
+            clearTimeout(ttsAudioTimeout);
+            ttsAudioEl.onended = null;
+            ttsAudioEl.onerror = null;
+            ttsAudioEl.onplaying = null;
+            try { ttsAudioEl.pause(); } catch (e) {}
+            tryOnlineAudioTts(urls, idx + 1, sessionId, onAllFailed);
+          };
+
+          ttsAudioEl.onplaying = () => {
+            if (sessionId !== ttsSessionId) return;
+            clearTimeout(ttsAudioTimeout);
+            setListenBtnPlaying(true);
+          };
+
+          ttsAudioEl.onended = () => {
+            if (settled || sessionId !== ttsSessionId) return;
+            settled = true;
+            clearTimeout(ttsAudioTimeout);
+            setListenBtnPlaying(false);
+          };
+
+          ttsAudioEl.onerror = failCurrent;
+
+          ttsAudioTimeout = setTimeout(() => {
+            if (!settled && ttsAudioEl.paused) {
+              failCurrent();
+            }
+          }, 3000);
+
+          try {
+            setListenBtnPlaying(true);
+            ttsAudioEl.src = urls[idx];
+            const playPromise = ttsAudioEl.play();
+            if (playPromise && typeof playPromise.catch === "function") {
+              playPromise.catch(failCurrent);
+            }
+          } catch (e) {
+            failCurrent();
+          }
+        }
+
+        function showTtsUnavailableNotice(isAutoHint) {
+          setListenBtnPlaying(false);
+          if (isAutoHint) return;
+          ttsNotice.textContent = "پخش صوتی عربی در این لحظه در دسترس نبود (نبود صدای عربی در گوشی یا قطع بودن اینترنت). لطفاً از «تلفظ راهنما» در کادر کلمه استفاده کن.";
+          ttsNotice.classList.remove("hidden");
+        }
+
+        function speakCurrentWord(options = {}) {
+          const isAutoHint = Boolean(options.isAutoHint);
+          const item = queue[currentIndex];
+          if (!item) return;
+
+          ttsNotice.classList.add("hidden");
+          const wasSynthActive = stopAllPlayback();
+          const sessionId = ttsSessionId;
+          const arabicText = toStandardArabicForTTS(item.word);
+          const urls = buildOnlineTtsUrls(arabicText);
+          const arVoice = findArabicVoice();
+
+          const finishFailed = () => showTtsUnavailableNotice(isAutoHint);
+
+          // Strategy A: Device has an explicit Arabic voice -> Native SpeechSynthesis first, online MP3 fallback
+          if (arVoice) {
+            const runSynth = () => tryNativeSpeechSynth(arabicText, sessionId, arVoice, () => {
+              if (navigator.onLine !== false) {
+                tryOnlineAudioTts(urls, 0, sessionId, finishFailed);
+              } else {
+                finishFailed();
+              }
+            });
+            if (wasSynthActive) {
+              setTimeout(runSynth, 70);
+            } else {
+              runSynth();
+            }
+            return;
+          }
+
+          // Strategy B: No explicit Arabic voice listed (Firefox Android, Chrome without AR pack, etc.)
+          // Try Online MP3 first when online (synchronously in click handler for iOS/Android autoplay), then native ar-SA fallback
+          if (navigator.onLine !== false) {
+            tryOnlineAudioTts(urls, 0, sessionId, () => {
+              tryNativeSpeechSynth(arabicText, sessionId, null, finishFailed);
+            });
+          } else {
+            tryNativeSpeechSynth(arabicText, sessionId, null, finishFailed);
+          }
+        }
+
+        /* ---------- Mode Detection & UI ---------- */
+        function chooseInitialMode() {
+          if (isInsecureNonLocalOrigin()) {
+            return "self";
+          }
+          if (SpeechRec) {
+            return "speech";
+          }
+          if (hasGetUserMedia()) {
+            return "recorder";
+          }
+          return "self";
+        }
+
+        function updateModeUI(customReason) {
+          recReviewBox.classList.add("hidden");
+          vuMeterEl.classList.add("hidden");
+          heardBox.classList.add("hidden");
+
+          if (activeMode === "speech") {
+            speechControls.classList.remove("hidden");
+            fallbackPanel.classList.add("hidden");
+            modeNote.textContent = customReason || "بررسی خودکار تلفظ عربی با میکروفون (تشخیص گفتار هوشمند)";
+            micStatus.textContent = "برای تلفظ، دکمه میکروفون را لمس کن";
+            btnToggleMode.classList.remove("hidden");
+            btnToggleMode.querySelector("span").textContent = hasGetUserMedia() ? "تغییر به ضبط صدا" : "تغییر به بررسی شخصی";
+          } else if (activeMode === "recorder") {
+            speechControls.classList.remove("hidden");
+            fallbackPanel.classList.add("hidden");
+            modeNote.textContent = customReason || "حالت ضبط زنده میکروفون و مقایسه صوتی: صدایت را ضبط کن و با تلفظ صحیح بسنج.";
+            micStatus.textContent = "دکمه میکروفون را بزن و واژه را با صدای بلند بخوان";
+            btnToggleMode.classList.remove("hidden");
+            btnToggleMode.querySelector("span").textContent = SpeechRec ? "بازگشت به تشخیص خودکار" : "حالت بدون میکروفون";
+          } else {
+            speechControls.classList.add("hidden");
+            fallbackPanel.classList.remove("hidden");
+            modeNote.textContent = "حالت «تمرین و ارزیابی شخصی» (بدون نیاز به میکروفون)";
+            if (customReason) {
+              fallbackReason.textContent = customReason;
+            } else if (isInsecureNonLocalOrigin()) {
+              fallbackReason.textContent = "صفحه روی آدرس محلی یا غیرامن باز شده است؛ مرورگرهای گوشی در حالت فایل محلی اجازهٔ فعال‌سازی میکروفون نمی‌دهند (برای فعال شدن میکروفون صفحه را با لینک امن HTTPS باز کنید). در این حالت تلفظ صحیح را گوش بده، واژه را بخوان و نتیجه را ثبت کن.";
+            } else {
+              fallbackReason.textContent = "در این حالت ابتدا تلفظ صحیح را گوش بده، واژه را با صدای بلند بخوان و سپس خودت با دقت ارزیابی کن.";
+            }
+
+            if (!isInsecureNonLocalOrigin() && (SpeechRec || hasGetUserMedia())) {
+              btnToggleMode.classList.remove("hidden");
+              btnToggleMode.querySelector("span").textContent = "تلاش دوباره با میکروفون";
+            } else {
+              btnToggleMode.classList.add("hidden");
+            }
+          }
+        }
+
+        function showFeedback(type, title, desc) {
+          feedbackEl.className = "feedback-box " + type;
+          feedbackEl.innerHTML =
+            '<div class="feedback-icon">' + (type === "success" ? ICON_CHECK : ICON_CROSS) + '</div>' +
+            '<div class="feedback-content">' +
+              '<div class="feedback-title">' + title + '</div>' +
+              '<div class="feedback-desc">' + desc + '</div>' +
+            '</div>';
+          feedbackEl.classList.remove("hidden");
+        }
+
+        function revokeRecordedUrl() {
+          if (recordedBlobUrl) {
+            try { URL.revokeObjectURL(recordedBlobUrl); } catch (e) {}
+            recordedBlobUrl = null;
+          }
+          recordedAudioEl.removeAttribute("src");
+        }
+
+        function renderWord() {
+          const item = queue[currentIndex];
+          if (!item) return;
+
+          revokeRecordedUrl();
+          stageEl.classList.remove("state-success", "state-error");
+          feedbackEl.classList.add("hidden");
+          ttsNotice.classList.add("hidden");
+          recReviewBox.classList.add("hidden");
+          heardBox.classList.add("hidden");
+          vuMeterEl.classList.add("hidden");
+          isTransitioning = false;
+
+          wordArEl.textContent = item.word;
+          wordFaEl.textContent = item.meaning;
+          wordPhonEl.textContent = "تلفظ راهنما: " + item.phonetic;
+
+          progressLbl.textContent = toFa(currentIndex) + " از " + toFa(queue.length) + " واژه";
+          attemptsLbl.textContent = "تلاش‌ها: " + toFa(attempts);
+          progressBar.style.width = ((currentIndex / queue.length) * 100) + "%";
+
+          btnMic.disabled = false;
+          micStatus.textContent = activeMode === "recorder"
+            ? "دکمه میکروفون را بزن و واژه را با صدای بلند بخوان"
+            : "برای تلفظ، دکمه میکروفون را لمس کن";
+        }
+
+        function handleSuccess(recognizedText) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          btnMic.disabled = true;
+          recReviewBox.classList.add("hidden");
+
+          SFX.success();
+          stageEl.classList.remove("state-error");
+          stageEl.classList.add("state-success");
+
+          const completedCount = currentIndex + 1;
+          progressLbl.textContent = toFa(completedCount) + " از " + toFa(queue.length) + " واژه";
+          attemptsLbl.textContent = "تلاش‌ها: " + toFa(attempts);
+          progressBar.style.width = ((completedCount / queue.length) * 100) + "%";
+
+          const extraInfo = recognizedText
+            ? 'متن تشخیص‌داده‌شده: <span class="arabic-text" style="font-weight:900;">«' + recognizedText + '»</span>'
+            : "واژه با موفقیت تمرین و تأیید شد.";
+
+          showFeedback("success", "آفرین! تلفظت درست ثبت شد.", extraInfo);
+
+          advanceTimeout = setTimeout(() => {
+            currentIndex += 1;
+            if (currentIndex >= queue.length) {
+              finishGame();
+            } else {
+              renderWord();
+            }
+          }, 1350);
+        }
+
+        function handleMistake(reasonText, playHintAfter) {
+          SFX.error();
+          stageEl.classList.remove("state-success");
+          stageEl.classList.add("state-error");
+          attemptsLbl.textContent = "تلاش‌ها: " + toFa(attempts);
+          showFeedback("error", "نیاز به تلاش دوباره!", reasonText);
+          if (playHintAfter) {
+            setTimeout(() => {
+              if (!isTransitioning && !isListening && !isRecording) {
+                speakCurrentWord({ isAutoHint: true });
+              }
+            }, 220);
+          }
+        }
+
+        /* ---------- Smart Arabic + Persian-Accent Fuzzy Matcher ---------- */
+        function matchesTarget(transcriptList, item) {
+          const baseNorm = normalizeArabic(item.word);
+          const allTargetNorms = [baseNorm, ...item.variants.map(normalizeArabic)].filter(Boolean);
+          const isShortWord = baseNorm.length <= 2;
+
+          for (const raw of transcriptList) {
+            const norm = normalizeArabic(raw);
+            if (!norm) continue;
+
+            // 1. Direct normalized match
+            if (allTargetNorms.includes(norm)) return raw;
+
+            // 2. Phonetic skeleton exact match (handles ص/س, ذ/ز, ط/ت, ق/غ, ح/ه)
+            const normPhon = phoneticArabic(norm);
+            for (const tgt of allTargetNorms) {
+              if (normPhon === phoneticArabic(tgt)) return raw;
+            }
+
+            // 3. Token-level check (if user spoke extra filler or article)
+            const tokens = norm.split(" ");
+            for (const tok of tokens) {
+              if (!tok) continue;
+              const tokBare = tok.replace(/^ال/, "");
+              if (allTargetNorms.includes(tok) || allTargetNorms.includes(tokBare)) return raw;
+
+              const tokPhon = phoneticArabic(tok);
+              const tokBarePhon = phoneticArabic(tokBare);
+              for (const tgt of allTargetNorms) {
+                const tgtPhon = phoneticArabic(tgt);
+                if (tokPhon === tgtPhon || tokBarePhon === tgtPhon) return raw;
+              }
+            }
+
+            // 4. Fuzzy Levenshtein similarity for words >= 3 chars (never loose-match 2-char words لم/ما)
+            if (!isShortWord) {
+              for (const tgt of allTargetNorms) {
+                if (tgt.length < 3) continue;
+                const tgtPhon = phoneticArabic(tgt);
+                if (similarityRatio(norm, tgt) >= 0.72 || similarityRatio(normPhon, tgtPhon) >= 0.75) {
+                  return raw;
+                }
+              }
+              for (const tok of tokens) {
+                if (tok.length < 3) continue;
+                const tokPhon = phoneticArabic(tok);
+                for (const tgt of allTargetNorms) {
+                  if (tgt.length < 3 || tgt.includes(" ")) continue;
+                  if (similarityRatio(tok, tgt) >= 0.75 || similarityRatio(tokPhon, phoneticArabic(tgt)) >= 0.75) {
+                    return raw;
+                  }
+                }
+              }
+            }
+          }
+          return null;
+        }
+
+        /* ---------- Mode 1: SpeechRecognition ---------- */
+        function stopRecognition() {
+          clearTimeout(speechSafetyTimer);
+          clearTimeout(speechEndTimer);
+          if (recognition) {
+            recognition.onresult = null;
+            recognition.onerror = null;
+            recognition.onend = null;
+            recognition.onspeechend = null;
+            try { recognition.abort(); } catch (e) {}
+            recognition = null;
+          }
+          isListening = false;
+          btnMic.classList.remove("listening");
+        }
+
+        function startSpeechMode() {
+          if (isTransitioning || !SpeechRec) return;
+          if (isListening) {
+            stopRecognition();
+            micStatus.textContent = "ضبط متوقف شد؛ برای تلاش دوباره میکروفون را لمس کن";
+            return;
+          }
+
+          const item = queue[currentIndex];
+          if (!item) return;
+
+          stopAllPlayback();
+          feedbackEl.classList.add("hidden");
+          heardBox.classList.add("hidden");
+          stageEl.classList.remove("state-error", "state-success");
+
+          try {
+            recognition = new SpeechRec();
+            recognition.lang = preferredAsrLang;
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.maxAlternatives = 5;
+
+            isListening = true;
+            btnMic.classList.add("listening");
+            micStatus.textContent = "در حال گوش دادن... واژه را با صدای بلند بخوان";
+
+            let settled = false;
+            let latestCandidates = [];
+            let latestDisplay = "";
+
+            const evaluateCollected = () => {
+              if (settled) return;
+              settled = true;
+              stopRecognition();
+
+              if (!latestCandidates.length) {
+                micStatus.textContent = "صدایی واضح شنیده نشد؛ دوباره میکروفون را لمس کن و بلندتر بخوان";
+                return;
+              }
+
+              attempts += 1;
+              const matched = matchesTarget(latestCandidates, item);
+              if (matched) {
+                handleSuccess(matched);
+              } else {
+                const msg = latestDisplay
+                  ? 'متن تشخیص‌داده‌شده: «<span class="arabic-text">' + latestDisplay + '</span>» — با واژهٔ هدف مطابقت نداشت. تلفظ صحیح را گوش بده و دوباره بخوان.'
+                  : "کلمه با واژهٔ هدف مطابقت نداشت؛ تلفظ صحیح را گوش بده و دوباره تلاش کن.";
+                handleMistake(msg, true);
+              }
+            };
+
+            speechSafetyTimer = setTimeout(() => {
+              if (!settled && isListening) {
+                evaluateCollected();
+              }
+            }, 8500);
+
+            recognition.onresult = (event) => {
+              if (settled || !event.results) return;
+              const candidates = [];
+              let hasFinal = false;
+
+              for (let r = event.resultIndex; r < event.results.length; r++) {
+                const res = event.results[r];
+                if (!res) continue;
+                if (res.isFinal) hasFinal = true;
+                for (let k = 0; k < res.length; k++) {
+                  if (res[k] && res[k].transcript) {
+                    const t = res[k].transcript.trim();
+                    if (t) candidates.push(t);
+                  }
+                }
+              }
+
+              if (candidates.length) {
+                latestCandidates = candidates;
+                latestDisplay = candidates[0];
+                heardBox.innerHTML = 'شنیده‌شده: <span class="arabic-text">' + latestDisplay + '</span>';
+                heardBox.classList.remove("hidden");
+
+                // Instant celebration if any interim/final candidate matches target!
+                const matched = matchesTarget(candidates, item);
+                if (matched) {
+                  settled = true;
+                  attempts += 1;
+                  stopRecognition();
+                  handleSuccess(matched);
+                  return;
+                }
+              }
+
+              if (hasFinal) {
+                evaluateCollected();
+              }
+            };
+
+            recognition.onspeechend = () => {
+              clearTimeout(speechEndTimer);
+              speechEndTimer = setTimeout(() => {
+                if (!settled) evaluateCollected();
+              }, 1100);
+            };
+
+            recognition.onerror = (event) => {
+              const err = event && event.error;
+              if (settled) return;
+              settled = true;
+              stopRecognition();
+
+              if (err === "aborted") {
+                return;
+              }
+              if (err === "no-speech") {
+                micStatus.textContent = "صدایی شنیده نشد! نزدیک‌تر به میکروفون و واضح‌تر بخوان.";
+                return;
+              }
+              if (err === "language-not-supported" && preferredAsrLang !== "ar") {
+                preferredAsrLang = "ar";
+                micStatus.textContent = "زبان عربی عمومی تنظیم شد؛ دوباره دکمه میکروفون را لمس کن.";
+                return;
+              }
+
+              // Network / iOS Dictation off / blocked speech server -> Fallback cleanly to Mode 2 (Real Mic Recorder) if available!
+              if (
+                (err === "network" || err === "service-not-allowed" || err === "language-not-supported" || err === "audio-capture" || err === "not-allowed") &&
+                !isInsecureNonLocalOrigin() &&
+                hasGetUserMedia()
+              ) {
+                activeMode = "recorder";
+                const msg = err === "network"
+                  ? "سرویس تشخیص گفتار اینترنتی مرورگر در دسترس نبود؛ حالت «ضبط زنده میکروفون و مقایسه صوتی» فعال شد!"
+                  : (err === "service-not-allowed" || err === "not-allowed")
+                    ? "تشخیص گفتار مرورگر فعال نیست (یا Dictation در تنظیمات گوشی خاموش است)؛ حالت «ضبط زنده میکروفون» فعال شد!"
+                    : "حالت «ضبط زنده میکروفون و مقایسه صوتی» فعال شد.";
+                updateModeUI(msg);
+                return;
+              }
+
+              activeMode = "self";
+              const selfMsg = isInsecureNonLocalOrigin()
+                ? "مرورگر در فایل محلی اجازهٔ استفاده از میکروفون نمی‌دهد. با لینک HTTPS باز کنید یا از دکمه‌های زیر تمرین کنید."
+                : "دسترسی میکروفون در مرورگر داده نشد؛ می‌توانید از تنظیمات مرورگر اجازه میکروفون بدهید یا با دکمه‌های زیر تمرین کنید.";
+              updateModeUI(selfMsg);
+            };
+
+            recognition.onend = () => {
+              isListening = false;
+              btnMic.classList.remove("listening");
+              if (!settled) {
+                // Important for iOS Safari where isFinal can stay false
+                evaluateCollected();
+              }
+            };
+
+            recognition.start();
+          } catch (e) {
+            stopRecognition();
+            if (!isInsecureNonLocalOrigin() && hasGetUserMedia()) {
+              activeMode = "recorder";
+              updateModeUI("حالت «ضبط زنده میکروفون و مقایسه صوتی» فعال شد.");
+            } else {
+              activeMode = "self";
+              updateModeUI("امکان شروع تشخیص گفتار وجود نداشت؛ از حالت ارزیابی شخصی زیر استفاده کن.");
+            }
+          }
+        }
+
+        /* ---------- Mode 2: Real Microphone Recorder + Live VU Meter ---------- */
+        function pickSupportedRecorderMime() {
+          if (typeof MediaRecorder === "undefined") return "";
+          const candidates = [
+            "audio/webm;codecs=opus",
+            "audio/webm",
+            "audio/mp4;codecs=mp4a.40.2",
+            "audio/mp4",
+            "audio/ogg;codecs=opus"
+          ];
+          if (typeof MediaRecorder.isTypeSupported === "function") {
+            for (const mime of candidates) {
+              try {
+                if (MediaRecorder.isTypeSupported(mime)) return mime;
+              } catch (e) {}
+            }
+          }
+          return "";
+        }
+
+        function stopRecorderResources() {
+          clearTimeout(recAutoStopTimer);
+          if (vuRafId) {
+            cancelAnimationFrame(vuRafId);
+            vuRafId = null;
+          }
+          if (micSourceNode) {
+            try { micSourceNode.disconnect(); } catch (e) {}
+            micSourceNode = null;
+          }
+          if (micAnalyserCtx && micAnalyserCtx.state !== "closed") {
+            try { micAnalyserCtx.close(); } catch (e) {}
+            micAnalyserCtx = null;
+          }
+          if (mediaStream) {
+            try {
+              mediaStream.getTracks().forEach((t) => t.stop());
+            } catch (e) {}
+            mediaStream = null;
+          }
+          vuBars.forEach((b) => { b.style.height = "6px"; });
+          vuMeterEl.classList.add("hidden");
+          btnMic.classList.remove("listening");
+          isRecording = false;
+        }
+
+        function finishRecorderCapture() {
+          const hadVoice = voicedFrames >= 4;
+          const elapsedMs = Date.now() - recStartTime;
+          const mime = (mediaRecorder && mediaRecorder.mimeType) || "audio/webm";
+          const hasAudioBlob = recordedChunks.length > 0;
+
+          stopRecorderResources();
+
+          if (!hadVoice || elapsedMs < 200) {
+            micStatus.textContent = "صدایی در میکروفون دریافت نشد! نزدیک‌تر به میکروفون و با صدای بلند بخوان.";
+            recReviewBox.classList.add("hidden");
+            return;
+          }
+
+          revokeRecordedUrl();
+          if (hasAudioBlob) {
+            try {
+              const blob = new Blob(recordedChunks, { type: mime });
+              if (blob.size > 0) {
+                recordedBlobUrl = URL.createObjectURL(blob);
+                recordedAudioEl.src = recordedBlobUrl;
+                btnPlayMine.classList.remove("hidden");
+              } else {
+                btnPlayMine.classList.add("hidden");
+              }
+            } catch (e) {
+              btnPlayMine.classList.add("hidden");
+            }
+          } else {
+            btnPlayMine.classList.add("hidden");
+          }
+
+          micStatus.textContent = "ضبط انجام شد؛ صدایت را با تلفظ صحیح مقایسه کن";
+          recReviewTitle.textContent = recordedBlobUrl
+            ? "صدایت با موفقیت ضبط شد! گوش بده و با تلفظ صحیح مقایسه کن:"
+            : "صدایت دریافت شد! اگر درست خواندی تأیید کن یا دوباره ضبط کن:";
+          recReviewBox.classList.remove("hidden");
+        }
+
+        function stopMediaRecorder() {
+          clearTimeout(recAutoStopTimer);
+          if (mediaRecorder && mediaRecorder.state === "recording") {
+            try {
+              mediaRecorder.stop();
+              return;
+            } catch (e) {}
+          }
+          stopRecorderResources();
+        }
+
+        async function startRecorderMode() {
+          if (isTransitioning) return;
+          if (isRecording) {
+            stopMediaRecorder();
+            return;
+          }
+
+          if (!hasGetUserMedia()) {
+            activeMode = "self";
+            updateModeUI("این مرورگر از دسترسی میکروفون پشتیبانی نمی‌کند؛ از حالت ارزیابی شخصی استفاده کن.");
+            return;
+          }
+
+          stopAllPlayback();
+          revokeRecordedUrl();
+          feedbackEl.classList.add("hidden");
+          recReviewBox.classList.add("hidden");
+          stageEl.classList.remove("state-error", "state-success");
+          micStatus.textContent = "در حال باز کردن میکروفون...";
+
+          try {
+            try {
+              mediaStream = await navigator.mediaDevices.getUserMedia({
+                audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+              });
+            } catch (constraintErr) {
+              mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            }
+
+            isRecording = true;
+            voicedFrames = 0;
+            recordedChunks = [];
+            recStartTime = Date.now();
+            btnMic.classList.add("listening");
+            vuMeterEl.classList.remove("hidden");
+            micStatus.textContent = "در حال ضبط صدا... واژه را بخوان و برای توقف دوباره لمس کن";
+
+            // Live sound level detector + waveform bars
+            const Ctx = window.AudioContext || window.webkitAudioContext;
+            if (Ctx) {
+              try {
+                micAnalyserCtx = new Ctx();
+                if (micAnalyserCtx.state === "suspended") {
+                  await micAnalyserCtx.resume();
+                }
+                micSourceNode = micAnalyserCtx.createMediaStreamSource(mediaStream);
+                const analyser = micAnalyserCtx.createAnalyser();
+                analyser.fftSize = 256;
+                micSourceNode.connect(analyser);
+                const dataArr = new Uint8Array(analyser.frequencyBinCount);
+
+                const drawVU = () => {
+                  if (!isRecording) return;
+                  analyser.getByteTimeDomainData(dataArr);
+                  let sumSq = 0;
+                  for (let i = 0; i < dataArr.length; i++) {
+                    const norm = (dataArr[i] - 128) / 128;
+                    sumSq += norm * norm;
+                  }
+                  const rms = Math.sqrt(sumSq / dataArr.length);
+                  if (rms > 0.015) voicedFrames += 1;
+
+                  const level = Math.min(1, rms * 6.5);
+                  const weights = [0.6, 0.9, 1.0, 0.85, 0.55];
+                  vuBars.forEach((bar, i) => {
+                    const h = Math.round(6 + level * 22 * weights[i]);
+                    bar.style.height = h + "px";
+                  });
+                  vuRafId = requestAnimationFrame(drawVU);
+                };
+                drawVU();
+              } catch (e) {
+                // If AudioContext fails, still treat recording as having voice if user records > 500ms
+                voicedFrames = 10;
+              }
+            } else {
+              voicedFrames = 10;
+            }
+
+            // Cross-browser MediaRecorder
+            if (typeof MediaRecorder !== "undefined") {
+              const mime = pickSupportedRecorderMime();
+              mediaRecorder = mime
+                ? new MediaRecorder(mediaStream, { mimeType: mime })
+                : new MediaRecorder(mediaStream);
+
+              mediaRecorder.ondataavailable = (ev) => {
+                if (ev.data && ev.data.size > 0) {
+                  recordedChunks.push(ev.data);
+                }
+              };
+              mediaRecorder.onstop = finishRecorderCapture;
+              mediaRecorder.onerror = () => {
+                stopRecorderResources();
+                micStatus.textContent = "خطا در ضبط صدا؛ دوباره تلاش کن.";
+              };
+              mediaRecorder.start();
+            }
+
+            recAutoStopTimer = setTimeout(() => {
+              if (isRecording) {
+                if (mediaRecorder && mediaRecorder.state === "recording") {
+                  stopMediaRecorder();
+                } else {
+                  voicedFrames = Math.max(voicedFrames, 10);
+                  finishRecorderCapture();
+                }
+              }
+            }, 4500);
+
+          } catch (err) {
+            stopRecorderResources();
+            const errName = (err && err.name) || "";
+            activeMode = "self";
+            if (errName === "NotAllowedError" || errName === "PermissionDeniedError" || errName === "SecurityError") {
+              updateModeUI("اجازهٔ دسترسی به میکروفون داده نشد! از تنظیمات مرورگر (آیکون قفل کنار آدرس) میکروفون را مجاز کن؛ اگر داخل مرورگر پیام‌رسان هستی صفحه را در Chrome یا Safari باز کن. فعلاً می‌توانی با دکمه‌های زیر ادامه بدهی.");
+            } else if (errName === "NotFoundError" || errName === "DevicesNotFoundError") {
+              updateModeUI("میکروفونی روی دستگاه پیدا نشد؛ از حالت تمرین و ارزیابی شخصی زیر استفاده کن.");
+            } else {
+              updateModeUI("دسترسی به میکروفون در این مرورگر با محدودیت روبه‌رو شد؛ از دکمه‌های ارزیابی شخصی زیر استفاده کن.");
+            }
+          }
+        }
+
+        function handleMicButtonClick() {
+          if (isTransitioning) return;
+          if (activeMode === "speech") {
+            startSpeechMode();
+          } else if (activeMode === "recorder") {
+            startRecorderMode();
+          }
+        }
+
+        function finishGame() {
+          cleanup();
+          playEl.classList.add("hidden");
+          endEl.classList.remove("hidden");
+          SFX.win();
+          document.getElementById("pron-stat-words").textContent = toFa(queue.length);
+          document.getElementById("pron-stat-attempts").textContent = toFa(attempts);
+        }
+
+        function startRound() {
+          SFX.click();
+          unlockAudioEnginesOnGesture();
+          cleanup();
+          queue = shuffleArray(PRONUNCIATION_BANK);
+          currentIndex = 0;
+          attempts = 0;
+          activeMode = chooseInitialMode();
+
+          introEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+          playEl.classList.remove("hidden");
+
+          updateModeUI();
+          renderWord();
+        }
+
+        function showIntro() {
+          cleanup();
+          introEl.classList.remove("hidden");
+          playEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+        }
+
+        function cleanup() {
+          if (advanceTimeout) {
+            clearTimeout(advanceTimeout);
+            advanceTimeout = null;
+          }
+          stopRecognition();
+          stopMediaRecorder();
+          stopRecorderResources();
+          stopAllPlayback();
+          revokeRecordedUrl();
+          isTransitioning = false;
+        }
+
+        document.getElementById("btn-pron-start").addEventListener("click", startRound);
+        document.getElementById("btn-pron-restart").addEventListener("click", startRound);
+        btnMic.addEventListener("click", handleMicButtonClick);
+
+        btnListen.addEventListener("click", () => {
+          if (isListening) stopRecognition();
+          if (isRecording) stopMediaRecorder();
+          speakCurrentWord({ isAutoHint: false });
+        });
+
+        btnPlayMine.addEventListener("click", () => {
+          if (!recordedBlobUrl) return;
+          stopAllPlayback();
+          try {
+            recordedAudioEl.currentTime = 0;
+            recordedAudioEl.play().catch(() => {});
+          } catch (e) {}
+        });
+
+        btnRecOk.addEventListener("click", () => {
+          if (isTransitioning) return;
+          attempts += 1;
+          handleSuccess(null);
+        });
+
+        btnRecRetry.addEventListener("click", () => {
+          if (isTransitioning) return;
+          attempts += 1;
+          recReviewBox.classList.add("hidden");
+          handleMistake("تلفظ صحیح را گوش بده و دوباره دکمه میکروفون را بزن.", true);
+        });
+
+        btnToggleMode.addEventListener("click", () => {
+          SFX.click();
+          stopRecognition();
+          stopMediaRecorder();
+          stopAllPlayback();
+
+          if (activeMode === "speech") {
+            activeMode = hasGetUserMedia() ? "recorder" : "self";
+          } else if (activeMode === "recorder") {
+            activeMode = SpeechRec ? "speech" : "self";
+          } else {
+            activeMode = chooseInitialMode();
+          }
+          updateModeUI();
+        });
+
+        document.getElementById("btn-pron-self-ok").addEventListener("click", () => {
+          if (isTransitioning) return;
+          attempts += 1;
+          handleSuccess(null);
+        });
+
+        document.getElementById("btn-pron-self-retry").addEventListener("click", () => {
+          if (isTransitioning) return;
+          attempts += 1;
+          handleMistake("دوباره با صدای بلند تلفظ کن و به تلفظ راهنما یا پخش صوتی دقت کن.", true);
+        });
+
+        return { showIntro, cleanup };
+      })();
+
+      /* =====================================================================
+         7. GAME 2: SNAKES & LADDERS
+      ===================================================================== */
+      const SnakesGame = (() => {
+        const LADDERS = {
+          3: 18,
+          9: 27,
+          20: 38,
+          28: 46,
+          51: 67,
+          71: 91,
+          80: 99
+        };
+
+        const SNAKES = {
+          17: 7,
+          34: 13,
+          48: 26,
+          62: 44,
+          88: 68,
+          95: 75,
+          97: 78
+        };
+
+        const SNAKE_COLORS = [
+          { body: "#059669", belly: "#6ee7b7" },
+          { body: "#e11d48", belly: "#fda4af" },
+          { body: "#7c3aed", belly: "#c4b5fd" },
+          { body: "#0284c7", belly: "#7dd3fc" },
+          { body: "#db2777", belly: "#f9a8d4" },
+          { body: "#0d9488", belly: "#5eead4" },
+          { body: "#dc2626", belly: "#fca5a5" }
+        ];
+
+        const DICE_PIPS = {
+          1: [4],
+          2: [2, 6],
+          3: [2, 4, 6],
+          4: [0, 2, 6, 8],
+          5: [0, 2, 4, 6, 8],
+          6: [0, 2, 3, 5, 6, 8]
+        };
+
+        const introEl = document.getElementById("snl-intro");
+        const playEl = document.getElementById("snl-play");
+        const endEl = document.getElementById("snl-end");
+
+        const scoreDisp = document.getElementById("snl-score-display");
+        const timerDisp = document.getElementById("snl-timer-display");
+        const diceFaceEl = document.getElementById("snl-dice-face");
+        const btnRoll = document.getElementById("btn-snl-roll");
+        const statusBanner = document.getElementById("snl-status-banner");
+        const gridEl = document.getElementById("snl-grid");
+        const svgOverlay = document.getElementById("snl-svg-overlay");
+        const pawnEl = document.getElementById("snl-pawn");
+        const posDisp = document.getElementById("snl-pos-display");
+
+        const modalEl = document.getElementById("snl-modal");
+        const qLevelEl = document.getElementById("snl-q-level");
+        const modalScoreEl = document.getElementById("snl-modal-score");
+        const modalTimerEl = document.getElementById("snl-modal-timer");
+        const qTextEl = document.getElementById("snl-q-text");
+        const qOptsEl = document.getElementById("snl-q-options");
+        const qFeedEl = document.getElementById("snl-q-feedback");
+        const qNextWrap = document.getElementById("snl-q-next-wrap");
+        const btnContinue = document.getElementById("btn-snl-q-continue");
+
+        const TOTAL_SECONDS = 360;
+        let score = 0;
+        let position = 0;
+        let hasStarted = false;
+        let gameEnded = false;
+        let isBusy = false;
+        let timerInterval = null;
+        let endTimestamp = 0;
+        let remainingSeconds = TOTAL_SECONDS;
+        let questionPools = {};
+        let currentQuestion = null;
+        let currentDice = 1;
+        let pendingTimeouts = [];
+
+        function getCellCoords(sq) {
+          const idx = sq - 1;
+          const rowFromBottom = Math.floor(idx / 10);
+          const colInRow = idx % 10;
+          const col = rowFromBottom % 2 === 0 ? colInRow : 9 - colInRow;
+          const rowFromTop = 9 - rowFromBottom;
+          return {
+            col,
+            rowFromTop,
+            cx: col * 100 + 50,
+            cy: rowFromTop * 100 + 50,
+            leftPct: col * 10 + 5,
+            topPct: rowFromTop * 10 + 5
+          };
+        }
+
+        function buildBoardOnce() {
+          if (gridEl.childElementCount === 100) return;
+          const cellGrid = Array(100);
+          for (let sq = 1; sq <= 100; sq++) {
+            const { col, rowFromTop } = getCellCoords(sq);
+            const gridIdx = rowFromTop * 10 + col;
+            cellGrid[gridIdx] = sq;
+          }
+
+          const frag = document.createDocumentFragment();
+          cellGrid.forEach((sq, idx) => {
+            const r = Math.floor(idx / 10);
+            const c = idx % 10;
+            const colorClass = "c" + ((r + c) % 4);
+            const cell = document.createElement("div");
+            cell.className = "snl-cell " + colorClass + (sq === 100 ? " cell-100" : "") + (sq === 1 ? " cell-1" : "");
+            cell.textContent = toFa(sq);
+            frag.appendChild(cell);
+          });
+          gridEl.appendChild(frag);
+
+          renderBoardSVG();
+        }
+
+        function renderBoardSVG() {
+          let svgHTML = '<defs><filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.28"/></filter></defs>';
+
+          Object.entries(LADDERS).forEach(([fromStr, toStr]) => {
+            const a = getCellCoords(Number(fromStr));
+            const b = getCellCoords(Number(toStr));
+            const dx = b.cx - a.cx;
+            const dy = b.cy - a.cy;
+            const len = Math.hypot(dx, dy);
+            const nx = (-dy / len) * 14;
+            const ny = (dx / len) * 14;
+
+            svgHTML += '<g filter="url(#softShadow)">';
+            svgHTML += `<line x1="${a.cx + nx}" y1="${a.cy + ny}" x2="${b.cx + nx}" y2="${b.cy + ny}" stroke="#92400e" stroke-width="7" stroke-linecap="round"/>`;
+            svgHTML += `<line x1="${a.cx - nx}" y1="${a.cy - ny}" x2="${b.cx - nx}" y2="${b.cy - ny}" stroke="#92400e" stroke-width="7" stroke-linecap="round"/>`;
+            svgHTML += `<line x1="${a.cx + nx}" y1="${a.cy + ny}" x2="${b.cx + nx}" y2="${b.cy + ny}" stroke="#f59e0b" stroke-width="3.2" stroke-linecap="round"/>`;
+            svgHTML += `<line x1="${a.cx - nx}" y1="${a.cy - ny}" x2="${b.cx - nx}" y2="${b.cy - ny}" stroke="#f59e0b" stroke-width="3.2" stroke-linecap="round"/>`;
+
+            const steps = Math.max(3, Math.floor(len / 34));
+            for (let i = 1; i < steps; i++) {
+              const t = i / steps;
+              const rx = a.cx + dx * t;
+              const ry = a.cy + dy * t;
+              svgHTML += `<line x1="${rx + nx}" y1="${ry + ny}" x2="${rx - nx}" y2="${ry - ny}" stroke="#78350f" stroke-width="5.5" stroke-linecap="round"/>`;
+              svgHTML += `<line x1="${rx + nx}" y1="${ry + ny}" x2="${rx - nx}" y2="${ry - ny}" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>`;
+            }
+            svgHTML += "</g>";
+          });
+
+          Object.entries(SNAKES).forEach(([fromStr, toStr], index) => {
+            const palette = SNAKE_COLORS[index % SNAKE_COLORS.length];
+            const head = getCellCoords(Number(fromStr));
+            const tail = getCellCoords(Number(toStr));
+            const dx = tail.cx - head.cx;
+            const dy = tail.cy - head.cy;
+            const len = Math.hypot(dx, dy);
+            const nx = -dy / len;
+            const ny = dx / len;
+
+            const amp = 32;
+            const p1x = head.cx + dx * 0.25 + nx * amp;
+            const p1y = head.cy + dy * 0.25 + ny * amp;
+            const pathD = `M ${head.cx} ${head.cy} Q ${p1x} ${p1y}, ${head.cx + dx * 0.42} ${head.cy + dy * 0.42} T ${tail.cx} ${tail.cy}`;
+            const angleDeg = (Math.atan2(dy, dx) * 180) / Math.PI;
+
+            svgHTML += '<g filter="url(#softShadow)">';
+            svgHTML += `<path d="${pathD}" fill="none" stroke="#1e293b" stroke-width="15" stroke-linecap="round" opacity="0.25"/>`;
+            svgHTML += `<path d="${pathD}" fill="none" stroke="${palette.body}" stroke-width="13" stroke-linecap="round"/>`;
+            svgHTML += `<path d="${pathD}" fill="none" stroke="${palette.belly}" stroke-width="5.5" stroke-dasharray="9 11" stroke-linecap="round"/>`;
+
+            svgHTML += `<g transform="translate(${head.cx}, ${head.cy}) rotate(${angleDeg})">`;
+            svgHTML += `<path d="M -8 -2 L -20 -6 M -8 2 L -20 6" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round"/>`;
+            svgHTML += `<ellipse cx="0" cy="0" rx="14" ry="11" fill="${palette.body}" stroke="#ffffff" stroke-width="1.8"/>`;
+            svgHTML += `<circle cx="-3" cy="-5" r="3.4" fill="#ffffff"/><circle cx="-4" cy="-5" r="1.7" fill="#0f172a"/>`;
+            svgHTML += `<circle cx="-3" cy="5" r="3.4" fill="#ffffff"/><circle cx="-4" cy="5" r="1.7" fill="#0f172a"/>`;
+            svgHTML += "</g>";
+            svgHTML += "</g>";
+          });
+
+          svgOverlay.innerHTML = svgHTML;
+        }
+
+        function renderDiceFace(num) {
+          const active = new Set(DICE_PIPS[num] || DICE_PIPS[1]);
+          diceFaceEl.innerHTML = "";
+          for (let i = 0; i < 9; i++) {
+            const pip = document.createElement("span");
+            pip.className = "dice-pip" + (active.has(i) ? " on" + (num === 6 ? " pip-6" : "") : "");
+            diceFaceEl.appendChild(pip);
+          }
+        }
+
+        function setBanner(text, tone) {
+          statusBanner.className = "snl-status-banner" + (tone ? " " + tone : "");
+          statusBanner.textContent = text;
+        }
+
+        function updateHUD() {
+          scoreDisp.textContent = toFa(score) + " / ۱۰۰";
+          const formatted = formatMMSS(remainingSeconds);
+          timerDisp.textContent = formatted;
+          modalScoreEl.textContent = toFa(score);
+          modalTimerEl.textContent = formatted;
+          if (remainingSeconds <= 30 && hasStarted && !gameEnded) {
+            timerDisp.classList.add("urgent");
+          } else {
+            timerDisp.classList.remove("urgent");
+          }
+          posDisp.textContent = position === 0 ? "شروع" : toFa(position);
+        }
+
+        function placePawnAt(sq, isSliding) {
+          if (sq <= 0) {
+            pawnEl.style.opacity = "0";
+            return;
+          }
+          const { leftPct, topPct } = getCellCoords(sq);
+          pawnEl.style.opacity = "1";
+          if (isSliding) {
+            pawnEl.classList.add("sliding");
+          } else {
+            pawnEl.classList.remove("sliding");
+          }
+          pawnEl.style.left = leftPct + "%";
+          pawnEl.style.top = topPct + "%";
+        }
+
+        function scheduleTimeout(fn, delay) {
+          const id = setTimeout(fn, delay);
+          pendingTimeouts.push(id);
+          return id;
+        }
+
+        function clearAllTimeouts() {
+          pendingTimeouts.forEach((id) => clearTimeout(id));
+          pendingTimeouts = [];
+        }
+
+        function stopTimer() {
+          if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+          }
+        }
+
+        function startTimer() {
+          stopTimer();
+          endTimestamp = Date.now() + remainingSeconds * 1000;
+          timerInterval = setInterval(() => {
+            const diff = Math.ceil((endTimestamp - Date.now()) / 1000);
+            remainingSeconds = Math.max(0, diff);
+            updateHUD();
+            if (remainingSeconds <= 0 && !gameEnded) {
+              finishGame(false);
+            }
+          }, 250);
+        }
+
+        function getNextQuestion(level) {
+          if (!questionPools[level] || questionPools[level].length === 0) {
+            questionPools[level] = shuffleArray(SNL_QUESTIONS[level]);
+          }
+          return questionPools[level].pop();
+        }
+
+        function openQuestionModal(diceVal) {
+          if (gameEnded) return;
+          currentQuestion = getNextQuestion(diceVal);
+          const ptsLabel = toFa(diceVal) + " امتیاز";
+          const levelNames = { 1: "بسیار آسان", 2: "آسان", 3: "متوسط", 4: "درک و علائم", 5: "سخت (عربی)" };
+          qLevelEl.textContent = "تاس " + toFa(diceVal) + " • " + levelNames[diceVal] + " (" + ptsLabel + ")";
+
+          qTextEl.textContent = currentQuestion.q;
+          qOptsEl.innerHTML = "";
+          qFeedEl.classList.add("hidden");
+          qNextWrap.classList.add("hidden");
+
+          const indexedOpts = currentQuestion.opts.map((text, idx) => ({ text, isRight: idx === currentQuestion.ans }));
+          const shuffledOpts = shuffleArray(indexedOpts);
+
+          shuffledOpts.forEach((opt) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "option-btn arabic-text";
+            btn.textContent = opt.text;
+            btn.addEventListener("click", () => handleAnswer(opt, btn));
+            qOptsEl.appendChild(btn);
+          });
+
+          updateHUD();
+          modalEl.classList.remove("hidden");
+        }
+
+        function handleAnswer(chosenOpt, clickedBtn) {
+          if (gameEnded) return;
+          const allBtns = Array.from(qOptsEl.querySelectorAll("button"));
+          allBtns.forEach((b) => { b.disabled = true; });
+
+          const correctText = currentQuestion.opts[currentQuestion.ans];
+          allBtns.forEach((b) => {
+            if (b.textContent === correctText) {
+              b.classList.add("correct-choice");
+            }
+          });
+
+          if (chosenOpt.isRight) {
+            score += currentDice;
+            SFX.success();
+            qFeedEl.className = "feedback-box success";
+            qFeedEl.innerHTML =
+              '<div class="feedback-icon">' + ICON_CHECK + '</div>' +
+              '<div class="feedback-content">' +
+                '<div class="feedback-title">آفرین! +' + toFa(currentDice) + ' امتیاز گرفتی</div>' +
+                '<div class="feedback-desc">' + currentQuestion.exp + '</div>' +
+              '</div>';
+          } else {
+            clickedBtn.classList.add("wrong-choice");
+            score = Math.max(0, score - 1);
+            SFX.error();
+            qFeedEl.className = "feedback-box error";
+            qFeedEl.innerHTML =
+              '<div class="feedback-icon">' + ICON_CROSS + '</div>' +
+              '<div class="feedback-content">' +
+                '<div class="feedback-title">پاسخ نادرست! (۱- امتیاز)</div>' +
+                '<div class="feedback-desc">پاسخ صحیح: <strong>' + correctText + '</strong><br/>' + currentQuestion.exp + '</div>' +
+              '</div>';
+          }
+
+          qFeedEl.classList.remove("hidden");
+          updateHUD();
+
+          if (score >= 100) {
+            stopTimer();
+            btnContinue.textContent = "مشاهده صفحه پیروزی!";
+          } else {
+            btnContinue.textContent = "ادامه و پرتاب بعدی";
+          }
+          qNextWrap.classList.remove("hidden");
+        }
+
+        btnContinue.addEventListener("click", () => {
+          SFX.click();
+          modalEl.classList.add("hidden");
+          isBusy = false;
+          if (score >= 100) {
+            finishGame(true);
+          } else if (!gameEnded) {
+            btnRoll.disabled = false;
+            setBanner("نوبت بعدی! تاس را پرتاب کن.", "");
+          }
+        });
+
+        function animateRollAndMove() {
+          if (isBusy || gameEnded) return;
+          isBusy = true;
+          btnRoll.disabled = true;
+
+          if (!hasStarted) {
+            hasStarted = true;
+            btnRoll.textContent = "پرتاب تاس";
+            startTimer();
+          }
+
+          SFX.dice();
+          diceFaceEl.classList.add("rolling");
+          setBanner("در حال پرتاب تاس...", "gold");
+
+          let flickerCount = 0;
+          const flickerTimer = setInterval(() => {
+            renderDiceFace(Math.floor(Math.random() * 6) + 1);
+            flickerCount += 1;
+            if (flickerCount >= 6) {
+              clearInterval(flickerTimer);
+            }
+          }, 70);
+
+          scheduleTimeout(() => {
+            clearInterval(flickerTimer);
+            diceFaceEl.classList.remove("rolling");
+            currentDice = Math.floor(Math.random() * 6) + 1;
+            renderDiceFace(currentDice);
+
+            const targetSquare = Math.min(100, position + currentDice);
+            const steps = targetSquare - position;
+
+            if (steps === 0) {
+              pawnEl.classList.remove("bounce");
+              void pawnEl.offsetWidth;
+              pawnEl.classList.add("bounce");
+              scheduleTimeout(() => afterBoardMove(currentDice), 420);
+              return;
+            }
+
+            let stepDone = 0;
+            const stepInterval = setInterval(() => {
+              if (gameEnded) {
+                clearInterval(stepInterval);
+                return;
+              }
+              position += 1;
+              stepDone += 1;
+              placePawnAt(position, false);
+              updateHUD();
+              playTone(400 + stepDone * 35, 0.05, "sine", 0.045);
+
+              if (stepDone >= steps) {
+                clearInterval(stepInterval);
+                scheduleTimeout(() => handleSpecialSquareAndAsk(currentDice), 260);
+              }
+            }, 210);
+          }, 480);
+        }
+
+        function handleSpecialSquareAndAsk(diceVal) {
+          if (gameEnded) return;
+
+          if (LADDERS[position]) {
+            const dest = LADDERS[position];
+            const prev = position;
+            SFX.ladder();
+            setBanner("نردبان! صعود از خانه " + toFa(prev) + " به خانه " + toFa(dest) + " 🪜", "good");
+            position = dest;
+            placePawnAt(position, true);
+            updateHUD();
+            scheduleTimeout(() => afterBoardMove(diceVal), 720);
+          } else if (SNAKES[position]) {
+            const dest = SNAKES[position];
+            const prev = position;
+            SFX.snake();
+            setBanner("اوه! مار خانه " + toFa(prev) + " تو را به خانه " + toFa(dest) + " بُرد 🐍", "bad");
+            position = dest;
+            placePawnAt(position, true);
+            updateHUD();
+            scheduleTimeout(() => afterBoardMove(diceVal), 720);
+          } else {
+            afterBoardMove(diceVal);
+          }
+        }
+
+        function afterBoardMove(diceVal) {
+          if (gameEnded) return;
+
+          if (diceVal === 6) {
+            score += 6;
+            SFX.success();
+            updateHUD();
+            setBanner("تبریک! عدد ۶ آوردی و بدون سؤال ۶ امتیاز خودکار گرفتی! (+۶)", "gold");
+            if (score >= 100) {
+              stopTimer();
+              scheduleTimeout(() => finishGame(true), 950);
+            } else {
+              scheduleTimeout(() => {
+                if (!gameEnded) {
+                  isBusy = false;
+                  btnRoll.disabled = false;
+                }
+              }, 850);
+            }
+          } else {
+            setBanner("به سؤال تاس " + toFa(diceVal) + " پاسخ بده!", "");
+            openQuestionModal(diceVal);
+          }
+        }
+
+        function finishGame(isWin) {
+          if (gameEnded) return;
+          gameEnded = true;
+          isBusy = false;
+          stopTimer();
+          clearAllTimeouts();
+          modalEl.classList.add("hidden");
+          btnRoll.disabled = true;
+
+          playEl.classList.add("hidden");
+          endEl.classList.remove("hidden");
+
+          const elapsed = TOTAL_SECONDS - remainingSeconds;
+          const trophyEl = document.getElementById("snl-result-icon");
+          const titleEl = document.getElementById("snl-result-title");
+          const subEl = document.getElementById("snl-result-sub");
+
+          if (isWin) {
+            SFX.win();
+            trophyEl.className = "result-trophy win";
+            trophyEl.innerHTML = '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>';
+            titleEl.textContent = "تبریک! برندهٔ بازی مار و پله شدی!";
+            subEl.textContent = "عالی بود! توانستی پیش از پایان ۶ دقیقه به ۱۰۰ امتیاز یا بیشتر برسی.";
+          } else {
+            SFX.error();
+            trophyEl.className = "result-trophy lose";
+            trophyEl.innerHTML = '<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+            titleEl.textContent = "زمان ۶ دقیقه‌ای به پایان رسید!";
+            subEl.textContent = "امتیاز تو به ۱۰۰ نرسید، اما خیلی خوب تمرین کردی. می‌توانی دوباره تلاش کنی!";
+          }
+
+          document.getElementById("snl-end-score").textContent = toFa(score);
+          document.getElementById("snl-end-time").textContent = formatMMSS(elapsed);
+          document.getElementById("snl-end-pos").textContent = toFa(position);
+        }
+
+        function resetAndEnterGame() {
+          SFX.click();
+          cleanup();
+          buildBoardOnce();
+
+          score = 0;
+          position = 0;
+          hasStarted = false;
+          gameEnded = false;
+          isBusy = false;
+          remainingSeconds = TOTAL_SECONDS;
+          questionPools = {};
+          currentDice = 1;
+
+          renderDiceFace(1);
+          placePawnAt(0, false);
+          btnRoll.textContent = "شروع";
+          btnRoll.disabled = false;
+          setBanner("برای آغاز تایمر ۶ دقیقه‌ای و اولین حرکت، دکمه «شروع» را بزن!", "");
+          updateHUD();
+
+          introEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+          playEl.classList.remove("hidden");
+        }
+
+        function showIntro() {
+          cleanup();
+          introEl.classList.remove("hidden");
+          playEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+        }
+
+        function cleanup() {
+          stopTimer();
+          clearAllTimeouts();
+          modalEl.classList.add("hidden");
+          diceFaceEl.classList.remove("rolling");
+          isBusy = false;
+        }
+
+        document.getElementById("btn-snl-enter").addEventListener("click", resetAndEnterGame);
+        document.getElementById("btn-snl-restart").addEventListener("click", resetAndEnterGame);
+        btnRoll.addEventListener("click", animateRollAndMove);
+
+        return { showIntro, cleanup };
+      })();
+
+      /* =====================================================================
+         8. GAME 3: WORD PATTERNS (WAZN)
+      ===================================================================== */
+      const WaznGame = (() => {
+        const introEl = document.getElementById("wazn-intro");
+        const playEl = document.getElementById("wazn-play");
+        const endEl = document.getElementById("wazn-end");
+
+        const progressLbl = document.getElementById("wazn-progress-label");
+        const scoreLbl = document.getElementById("wazn-score-label");
+        const progressBar = document.getElementById("wazn-progress-bar");
+        const targetWordEl = document.getElementById("wazn-target-word");
+        const targetMeaningEl = document.getElementById("wazn-target-meaning");
+        const sectionsEl = document.getElementById("wazn-sections");
+        const btnCheck = document.getElementById("btn-wazn-check");
+        const btnNext = document.getElementById("btn-wazn-next");
+        const feedbackEl = document.getElementById("wazn-feedback");
+
+        let queue = [];
+        let index = 0;
+        let correctCount = 0;
+        let wrongCount = 0;
+        let selections = { root: null, extra: null, wazn: null, rootMeaning: null };
+        let checked = false;
+
+        function pickDistractors(correctVal, pool, count) {
+          const others = shuffleArray(pool.filter((x) => x !== correctVal));
+          return shuffleArray([correctVal, ...others.slice(0, count)]);
+        }
+
+        function renderStage() {
+          const item = queue[index];
+          checked = false;
+          selections = { root: null, extra: null, wazn: null, rootMeaning: null };
+
+          progressLbl.textContent = toFa(index + 1) + " از " + toFa(queue.length) + " کلمه";
+          scoreLbl.textContent = "درست: " + toFa(correctCount) + " | غلط: " + toFa(wrongCount);
+          progressBar.style.width = ((index / queue.length) * 100) + "%";
+
+          targetWordEl.textContent = item.word;
+          targetMeaningEl.textContent = item.meaning;
+
+          feedbackEl.classList.add("hidden");
+          btnNext.classList.add("hidden");
+          btnCheck.classList.remove("hidden");
+          btnCheck.disabled = true;
+          btnCheck.textContent = "ابتدا هر ۴ بخش را انتخاب کن";
+
+          const partsConfig = [
+            {
+              key: "root",
+              title: "۱. حروف اصلی (ریشه)",
+              options: pickDistractors(item.root, WAZN_ALL_ROOTS, 3),
+              singleCol: false,
+              isAr: true
+            },
+            {
+              key: "extra",
+              title: "۲. حروف زائد (اضافی)",
+              options: shuffleArray(WAZN_EXTRA_OPTIONS),
+              singleCol: false,
+              isAr: true
+            },
+            {
+              key: "wazn",
+              title: "۳. وزن کلمه",
+              options: shuffleArray(WAZN_WEIGHT_OPTIONS),
+              singleCol: false,
+              isAr: true
+            },
+            {
+              key: "rootMeaning",
+              title: "۴. معنی ریشه یا فعل اصلی",
+              options: pickDistractors(item.rootMeaning, WAZN_ALL_ROOT_MEANINGS, 3),
+              singleCol: true,
+              isAr: false
+            }
+          ];
+
+          sectionsEl.innerHTML = "";
+          partsConfig.forEach((part) => {
+            const box = document.createElement("div");
+            box.className = "wazn-part";
+            box.dataset.partKey = part.key;
+
+            const titleRow = document.createElement("div");
+            titleRow.className = "wazn-part-title";
+            titleRow.innerHTML = '<span>' + part.title + '</span><span class="wazn-part-badge hidden"></span>';
+            box.appendChild(titleRow);
+
+            const choicesGrid = document.createElement("div");
+            choicesGrid.className = "wazn-choices" + (part.singleCol ? " single-col" : "");
+
+            part.options.forEach((optVal) => {
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.className = "chip-btn" + (part.isAr ? " arabic-text" : "");
+              btn.textContent = optVal;
+              btn.dataset.val = optVal;
+              btn.addEventListener("click", () => {
+                if (checked) return;
+                SFX.click();
+                selections[part.key] = optVal;
+                Array.from(choicesGrid.children).forEach((c) => c.classList.remove("selected"));
+                btn.classList.add("selected");
+                updateCheckBtnState();
+              });
+              choicesGrid.appendChild(btn);
+            });
+
+            box.appendChild(choicesGrid);
+            sectionsEl.appendChild(box);
+          });
+        }
+
+        function updateCheckBtnState() {
+          const allChosen = selections.root && selections.extra && selections.wazn && selections.rootMeaning;
+          btnCheck.disabled = !allChosen;
+          btnCheck.textContent = allChosen ? "بررسی پاسخ" : "ابتدا هر ۴ بخش را انتخاب کن";
+        }
+
+        function evaluateAnswer() {
+          if (checked) return;
+          const item = queue[index];
+          checked = true;
+
+          const partTruth = {
+            root: item.root,
+            extra: item.extra,
+            wazn: item.wazn,
+            rootMeaning: item.rootMeaning
+          };
+
+          let allCorrect = true;
+          Array.from(sectionsEl.children).forEach((box) => {
+            const key = box.dataset.partKey;
+            const trueVal = partTruth[key];
+            const chosenVal = selections[key];
+            const isPartRight = chosenVal === trueVal;
+            if (!isPartRight) allCorrect = false;
+
+            box.classList.add(isPartRight ? "part-ok" : "part-err");
+            const badge = box.querySelector(".wazn-part-badge");
+            badge.classList.remove("hidden");
+            badge.classList.add(isPartRight ? "ok" : "err");
+            badge.textContent = isPartRight ? "درست" : "نادرست";
+
+            box.querySelectorAll(".chip-btn").forEach((btn) => {
+              btn.disabled = true;
+              const v = btn.dataset.val;
+              if (v === trueVal) {
+                btn.classList.remove("selected");
+                btn.classList.add("true-ans");
+              } else if (v === chosenVal && !isPartRight) {
+                btn.classList.remove("selected");
+                btn.classList.add("wrong-ans");
+              }
+            });
+          });
+
+          if (allCorrect) {
+            correctCount += 1;
+            SFX.success();
+            feedbackEl.className = "feedback-box success";
+            feedbackEl.innerHTML =
+              '<div class="feedback-icon">' + ICON_CHECK + '</div>' +
+              '<div class="feedback-content">' +
+                '<div class="feedback-title">عالی بود! هر چهار پاسخ درست است.</div>' +
+                '<div class="feedback-desc">کلمهٔ «<span class="arabic-text">' + item.word + '</span>» بر وزن «<span class="arabic-text">' + item.wazn + '</span>» و از ریشهٔ «<span class="arabic-text">' + item.root + '</span>» است.</div>' +
+              '</div>';
+          } else {
+            wrongCount += 1;
+            SFX.error();
+            feedbackEl.className = "feedback-box error";
+            feedbackEl.innerHTML =
+              '<div class="feedback-icon">' + ICON_CROSS + '</div>' +
+              '<div class="feedback-content">' +
+                '<div class="feedback-title">حداقل یکی از بخش‌ها نادرست بود!</div>' +
+                '<div class="feedback-desc">' +
+                  'پاسخ کامل و صحیح برای «<span class="arabic-text">' + item.word + '</span>»:<br/>' +
+                  '• حروف اصلی: <strong>' + item.root + '</strong> | حروف زائد: <strong>' + item.extra + '</strong><br/>' +
+                  '• وزن: <strong>' + item.wazn + '</strong> | معنی ریشه: <strong>' + item.rootMeaning + '</strong>' +
+                '</div>' +
+              '</div>';
+          }
+
+          scoreLbl.textContent = "درست: " + toFa(correctCount) + " | غلط: " + toFa(wrongCount);
+          progressBar.style.width = (((index + 1) / queue.length) * 100) + "%";
+          feedbackEl.classList.remove("hidden");
+          btnCheck.classList.add("hidden");
+          btnNext.textContent = index + 1 >= queue.length ? "مشاهده نتیجه نهایی" : "سؤال بعدی";
+          btnNext.classList.remove("hidden");
+        }
+
+        function finishGame() {
+          playEl.classList.add("hidden");
+          endEl.classList.remove("hidden");
+          const pct = Math.round((correctCount / queue.length) * 100);
+          SFX.win();
+
+          document.getElementById("wazn-stat-correct").textContent = toFa(correctCount);
+          document.getElementById("wazn-stat-wrong").textContent = toFa(wrongCount);
+          document.getElementById("wazn-stat-pct").textContent = toFa(pct) + "٪";
+
+          const msgEl = document.getElementById("wazn-end-msg");
+          if (pct >= 85) {
+            msgEl.textContent = "فوق‌العاده! تسلط خیلی خوبی بر حروف اصلی و وزن‌های فاعل و مفعول داری.";
+          } else if (pct >= 60) {
+            msgEl.textContent = "خوب بود! با یک تمرین کوتاه دیگر می‌توانی صددرصد کلمات را بی‌خطا تحلیل کنی.";
+          } else {
+            msgEl.textContent = "تلاش خوبی بود! با مرور دو وزن «فاعِل» و «مَفْعول» دوباره امتحان کن.";
+          }
+        }
+
+        function startRound() {
+          SFX.click();
+          queue = shuffleArray(WAZN_BANK);
+          index = 0;
+          correctCount = 0;
+          wrongCount = 0;
+
+          introEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+          playEl.classList.remove("hidden");
+          renderStage();
+        }
+
+        function showIntro() {
+          introEl.classList.remove("hidden");
+          playEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+        }
+
+        function cleanup() {}
+
+        document.getElementById("btn-wazn-start").addEventListener("click", startRound);
+        document.getElementById("btn-wazn-restart").addEventListener("click", startRound);
+        btnCheck.addEventListener("click", evaluateAnswer);
+        btnNext.addEventListener("click", () => {
+          SFX.click();
+          index += 1;
+          if (index >= queue.length) {
+            finishGame();
+          } else {
+            renderStage();
+          }
+        });
+
+        return { showIntro, cleanup };
+      })();
+
+      /* =====================================================================
+         9. GAME 4: JUDGE (TASHKHIS BEDE)
+      ===================================================================== */
+      const JudgeGame = (() => {
+        const TOTAL_QUESTIONS = 15;
+        const introEl = document.getElementById("judge-intro");
+        const playEl = document.getElementById("judge-play");
+        const endEl = document.getElementById("judge-end");
+
+        const progressLbl = document.getElementById("judge-progress-label");
+        const scoreLbl = document.getElementById("judge-score-label");
+        const progressBar = document.getElementById("judge-progress-bar");
+        const sentenceEl = document.getElementById("judge-sentence-text");
+        const btnYes = document.getElementById("btn-judge-yes");
+        const btnNo = document.getElementById("btn-judge-no");
+        const feedbackEl = document.getElementById("judge-feedback");
+        const nextWrap = document.getElementById("judge-next-wrap");
+        const btnNext = document.getElementById("btn-judge-next");
+
+        let queue = [];
+        let index = 0;
+        let correctCount = 0;
+        let wrongCount = 0;
+        let answered = false;
+
+        function renderQuestion() {
+          const item = queue[index];
+          answered = false;
+
+          progressLbl.textContent = toFa(index + 1) + " از " + toFa(queue.length) + " جمله";
+          scoreLbl.textContent = "درست: " + toFa(correctCount) + " | غلط: " + toFa(wrongCount);
+          progressBar.style.width = ((index / queue.length) * 100) + "%";
+
+          sentenceEl.textContent = item.sentence;
+          btnYes.disabled = false;
+          btnNo.disabled = false;
+          feedbackEl.classList.add("hidden");
+          nextWrap.classList.add("hidden");
+        }
+
+        function submitChoice(userSaysCorrect) {
+          if (answered) return;
+          answered = true;
+          btnYes.disabled = true;
+          btnNo.disabled = true;
+
+          const item = queue[index];
+          const isMatch = userSaysCorrect === item.isCorrect;
+
+          if (isMatch) {
+            correctCount += 1;
+            SFX.success();
+            feedbackEl.className = "feedback-box success";
+            feedbackEl.innerHTML =
+              '<div class="feedback-icon">' + ICON_CHECK + '</div>' +
+              '<div class="feedback-content">' +
+                '<div class="feedback-title">آفرین! درست تشخیص دادی</div>' +
+                '<div class="feedback-desc">' + item.exp + '</div>' +
+              '</div>';
+          } else {
+            wrongCount += 1;
+            SFX.error();
+            const truthTxt = item.isCorrect ? "این جمله درست است." : "این جمله نادرست است.";
+            feedbackEl.className = "feedback-box error";
+            feedbackEl.innerHTML =
+              '<div class="feedback-icon">' + ICON_CROSS + '</div>' +
+              '<div class="feedback-content">' +
+                '<div class="feedback-title">اشتباه بود! ' + truthTxt + '</div>' +
+                '<div class="feedback-desc">' + item.exp + '</div>' +
+              '</div>';
+          }
+
+          scoreLbl.textContent = "درست: " + toFa(correctCount) + " | غلط: " + toFa(wrongCount);
+          progressBar.style.width = (((index + 1) / queue.length) * 100) + "%";
+          feedbackEl.classList.remove("hidden");
+          btnNext.textContent = index + 1 >= queue.length ? "مشاهده نتیجه نهایی" : "سؤال بعدی";
+          nextWrap.classList.remove("hidden");
+        }
+
+        function finishGame() {
+          playEl.classList.add("hidden");
+          endEl.classList.remove("hidden");
+          const pct = Math.round((correctCount / queue.length) * 100);
+          SFX.win();
+
+          document.getElementById("judge-stat-correct").textContent = toFa(correctCount);
+          document.getElementById("judge-stat-wrong").textContent = toFa(wrongCount);
+          document.getElementById("judge-stat-pct").textContent = toFa(pct) + "٪";
+
+          const msgEl = document.getElementById("judge-end-msg");
+          if (pct >= 85) {
+            msgEl.textContent = "عالی! تطابق ضمایر و فعل‌های عربی را کاملاً یاد گرفته‌ای.";
+          } else if (pct >= 60) {
+            msgEl.textContent = "آفرین! عملکرد خوبی داشتی؛ با یک دور تمرین دیگر کامل‌تر می‌شوی.";
+          } else {
+            msgEl.textContent = "نگران نباش! جدول ضمایر و شناسه‌های فعل را مرور کن و دوباره بازی را شروع کن.";
+          }
+        }
+
+        function startRound() {
+          SFX.click();
+          queue = shuffleArray(JUDGE_BANK).slice(0, TOTAL_QUESTIONS);
+          index = 0;
+          correctCount = 0;
+          wrongCount = 0;
+
+          introEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+          playEl.classList.remove("hidden");
+          renderQuestion();
+        }
+
+        function showIntro() {
+          introEl.classList.remove("hidden");
+          playEl.classList.add("hidden");
+          endEl.classList.add("hidden");
+        }
+
+        function cleanup() {}
+
+        document.getElementById("btn-judge-start").addEventListener("click", startRound);
+        document.getElementById("btn-judge-restart").addEventListener("click", startRound);
+        btnYes.addEventListener("click", () => submitChoice(true));
+        btnNo.addEventListener("click", () => submitChoice(false));
+        btnNext.addEventListener("click", () => {
+          SFX.click();
+          index += 1;
+          if (index >= queue.length) {
+            finishGame();
+          } else {
+            renderQuestion();
+          }
+        });
+
+        return { showIntro, cleanup };
+      })();
+
+      /* =====================================================================
+         10. INITIALIZATION & GLOBAL EVENT BINDING
+      ===================================================================== */
+      function initApp() {
+        loadSettings();
+        syncSoundButtons();
+
+        document.querySelectorAll("[data-open-game]").forEach((tile) => {
+          tile.addEventListener("click", () => {
+            openGameIntro(tile.dataset.openGame);
+          });
+        });
+
+        document.querySelectorAll("[data-back-menu]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            SFX.click();
+            showScreen("menu");
+          });
+        });
+
+        document.querySelectorAll("#btn-sound-menu, [data-toggle-sound]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            settings.soundEnabled = !settings.soundEnabled;
+            saveSettings();
+            syncSoundButtons();
+            if (settings.soundEnabled) SFX.click();
+          });
+        });
+
+        initSplashScreen();
+      }
+
+      document.addEventListener("DOMContentLoaded", initApp);
+    })();
+  </script>
+</body>
+</html>
