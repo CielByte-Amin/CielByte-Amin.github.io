@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دنیای کوچیک من و تو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;900&display=swap" rel="stylesheet">
+<style>
+:root{--lav:#BBA3D4;--lilac:#D8C8E8;--violet:#55406E;--ivory:#FBF7F2;--rose:#DDBBCB;--gold:#C6AA7B;--night:#1e142d;
+--f:'Vazirmatn',Tahoma,sans-serif;--sa-t:env(safe-area-inset-top,0px);--sa-b:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--night);color:var(--ivory);line-height:1.9;font-size:clamp(1rem,.95rem + .3vw,1.15rem);overflow-x:hidden}
+body.lock{overflow:hidden;height:100vh}
+button{font:inherit;cursor:pointer;color:inherit;background:none;border:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+section{position:relative;padding:clamp(4rem,12vh,8rem) 1.4rem;overflow:hidden}
+.wrap{max-width:640px;margin:0 auto;text-align:center}
+h2{font-weight:900;font-size:clamp(1.6rem,6vw,2.6rem);line-height:1.5;margin-bottom:1rem}
+p.sub{color:var(--lilac);max-width:34ch;margin:0 auto 1.6rem}
+.light{background:var(--ivory);color:var(--violet)}
+.light p.sub{color:#7a6690}
+.lilac{background:linear-gradient(var(--lilac),var(--ivory));color:var(--violet)}
+.dusk{background:linear-gradient(var(--night),#3a2754)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.btn{display:inline-block;min-height:48px;padding:.7rem 2rem;border-radius:99px;background:var(--lav);color:#2a1c3d;font-weight:600;transition:transform .4s cubic-bezier(.3,1.6,.5,1),background .3s}
+.btn:hover{transform:scale(1.06);background:var(--lilac)}.btn:active{transform:scale(.95)}
+/* rose */
+.rose{width:100%;height:auto;display:block;overflow:visible;--o:.12;--k:.4;--h:.8}
+.rose.open{--o:1;--k:1;--h:1}
+.pt{transform-origin:100px 100px;transform:rotate(calc(var(--r) * var(--o))) scale(calc(var(--s) * var(--k)),calc(var(--s) * var(--h)));transition:transform 1.9s cubic-bezier(.2,.8,.2,1) var(--d)}
+/* gate */
+#gate{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at 50% 45%,#3b2658,#150d21 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;padding:calc(1rem + var(--sa-t)) 1.4rem calc(1rem + var(--sa-b));transition:opacity 1.4s ease,visibility 1.4s}
+#gate.out{opacity:0;visibility:hidden}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--lilac);animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15}}
+.gateRose{width:min(68vw,320px);position:relative}
+.gateRose::before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle,rgba(187,163,212,.45),transparent 65%);transition:transform 2.2s ease,opacity 2.2s;opacity:.5;transform:scale(.7)}
+.gateRose.on::before{opacity:1;transform:scale(1.5)}
+#gate h1{font-weight:300;font-size:clamp(1.3rem,5vw,2rem);position:relative}
+#gate p{color:var(--lilac);position:relative}
+.fp{position:fixed;top:-30px;z-index:40;pointer-events:none;border-radius:60% 0 60% 0;background:var(--lav);opacity:.85;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(540deg);opacity:.2}}
+/* hero */
+#hero{min-height:100svh;display:flex;align-items:center;background:radial-gradient(circle at 20% 15%,#4a3366,var(--night) 65%)}
+#hero .big{font-weight:900;font-size:clamp(5rem,28vw,13rem);line-height:1;letter-spacing:-.02em;color:var(--lilac)}
+#hero .roseBg{position:absolute;width:min(90vw,520px);left:-18%;bottom:-8%;opacity:.35;transform:rotate(-14deg)}
+#hero .wrap{position:relative}
+.scroll{margin-top:2rem;display:inline-block;width:22px;height:38px;border:2px solid var(--lav);border-radius:14px;position:relative}
+.scroll::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:8px;margin-left:-2px;border-radius:3px;background:var(--lav);animation:sc 1.8s infinite}
+@keyframes sc{60%{transform:translateY(14px);opacity:0}}
+/* time */
+.cnt{display:flex;justify-content:center;gap:clamp(.5rem,3vw,1.4rem);margin:1.4rem 0;direction:rtl}
+.cnt div{min-width:64px}.cnt b{display:block;font-size:clamp(2rem,10vw,3.4rem);font-weight:900;line-height:1.2;font-variant-numeric:tabular-nums}.cnt span{font-size:.85rem;color:#7a6690}
+.bar{height:10px;border-radius:9px;background:rgba(85,64,110,.15);overflow:hidden;margin:1.8rem 0 .5rem}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lav),var(--gold));transition:width 1s}
+.tl{list-style:none;padding:0;margin:2.4rem auto 0;max-width:340px;text-align:right;border-right:2px solid var(--lav)}
+.tl li{position:relative;padding:.3rem 1.4rem .9rem 0}
+.tl li::before{content:"";position:absolute;right:-8px;top:.9rem;width:14px;height:14px;border-radius:50%;background:var(--ivory);border:2px solid var(--lav)}
+.tl li.done::before{background:var(--gold);border-color:var(--gold)}
+.tl small{display:block;color:#7a6690}
+/* cities */
+.cities{width:100%;max-width:560px;margin:1rem auto}
+.cities text{font-family:var(--f);fill:var(--ivory);font-size:15px;text-anchor:middle}
+.route{stroke-dasharray:6 8;animation:dash 3s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-56}}
+.clk{display:flex;justify-content:space-around;margin-top:.6rem;color:var(--lilac)}
+/* reasons */
+#card{position:relative;margin:1.6rem auto;max-width:420px;min-height:260px;padding:2.4rem 1.8rem;border-radius:28px 6px 28px 6px;background:var(--ivory);color:var(--violet);box-shadow:0 24px 60px -20px rgba(0,0,0,.5);display:flex;flex-direction:column;justify-content:center;gap:.8rem;transition:opacity .45s,transform .6s cubic-bezier(.2,.8,.2,1)}
+#card.swap{opacity:0;transform:rotate(-3deg) translateY(14px) scale(.96)}
+#card em{font-style:normal;font-weight:900;font-size:2.6rem;color:var(--gold);line-height:1}
+#card p{font-size:1.2rem;font-weight:600}
+/* letters */
+.env{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.1rem;max-width:560px;margin:1.6rem auto 0}
+.env button{position:relative;min-height:112px;padding:1rem .8rem;border-radius:6px;background:linear-gradient(160deg,#fff7ec,#efe4d6);color:var(--violet);font-weight:600;font-size:.95rem;box-shadow:0 10px 24px -12px rgba(85,64,110,.5);transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.env button:nth-child(odd){transform:rotate(-2deg)}.env button:nth-child(even){transform:rotate(2deg)}
+.env button:hover{transform:rotate(0) translateY(-6px)}
+.env button::before{content:"";position:absolute;inset:0 0 auto;height:52%;background:linear-gradient(var(--rose),var(--lilac));clip-path:polygon(0 0,100% 0,50% 100%);opacity:.7;border-radius:6px 6px 0 0}
+.env button span{position:relative;display:block;margin-top:2.6rem}
+.modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:calc(1.2rem + var(--sa-t)) 1.2rem calc(1.2rem + var(--sa-b));background:rgba(20,12,32,.78);opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+.modal.show{opacity:1;visibility:visible}
+.paper{position:relative;max-width:440px;width:100%;max-height:80vh;overflow:auto;padding:2.2rem 1.7rem 1.8rem;background:var(--ivory);color:var(--violet);border-radius:6px;transform:translateY(60px) scale(.9);transition:transform .8s cubic-bezier(.2,.8,.2,1);text-align:right}
+.modal.show .paper{transform:none}
+.paper h3{margin-bottom:.8rem;color:var(--gold)}
+.paper .x{position:absolute;top:.4rem;left:.4rem;width:44px;height:44px;font-size:1.4rem}
+.paper p{animation:ink 2.2s ease both}
+@keyframes ink{from{opacity:0;filter:blur(6px)}}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem;max-width:640px;margin:1.6rem auto 0}
+.fr{position:relative;border:0;padding:0;border-radius:4px;overflow:hidden;background:linear-gradient(150deg,var(--lilac),var(--rose));color:var(--violet);transition:transform .5s cubic-bezier(.3,1.4,.5,1);min-height:160px}
+.fr:nth-child(1){grid-column:span 4;min-height:230px}.fr:nth-child(2){grid-column:span 2;min-height:230px}
+.fr:nth-child(3){grid-column:span 2}.fr:nth-child(4){grid-column:span 4}
+.fr:hover{transform:scale(1.025) rotate(-.6deg)}
+.fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr svg{position:absolute;width:44%;left:28%;top:22%;opacity:.5}
+.fr figcaption,.fr .cap{position:absolute;inset:auto 0 0;padding:.6rem .8rem;background:linear-gradient(transparent,rgba(30,20,45,.75));color:#fff;font-size:.88rem;text-align:right}
+/* garden */
+#garden .area{position:relative;height:62vh;min-height:380px;max-width:760px;margin:1rem auto 0;border-radius:24px;background:radial-gradient(ellipse at 50% 100%,#d9c2a5 0,#e8dccb 14%,transparent 15%),linear-gradient(var(--ivory),var(--lilac));cursor:crosshair;overflow:hidden;touch-action:manipulation;box-shadow:inset 0 0 0 1px rgba(85,64,110,.12)}
+.gr{position:absolute;pointer-events:none;transform-origin:50% 88%}
+.msg{position:absolute;pointer-events:none;background:var(--violet);color:var(--ivory);padding:.45rem .9rem;border-radius:14px;font-size:.92rem;max-width:210px;animation:pop 3.2s ease forwards;z-index:3}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,10px)}12%,80%{opacity:1;transform:translate(-50%,0)}100%{opacity:0}}
+/* now */
+#now{background:linear-gradient(#3a2754,#52396f)}
+#now p.big{font-size:clamp(1.3rem,5vw,1.9rem);font-weight:300;max-width:24ch;margin:0 auto;min-height:7em}
+/* secret + final */
+.heart{display:block;margin:2rem auto 0;width:44px;height:44px;font-size:1rem;opacity:.5;color:var(--rose)}
+#secret{max-width:420px;margin:1rem auto 0;padding:1.4rem;border-radius:20px;border:1px solid var(--gold);display:none;color:var(--ivory)}
+#secret.show{display:block;animation:ink 2s ease both}
+#final{text-align:center;background:radial-gradient(circle at 50% 35%,#4a3366,var(--night) 70%);padding-bottom:calc(5rem + var(--sa-b))}
+#final .fr1{width:min(72vw,340px);margin:0 auto 1.6rem;animation:sway 7s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(4deg) scale(1.03)}}
+.sig{font-size:1.4rem;font-weight:600;color:var(--rose);margin:1.4rem 0}
+/* music */
+#mus{position:fixed;left:.8rem;bottom:calc(.8rem + var(--sa-b));z-index:45;display:none;align-items:center;gap:.5rem;padding:.3rem .8rem;border-radius:99px;background:rgba(30,20,45,.85)}
+#mus.show{display:flex}#mus button{width:44px;height:44px}
+#mus input{width:80px;accent-color:var(--lav)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="lock">
+
+<!-- ACT 01 -->
+<div id="gate" role="dialog" aria-label="ورود">
+  <div class="gateRose" id="gateRose"></div>
+  <h1 id="gT"></h1><p id="gS"></p>
+  <button class="btn" id="openBtn"></button>
+</div>
+
+<main>
+<!-- ACT 02 -->
+<section id="hero"><svg class="roseBg" id="heroBg" aria-hidden="true"></svg>
+  <div class="wrap">
+    <p class="sub" id="hSmall" style="margin-bottom:0"></p>
+    <div class="big" id="hName"></div>
+    <h2 id="hMain" style="margin-top:.6rem"></h2>
+    <p class="sub" id="hSub"></p>
+    <p class="sub" id="hMini" style="font-size:.9rem"></p>
+    <span class="scroll" aria-label="ادامه را پایین بکش" role="img"></span>
+  </div>
+</section>
+
+<!-- ACT 03 -->
+<section class="light" id="time"><div class="wrap">
+  <h2 class="rv" id="tT"></h2>
+  <p class="sub" id="tTop"></p>
+  <div class="cnt" role="timer" aria-live="off" id="cnt"></div>
+  <p class="sub" id="tBot"></p>
+  <div class="bar" role="progressbar" aria-label="پیشرفت تا اولین ماه"><i id="barI"></i></div>
+  <p id="barT" style="font-weight:600"></p><small id="barR" style="color:#7a6690"></small>
+  <ul class="tl" id="tl"></ul>
+</div></section>
+
+<!-- ACT 04 -->
+<section class="dusk" id="cities"><div class="wrap">
+  <h2 class="rv" id="cT"></h2>
+  <svg class="cities" viewBox="0 0 400 190" role="img" aria-label="دو شهر با مسیری نورانی میان‌شان">
+    <defs><radialGradient id="gl"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="#BBA3D4"/><stop offset="1" stop-color="#BBA3D4" stop-opacity="0"/></radialGradient></defs>
+    <path id="rt" class="route" d="M330 110 C 270 20, 130 20, 70 110" fill="none" stroke="#BBA3D4" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="330" cy="110" r="26" fill="url(#gl)"/><circle cx="70" cy="110" r="26" fill="url(#gl)"/>
+    <circle cx="330" cy="110" r="5" fill="#fff"/><circle cx="70" cy="110" r="5" fill="#fff"/>
+    <circle r="4" fill="#C6AA7B"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#rt"/></animateMotion></circle>
+    <text x="330" y="152" id="mine"></text><text x="70" y="152" id="hers"></text>
+    <text x="330" y="174" id="myCity" style="font-size:13px;fill:#D8C8E8"></text><text x="70" y="174" id="herCity" style="font-size:13px;fill:#D8C8E8"></text>
+  </svg>
+  <div class="clk" id="clk"></div>
+  <p class="sub" id="cTxt" style="margin-top:1.4rem"></p>
+</div></section>
+
+<!-- ACT 05 -->
+<section class="lilac" id="meet"><div class="wrap">
+  <h2 class="rv" id="mT"></h2>
+  <svg viewBox="0 0 300 90" style="width:min(80%,300px)" aria-hidden="true"><circle id="d1" cx="40" cy="45" r="7" fill="#55406E"><animate attributeName="cx" values="40;130;40" dur="7s" repeatCount="indefinite"/></circle><circle cx="260" cy="45" r="7" fill="#BBA3D4"><animate attributeName="cx" values="260;170;260" dur="7s" repeatCount="indefinite"/></circle><line x1="40" y1="45" x2="260" y2="45" stroke="#C6AA7B" stroke-dasharray="3 7" opacity=".7"/></svg>
+  <div class="cnt" id="mCnt" style="color:var(--violet)"></div>
+  <p class="sub" id="mTxt"></p>
+</div></section>
+
+<!-- ACT 06 -->
+<section class="dusk" id="reasons"><div class="wrap">
+  <h2 class="rv" id="rT"></h2>
+  <div id="card" aria-live="polite"><em id="rN"></em><p id="rP"></p></div>
+  <button class="btn" id="rBtn"></button>
+</div></section>
+
+<!-- ACT 07 -->
+<section class="light" id="letters"><div class="wrap">
+  <h2 class="rv" id="lT"></h2><p class="sub">یکی رو انتخاب کن و بازش کن.</p>
+  <div class="env" id="env"></div>
+</div></section>
+
+<!-- ACT 08 -->
+<section class="dusk" id="gallery"><div class="wrap" style="max-width:700px">
+  <h2 class="rv" id="gT2"></h2><div class="gal" id="gal"></div>
+</div></section>
+
+<!-- ACT 09 -->
+<section class="lilac" id="garden"><div class="wrap" style="max-width:780px">
+  <h2 class="rv" id="grT"></h2><p class="sub" id="grP"></p>
+  <div class="area" id="area" aria-label="باغ؛ هر جا بزنی یه رز می‌کاری" role="button" tabindex="0"></div>
+  <p style="margin-top:.8rem;font-weight:600" id="grC"></p>
+</div></section>
+
+<!-- ACT 10 -->
+<section id="now"><div class="wrap">
+  <h2 class="rv" id="nT"></h2><p class="big" id="nP" aria-live="polite"></p>
+</div></section>
+
+<!-- ACT 11 + 12 -->
+<section id="final"><div class="wrap">
+  <div class="fr1" id="finalRose"></div>
+  <h2 id="fA"></h2><p class="sub" id="fB"></p><div class="sig" id="fS"></div>
+  <button class="btn" id="again"></button>
+  <button class="heart" id="heart" aria-label="یه قلب کوچولو">♡</button>
+  <div id="secret" role="status"><p id="sMsg"></p><button class="btn" id="sBtn" style="margin-top:1rem"></button></div>
+</div></section>
+</main>
+
+<div class="modal" id="lm" role="dialog" aria-modal="true" aria-label="نامه"><div class="paper"><button class="x" id="lx" aria-label="بستن نامه">✕</button><h3 id="lh"></h3><p id="lp"></p></div></div>
+<div class="modal" id="lb" role="dialog" aria-modal="true" aria-label="نمایش تصویر"><div class="paper" style="padding:.6rem;background:#000"><button class="x" id="bx" aria-label="بستن تصویر" style="color:#fff">✕</button><img id="bi" alt="" style="width:100%;display:block;border-radius:4px"><p id="bc" style="color:#fff;padding:.6rem;animation:none"></p></div></div>
+<div id="mus"><button id="mBtn" aria-label="پخش یا توقف موسیقی">♫</button><input id="mVol" type="range" min="0" max="1" step=".05" aria-label="صدا"></div>
+
+<script>
+/* ============ CONFIG — همه‌ی چیزهای شخصی فقط اینجاست ============ */
+const CONFIG = {
+  recipient:{fa:"هانیه",en:"Haniyeh"},
+  sender:{name:"امین",nicknames:[]},
+  relationship:{startDate:"2026-11-09T00:00:00",              // تاریخ محلی (بدون UTC)
+    milestones:[{label:"اولین ماه",days:30},{label:"صد روز",days:100},{label:"شش ماه",days:180},{label:"یک سال",days:365}]},
+  distance:{myCity:"تهران",herCity:"کرج",myTimezone:"",herTimezone:""},   // مثلاً "Asia/Tehran"؛ خالی = بدون ساعت
+  nextMeeting:{date:null},                                   // مثلاً "2027-01-20T18:00:00"
+  music:{source:"",enabled:false,volume:0.25},               // مسیر فایل mp3؛ خالی = بدون موسیقی
+  sharedSong:"",
+  /* برای عکس: src هر قاب را با مسیر فایل (مثلاً "photos/1.jpg") پر کن و alt بنویس */
+  gallery:[
+    {src:"",alt:"",caption:"برای اولین عکس مشترکمون"},
+    {src:"",alt:"",caption:"برای لحظه‌های قشنگی که قراره بسازیم"},
+    {src:"",alt:"",caption:"یه قاب از روزِ دیدار"},
+    {src:"",alt:"",caption:"یه خاطره که هنوز منتظر ساخته شدنه"}],
+  text:{
+    gateTitle:"هانیه، یه چیز کوچیک برات ساختم...",gateSub:"فقط کافیه درشو باز کنی.",gateBtn:"بازش کن ♡",
+    heroSmall:"",heroMain:"هانیه جان...",heroSub:"از بین تمام اتفاق‌های غیرمنتظره این روزها، آشنا شدن با تو یکی از قشنگ‌ترین‌هاش بوده.",heroMini:"این گوشه از دنیا، برای تو ساخته شده.",
+    timeTitle:"از ۱۸ آبان، تا همین الان...",timeTop:"از روزی که قصه آشنایی‌مون شروع شد...",timeBot:"و چه قشنگه که هنوز کلی لحظه برای کشف کردن داریم.",
+    citiesTitle:"دو شهر، اما یک حس قشنگ",citiesTxt:"شاید بینمون فاصله باشه، اما بعضی آدما حتی از دور هم نزدیک‌ترین حس دنیا می‌شن.",
+    meetTitle:"روزی که بالاخره کنار هم خواهیم بود...",meetTxt:"یه روزی، این فاصله فقط یه خاطره می‌شه.",
+    meetNone:"هنوز روزش معلوم نیست، اما فکرِ اون دیدار خودش یکی از قشنگ‌ترین اتفاق‌های این روزهاست.",
+    reasonsTitle:"دوازده دلیل کوچیک برای دوست‌داشتنت",reasonBtn:"یه دلیل دیگه بگو ♡",
+    lettersTitle:"نامه‌هایی برای وقت‌های مختلف",galleryTitle:"قاب‌هایی برای خاطره‌ها",
+    gardenTitle:"باغی که با هر لمس، بزرگ‌تر می‌شود",gardenTop:"هر بار که اینجا یه گل می‌کاری، یه جمله قشنگ برای خودت داری.",
+    nowTitle:"یه پیام برای همین لحظه",
+    finalA:"از بین تمام اتفاق‌هایی که هنوز قراره بیفتن، خوشحالم که یکی از قشنگ‌ترین شروع‌هاش آشنایی با تو بود.",
+    finalB:"این گوشه کوچیک از دنیا همیشه یه رز برای تو داره.",sign:"با عشق، امین ♡",again:"از اول دوباره ببین",
+    secret:"هانیه، شاید این سایت فقط چند تا خط کد و چند تا گل باشه، اما پشت تک‌تک جزئیاتش یه نفره که واقعاً دوست داره لبخند رو روی لبات ببینه.",secretBtn:"دوباره ببین ♡"},
+  reasons:[
+    "از اینکه با هر گفت‌وگو، بیشتر از دنیات می‌فهمم.","از حس قشنگی که شروع آشنایی‌مون به روزهام داده.",
+    "از اینکه حتی یک پیام کوچیکت می‌تونه لبخند بیاره روی لبم.","از کنجکاوی قشنگی که برای شناختن بیشترت دارم.",
+    "از اینکه دلم می‌خواد جزئیات کوچیک روزت رو هم بدونم.","از اینکه دوست دارم هم توی روزهای قشنگت باشم و هم روزهای سختت.",
+    "از حس خوبی که وقتی بهت فکر می‌کنم دارم.","از حرف‌هایی که هنوز نگفته‌ایم و قراره با هم کشفشون کنیم.",
+    "از اینکه فاصله نتونسته اشتیاقم رو برای شناختنت کم کنه.","از لبخندی که حتی تصورش هم حالم رو بهتر می‌کنه.",
+    "از اینکه دوست دارم لحظه‌های تازه‌ای با هم بسازیم.","و از همه مهم‌تر، از خودِ تو؛ همین‌طوری که هستی."],
+  letters:[
+    {t:"وقتی دلت برام تنگ شد",b:"اگه الان دلت برام تنگ شده، بدون که فکرت این روزها همیشه یه گوشه‌ای از ذهنم هست. فاصله هست، ولی چشمات رو ببند، یه نفس عمیق بکش و یادت باشه یه نفر اون‌طرف داره بهت فکر می‌کنه."},
+    {t:"وقتی روز سختی داشتی",b:"اگه الان دلت گرفته، لازم نیست وانمود کنی همه‌چی خوبه. می‌تونی همون‌طوری که هستی باشی. من دلم می‌خواد حتی از همین فاصله هم گوشه‌ای از روزت رو روشن‌تر کنم."},
+    {t:"وقتی خوابت نمی‌برد",b:"اگه خوابت نمی‌بره، بذار این شب یه کم آروم‌تر باشه. به قشنگ‌ترین چیزی که امروز دیدی فکر کن. امیدوارم خیلی زود یه خواب سبک و مهربون بیاد سراغت."},
+    {t:"وقتی دلت می‌خواد بخندی",b:"مطمئنم همین الان که داری اینو می‌خونی، گوشه لبت یه ذره بالا رفته. اگه نرفته، یه آهنگ قشنگ بذار و یه کم برقص. من همین‌جا خوشحال می‌شم که تو بخندی."},
+    {t:"وقتی خواستی بدونی چقدر برام عزیزی",b:"نمی‌دونم با چند تا جمله می‌شه گفت چقدر برام عزیزی. هنوز اول راهیم، اما همین شروع هم برام خیلی باارزشه، و دلم می‌خواد قدمش رو با آرامش و با تو بردارم."}],
+  gardenMsgs:[
+    "امروز هم یکی از دلیل‌های لبخند منی.","کاش الان می‌تونستم این گل رو بهت بدم.","این یکی رو فقط برای تو کاشتم.",
+    "بعضی گل‌ها بدون دلیل خاصی قشنگن؛ درست مثل تو.","امیدوارم امروزت به لطافت همین گلبرگ‌ها باشه.",
+    "یه گل دیگه، یه لبخند دیگه.","این رز بوی خوبِ آشنایی‌مون رو داره.","هر چی بیشتر می‌شناسمت، باغم قشنگ‌تر می‌شه.",
+    "نفس عمیق بکش؛ این گوشه فقط مال توئه.","یاسیِ این رز، به رنگ ذوق توئه.","دلم می‌خواد کنارت باشم و با هم نگاهش کنیم.",
+    "امروز بهت فکر کردم و گل‌ها بیشتر شدن.","یه جمله کوچیک: خوشحالم که هستی.","همین‌جا بمون یه کم؛ باغ دوستت داره.","این رز، یه سلام از طرف منه."],
+  daypart:{
+    morning:"صبح بخیر هانیه جان. امیدوارم امروزت پر از اتفاق‌های کوچیک و قشنگ باشه.",
+    noon:"امیدوارم وسط شلوغی‌های امروز، یه لبخند کوچیک هم سهم تو باشه.",
+    evening:"خستگی امروزت رو بذار کنار؛ امیدوارم ادامه روزت آروم و قشنگ باشه.",
+    night:"شب بخیر دختر قشنگ. امیدوارم امشب دلت آروم باشه و خوابت پر از حس‌های خوب."}
+};
+
+/* ============ Helpers ============ */
+const $=id=>document.getElementById(id), T=CONFIG.text;
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const fa=(n,p=0)=>String(Math.max(0,Math.floor(n))).padStart(p,'0').replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const parseDate=s=>{const d=s?new Date(s):null;return d&&!isNaN(d)?d:null};
+const START=parseDate(CONFIG.relationship.startDate)||new Date(2026,10,9);
+const addDays=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n,d.getHours(),d.getMinutes());
+const parts=ms=>{const s=Math.floor(ms/1000);return[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60]};
+const cntHTML=a=>['روز','ساعت','دقیقه','ثانیه'].map((l,i)=>`<div><b>${fa(a[i],i?2:0)}</b><span>${l}</span></div>`).join('');
+
+/* رز SVG اختصاصی؛ stem=true برای رزهای باغ */
+function rose(stem){
+  const L=[[6,1,'#D8C8E8',0],[5,.74,'#BBA3D4',18],[4,.5,'#DDBBCB',40],[3,.3,'#55406E',70]];let k=0,s=stem?'<svg viewBox="0 0 200 330" class="rose" aria-hidden="true"><path d="M100 100 C96 190 106 250 100 320" stroke="#6d8a63" stroke-width="5" fill="none"/><ellipse cx="124" cy="220" rx="26" ry="10" transform="rotate(-30 124 220)" fill="#7f9c74"/><ellipse cx="76" cy="258" rx="24" ry="9" transform="rotate(28 76 258)" fill="#7f9c74"/>':'<svg viewBox="0 0 200 200" class="rose" aria-hidden="true">';
+  L.forEach(([n,sc,c,b])=>{for(let i=0;i<n;i++,k++)s+=`<path class="pt" style="--r:${b+i*360/n}deg;--s:${sc};--d:${k*45}ms" fill="${c}" stroke="#55406E" stroke-opacity=".22" d="M100 100C74 82 76 40 100 24C124 40 126 82 100 100Z"/>`});
+  return s+'<circle cx="100" cy="100" r="5" fill="#C6AA7B"/></svg>';
+}
+const bloom=el=>requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('open')));
+
+/* گلبرگ‌های شناور (تعداد محدود) */
+let fpCount=0;
+function petal(max=22){
+  if(fpCount>=max)return;fpCount++;const p=document.createElement('i');p.className='fp';const z=8+Math.random()*10;
+  p.style.cssText=`left:${Math.random()*100}vw;width:${z}px;height:${z*1.3}px;--dx:${(Math.random()-.5)*160}px;animation-duration:${6+Math.random()*6}s`;
+  document.body.appendChild(p);p.addEventListener('animationend',()=>{p.remove();fpCount--});
+}
+function rain(ms=7000){if(RM){for(let i=0;i<8;i++)petal(30);return}let t=setInterval(()=>petal(30),220);setTimeout(()=>clearInterval(t),ms)}
+
+/* ============ متن‌ها ============ */
+$('gT').textContent=T.gateTitle;$('gS').textContent=T.gateSub;$('openBtn').textContent=T.gateBtn;
+$('hName').textContent=CONFIG.recipient.fa;$('hMain').textContent=T.heroMain;$('hSub').textContent=T.heroSub;$('hMini').textContent=T.heroMini;
+if(!T.heroSmall)$('hSmall').remove();
+$('tT').textContent=T.timeTitle;$('tTop').textContent=T.timeTop;$('tBot').textContent=T.timeBot;
+$('cT').textContent=T.citiesTitle;$('cTxt').textContent=T.citiesTxt;$('mT').textContent=T.meetTitle;
+$('rT').textContent=T.reasonsTitle;$('rBtn').textContent=T.reasonBtn;$('lT').textContent=T.lettersTitle;$('gT2').textContent=T.galleryTitle;
+$('grT').textContent=T.gardenTitle;$('grP').textContent=T.gardenTop;$('nT').textContent=T.nowTitle;
+$('fA').textContent=T.finalA;$('fB').textContent=T.finalB;$('fS').textContent=T.sign;$('again').textContent=T.again;
+$('sMsg').textContent=T.secret;$('sBtn').textContent=T.secretBtn;
+$('gateRose').innerHTML=rose();$('finalRose').innerHTML=rose();
+$('heroBg').outerHTML=rose().replace('class="rose"','class="roseBg open"');
+for(let i=0;i<36;i++){const s=document.createElement('i');s.className='star';s.style.cssText=`top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;opacity:${.3+Math.random()*.7}`;$('gate').prepend(s)}
+const rs=document.querySelector('.roseBg');if(rs)rs.classList.add('roseBg');
+
+/* ============ ACT 01: ورود ============ */
+let audio=null,vol=CONFIG.music.volume;
+function startMusic(){if(!audio)return;audio.play().catch(()=>{});}
+$('openBtn').onclick=()=>{
+  $('gateRose').classList.add('on');$('gateRose').firstChild.classList.add('open');$('openBtn').disabled=true;
+  rain(3000);
+  setTimeout(()=>{$('gate').classList.add('out');document.body.classList.remove('lock');window.scrollTo(0,0);startMusic();$('openBtn').disabled=false},2600);
+};
+$('again').onclick=()=>{
+  $('gate').classList.remove('out');$('gateRose').classList.remove('on');$('gateRose').firstChild.classList.remove('open');
+  document.body.classList.add('lock');window.scrollTo(0,0);
+};
+
+/* ============ Reveal هنگام اسکرول ============ */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.3});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+
+/* ============ ACT 03: زمان ============ */
+const ms=CONFIG.relationship.milestones.map(m=>({...m,date:addDays(START,m.days)}));
+const fmtJ=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{day:'numeric',month:'long',year:'numeric'});
+$('tl').innerHTML=ms.map((m,i)=>`<li data-i="${i}"><b>${m.label}</b><small>${fmtJ.format(m.date)}</small></li>`).join('');
+function tickTime(){
+  const now=Date.now(),el=now-START.getTime();
+  $('cnt').innerHTML=cntHTML(parts(Math.max(0,el)));
+  const first=ms[0].date.getTime(),p=Math.min(1,Math.max(0,el/(first-START.getTime())));
+  $('barI').style.width=p*100+'%';
+  if(p>=1){$('barT').textContent='اولین ماه ثبت شد ✦';$('barR').textContent='یه نقطه عطف کوچیک و قشنگ.'}
+  else{const r=parts(first-now);$('barT').textContent=`${(p*100).toLocaleString('fa-IR',{minimumFractionDigits:2,maximumFractionDigits:2})}٪ تا اولین ماه`;$('barR').textContent=`${fa(r[0])} روز و ${fa(r[1])} ساعت و ${fa(r[2])} دقیقه مونده`}
+  document.querySelectorAll('#tl li').forEach((li,i)=>li.classList.toggle('done',now>=ms[i].date.getTime()));
+}
+
+/* ============ ACT 04: دو شهر ============ */
+const validTZ=z=>{if(!z)return false;try{new Intl.DateTimeFormat('fa-IR',{timeZone:z});return true}catch(e){return false}};
+const D=CONFIG.distance;
+$('mine').textContent='اینجا، '+CONFIG.sender.name;$('hers').textContent='اونجا، '+CONFIG.recipient.fa;
+$('myCity').textContent=D.myCity;$('herCity').textContent=D.herCity;
+function tickClocks(){
+  const f=z=>new Intl.DateTimeFormat('fa-IR',{hour:'2-digit',minute:'2-digit',second:'2-digit',timeZone:z}).format(new Date());
+  const a=[];if(validTZ(D.herTimezone))a.push(`<span>${D.herCity||CONFIG.recipient.fa}: ${f(D.herTimezone)}</span>`);if(validTZ(D.myTimezone))a.push(`<span>${D.myCity||CONFIG.sender.name}: ${f(D.myTimezone)}</span>`);
+  $('clk').innerHTML=a.join('');
+}
+
+/* ============ ACT 05: دیدار بعدی ============ */
+const MEET=parseDate(CONFIG.nextMeeting.date);
+function tickMeet(){
+  if(!MEET){$('mCnt').style.display='none';$('mTxt').textContent=T.meetNone;return}
+  const d=MEET-Date.now();
+  if(d<=0){$('mCnt').innerHTML='<b style="font-size:2rem">امروز همون روزه ♡</b>';$('mTxt').textContent=T.meetTxt;return}
+  $('mCnt').innerHTML=cntHTML(parts(d));$('mTxt').textContent=T.meetTxt;
+}
+
+/* ============ ACT 06: دلایل ============ */
+let ri=0;const R=CONFIG.reasons;
+function showReason(){$('rN').textContent=fa(ri+1);$('rP').textContent=R[ri]}
+showReason();
+$('rBtn').onclick=()=>{
+  const c=$('card');c.classList.add('swap');
+  setTimeout(()=>{ri=(ri+1)%R.length;showReason();c.classList.remove('swap');petal(24)},450);
+};
+
+/* ============ ACT 07: نامه‌ها و Act 08: Lightbox (مدیریت مودال‌ها) ============ */
+let lastFocus=null;
+const openM=(m,btn)=>{lastFocus=btn||document.activeElement;m.classList.add('show');m.querySelector('.x').focus()};
+const closeM=m=>{m.classList.remove('show');lastFocus&&lastFocus.focus()};
+CONFIG.letters.forEach((l,i)=>{const b=document.createElement('button');b.innerHTML=`<span>${l.t}</span>`;b.dataset.i=i;$('env').appendChild(b)});
+$('env').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const l=CONFIG.letters[b.dataset.i];
+  $('lh').textContent=l.t;const p=$('lp');p.textContent=l.b;p.style.animation='none';p.offsetWidth;p.style.animation='';openM($('lm'),b)});
+$('lx').onclick=()=>closeM($('lm'));$('bx').onclick=()=>closeM($('lb'));
+[$('lm'),$('lb')].forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeM(m)}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')[$('lm'),$('lb')].forEach(m=>m.classList.contains('show')&&closeM(m))});
+
+/* ============ ACT 08: گالری ============ */
+const ph='<svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#55406E" stroke-width="2"><path d="M100 100C74 82 76 40 100 24C124 40 126 82 100 100Z"/><path d="M100 100C74 82 76 40 100 24C124 40 126 82 100 100Z" transform="rotate(72 100 100)"/><path d="M100 100C74 82 76 40 100 24C124 40 126 82 100 100Z" transform="rotate(144 100 100)"/><path d="M100 100C74 82 76 40 100 24C124 40 126 82 100 100Z" transform="rotate(216 100 100)"/><path d="M100 100C74 82 76 40 100 24C124 40 126 82 100 100Z" transform="rotate(288 100 100)"/></g></svg>';
+CONFIG.gallery.forEach((g,i)=>{
+  const b=document.createElement('button');b.className='fr';b.dataset.i=i;b.innerHTML=ph+`<span class="cap">${g.caption}</span>`;
+  if(g.src){const im=new Image();im.alt=g.alt||g.caption;im.onload=()=>{b.prepend(im);b.querySelector('svg').remove();b.dataset.img='1'};im.onerror=()=>{};im.src=g.src}
+  $('gal').appendChild(b);
+});
+$('gal').addEventListener('click',e=>{const b=e.target.closest('.fr');if(!b||!b.dataset.img)return;const g=CONFIG.gallery[b.dataset.i];
+  $('bi').src=g.src;$('bi').alt=g.alt||g.caption;$('bc').textContent=g.caption;openM($('lb'),b)});
+
+/* ============ ACT 09: باغ ============ */
+let planted=0;const area=$('area'),GM=CONFIG.gardenMsgs,MAX=36;
+function plant(x,y){
+  const w=area.clientWidth,h=area.clientHeight,size=50+y/h*40;
+  const g=document.createElement('div');g.className='gr';g.innerHTML=rose(true);
+  g.style.cssText=`width:${size}px;left:${x-size/2}px;top:${y-size*1.45}px`;area.appendChild(g);bloom(g.firstChild);
+  if(area.querySelectorAll('.gr').length>MAX)area.querySelector('.gr').remove();
+  planted++;$('grC').textContent=`رزهای کاشته‌شده: ${fa(planted)}`;
+  area.querySelectorAll('.msg').forEach(m=>m.remove());
+  const m=document.createElement('div');m.className='msg';m.textContent=pick(GM);
+  m.style.left=Math.min(w-110,Math.max(110,x))+'px';m.style.top=Math.max(8,y-size*1.45-48)+'px';area.appendChild(m);setTimeout(()=>m.remove(),3200);
+}
+area.addEventListener('click',e=>{const r=area.getBoundingClientRect();plant(e.clientX-r.left,e.clientY-r.top)});
+area.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();plant(Math.random()*area.clientWidth,40+Math.random()*(area.clientHeight-60))}});
+$('grC').textContent='رزهای کاشته‌شده: '+fa(0);
+
+/* ============ ACT 10: پیام لحظه ============ */
+function tickNow(){const h=new Date().getHours(),d=CONFIG.daypart;$('nP').textContent=h>=5&&h<11?d.morning:h>=11&&h<15?d.noon:h>=15&&h<19?d.evening:d.night}
+
+/* ============ ACT 11: راز ============ */
+let taps=0,rainT=null;
+function reveal(){
+  $('secret').classList.add('show');rain(8000);
+  if(audio){const v=audio.volume;audio.volume=Math.min(.6,v*1.4);setTimeout(()=>{audio.volume=v},8000)}
+  $('secret').scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});
+}
+$('heart').onclick=()=>{if(++taps===5){taps=0;reveal()}};
+$('sBtn').onclick=()=>{$('secret').classList.remove('show');setTimeout(reveal,150)};
+
+/* ============ موسیقی (اختیاری) ============ */
+if(CONFIG.music.enabled&&CONFIG.music.source){
+  audio=new Audio();audio.loop=true;audio.volume=vol;audio.src=CONFIG.music.source;
+  audio.addEventListener('error',()=>{audio=null;$('mus').classList.remove('show')});
+  $('mus').classList.add('show');$('mVol').value=vol;
+  $('mBtn').onclick=()=>{if(!audio)return;audio.paused?audio.play().catch(()=>{}):audio.pause()};
+  $('mVol').oninput=e=>{if(audio)audio.volume=+e.target.value};
+}
+
+/* ============ تایمر مرکزی ============ */
+function tick(){tickTime();tickClocks();tickMeet()}
+tick();tickNow();setInterval(tick,1000);setInterval(tickNow,60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){tick();tickNow()}});
+setInterval(()=>{if(!document.body.classList.contains('lock'))petal(RM?0:10)},2600);
+</script>
+</body>
+</html>
